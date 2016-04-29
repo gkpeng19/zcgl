@@ -1,0 +1,1320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="DB" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="DBContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="SysSample" EntityType="DB.SysSample" />
+    <EntitySet Name="DEF_CaseType" EntityType="DB.DEF_CaseType" />
+    <EntitySet Name="DEF_Defect" EntityType="DB.DEF_Defect" />
+    <EntitySet Name="DEF_TestCase" EntityType="DB.DEF_TestCase" />
+    <EntitySet Name="DEF_TestCaseRelation" EntityType="DB.DEF_TestCaseRelation" />
+    <EntitySet Name="DEF_TestCaseSteps" EntityType="DB.DEF_TestCaseSteps" />
+    <EntitySet Name="DEF_TestJobs" EntityType="DB.DEF_TestJobs" />
+    <EntitySet Name="DEF_TestJobsDetail" EntityType="DB.DEF_TestJobsDetail" />
+    <EntitySet Name="DEF_TestJobsDetailItem" EntityType="DB.DEF_TestJobsDetailItem" />
+    <EntitySet Name="DEF_TestJobsDetailRelation" EntityType="DB.DEF_TestJobsDetailRelation" />
+    <EntitySet Name="DEF_TestJobsDetailSteps" EntityType="DB.DEF_TestJobsDetailSteps" />
+    <EntitySet Name="JOB_TASKJOBS" EntityType="DB.JOB_TASKJOBS" />
+    <EntitySet Name="JOB_TASKJOBS_LOG" EntityType="DB.JOB_TASKJOBS_LOG" />
+    <EntitySet Name="MIS_Article" EntityType="DB.MIS_Article" />
+    <EntitySet Name="MIS_Article_Albums" EntityType="DB.MIS_Article_Albums" />
+    <EntitySet Name="MIS_Article_Comment" EntityType="DB.MIS_Article_Comment" />
+    <EntitySet Name="MIS_WebIM_CommonTalk" EntityType="DB.MIS_WebIM_CommonTalk" />
+    <EntitySet Name="MIS_WebIM_Message" EntityType="DB.MIS_WebIM_Message" />
+    <EntitySet Name="MIS_WebIM_Message_Rec" EntityType="DB.MIS_WebIM_Message_Rec" />
+    <EntitySet Name="MIS_WebIM_RecentContact" EntityType="DB.MIS_WebIM_RecentContact" />
+    <EntitySet Name="SysException" EntityType="DB.SysException" />
+    <EntitySet Name="SysLog" EntityType="DB.SysLog" />
+    <EntitySet Name="SysModuleOperate" EntityType="DB.SysModuleOperate" />
+    <EntitySet Name="SysRight" EntityType="DB.SysRight" />
+    <EntitySet Name="SysRightOperate" EntityType="DB.SysRightOperate" />
+    <EntitySet Name="SysRole" EntityType="DB.SysRole" />
+    <EntitySet Name="SysSettings" EntityType="DB.SysSettings" />
+    <EntitySet Name="SysStruct" EntityType="DB.SysStruct" />
+    <EntitySet Name="SysUser" EntityType="DB.SysUser" />
+    <EntitySet Name="SysUserConfig" EntityType="DB.SysUserConfig" />
+    <AssociationSet Name="FK_DEF_Defect_DEF_TestJobs" Association="DB.FK_DEF_Defect_DEF_TestJobs">
+      <End Role="DEF_TestJobs" EntitySet="DEF_TestJobs" />
+      <End Role="DEF_Defect" EntitySet="DEF_Defect" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEF_TestCaseRelation_DEF_TestCase" Association="DB.FK_DEF_TestCaseRelation_DEF_TestCase">
+      <End Role="DEF_TestCase" EntitySet="DEF_TestCase" />
+      <End Role="DEF_TestCaseRelation" EntitySet="DEF_TestCaseRelation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEF_TESTCASESTEPS_REFERENCE_DEF_TESTCASE" Association="DB.FK_DEF_TESTCASESTEPS_REFERENCE_DEF_TESTCASE">
+      <End Role="DEF_TestCase" EntitySet="DEF_TestCase" />
+      <End Role="DEF_TestCaseSteps" EntitySet="DEF_TestCaseSteps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEF_TESTJOBDETAIL_REFERENCE_DEF_TESTCASE" Association="DB.FK_DEF_TESTJOBDETAIL_REFERENCE_DEF_TESTCASE">
+      <End Role="DEF_TestCase" EntitySet="DEF_TestCase" />
+      <End Role="DEF_TestJobsDetail" EntitySet="DEF_TestJobsDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEF_TESTJOBSDETAILITEM_REFERENCE_DEF_TESTCASE" Association="DB.FK_DEF_TESTJOBSDETAILITEM_REFERENCE_DEF_TESTCASE">
+      <End Role="DEF_TestCase" EntitySet="DEF_TestCase" />
+      <End Role="DEF_TestJobsDetailItem" EntitySet="DEF_TestJobsDetailItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEF_TESTJOBSDETAIL_REFERENCE_DEF_TESTJOBS" Association="DB.FK_DEF_TESTJOBSDETAIL_REFERENCE_DEF_TESTJOBS">
+      <End Role="DEF_TestJobs" EntitySet="DEF_TestJobs" />
+      <End Role="DEF_TestJobsDetail" EntitySet="DEF_TestJobsDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEF_TestJobsDetailRelation_DEF_TestJobsDetail" Association="DB.FK_DEF_TestJobsDetailRelation_DEF_TestJobsDetail">
+      <End Role="DEF_TestJobsDetail" EntitySet="DEF_TestJobsDetail" />
+      <End Role="DEF_TestJobsDetailRelation" EntitySet="DEF_TestJobsDetailRelation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEF_TESTJOBSDETAILSTEPS_REFERENCE_DEF_TESTJOBSDETAILITEM" Association="DB.FK_DEF_TESTJOBSDETAILSTEPS_REFERENCE_DEF_TESTJOBSDETAILITEM">
+      <End Role="DEF_TestJobsDetailItem" EntitySet="DEF_TestJobsDetailItem" />
+      <End Role="DEF_TestJobsDetailSteps" EntitySet="DEF_TestJobsDetailSteps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JOB_TASKJOBS_LOG_JOB_TASKJOBS" Association="DB.FK_JOB_TASKJOBS_LOG_JOB_TASKJOBS">
+      <End Role="JOB_TASKJOBS" EntitySet="JOB_TASKJOBS" />
+      <End Role="JOB_TASKJOBS_LOG" EntitySet="JOB_TASKJOBS_LOG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MIS_Article_Albums_MIS_Article" Association="DB.FK_MIS_Article_Albums_MIS_Article">
+      <End Role="MIS_Article" EntitySet="MIS_Article" />
+      <End Role="MIS_Article_Albums" EntitySet="MIS_Article_Albums" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MIS_Article_Comment_MIS_Article" Association="DB.FK_MIS_Article_Comment_MIS_Article">
+      <End Role="MIS_Article" EntitySet="MIS_Article" />
+      <End Role="MIS_Article_Comment" EntitySet="MIS_Article_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MIS_Article_SysUser" Association="DB.FK_MIS_Article_SysUser">
+      <End Role="SysUser" EntitySet="SysUser" />
+      <End Role="MIS_Article" EntitySet="MIS_Article" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MIS_Article_SysUser1" Association="DB.FK_MIS_Article_SysUser1">
+      <End Role="SysUser" EntitySet="SysUser" />
+      <End Role="MIS_Article" EntitySet="MIS_Article" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MIS_Article_Comment_SysUser" Association="DB.FK_MIS_Article_Comment_SysUser">
+      <End Role="SysUser" EntitySet="SysUser" />
+      <End Role="MIS_Article_Comment" EntitySet="MIS_Article_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MIS_MESS_REFERENCE_MIS_MESS" Association="DB.FK_MIS_MESS_REFERENCE_MIS_MESS">
+      <End Role="MIS_WebIM_Message" EntitySet="MIS_WebIM_Message" />
+      <End Role="MIS_WebIM_Message_Rec" EntitySet="MIS_WebIM_Message_Rec" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysRight_SysRole" Association="DB.FK_SysRight_SysRole">
+      <End Role="SysRole" EntitySet="SysRole" />
+      <End Role="SysRight" EntitySet="SysRight" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysRightOperate_SysRight" Association="DB.FK_SysRightOperate_SysRight">
+      <End Role="SysRight" EntitySet="SysRight" />
+      <End Role="SysRightOperate" EntitySet="SysRightOperate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysStruct_SysStruct" Association="DB.FK_SysStruct_SysStruct">
+      <End Role="SysStruct" EntitySet="SysStruct" />
+      <End Role="SysStruct1" EntitySet="SysStruct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysUserConfig_SysUser" Association="DB.FK_SysUserConfig_SysUser">
+      <End Role="SysUser" EntitySet="SysUser" />
+      <End Role="SysUserConfig" EntitySet="SysUserConfig" />
+    </AssociationSet>
+    <AssociationSet Name="SysRoleSysUser" Association="DB.SysRoleSysUser">
+      <End Role="SysRole" EntitySet="SysRole" />
+      <End Role="SysUser" EntitySet="SysUser" />
+    </AssociationSet>
+    <FunctionImport Name="P_DEF_CopyTestJobs">
+      <Parameter Name="vercode" Mode="In" Type="String" />
+      <Parameter Name="newvercode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_JOB_DeleteTaskJobs">
+      <Parameter Name="sno" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_JOB_ENTERY">
+      <Parameter Name="sno" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_JOB_GetUnTrackTask" ReturnType="Collection(DB.P_JOB_GetUnTrackTask_Result)" />
+    <FunctionImport Name="P_JOB_U1">
+      <Parameter Name="CUSTOMERID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_JOB_UpdateState">
+      <Parameter Name="sno" Mode="In" Type="String" />
+      <Parameter Name="state" Mode="In" Type="Int32" />
+      <Parameter Name="result" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_MIS_CreateMessage">
+      <Parameter Name="id" Mode="In" Type="String" />
+      <Parameter Name="message" Mode="In" Type="String" />
+      <Parameter Name="sender" Mode="In" Type="String" />
+      <Parameter Name="receiver" Mode="In" Type="String" />
+      <Parameter Name="receiverTitle" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_MIS_DeleteMessageAllByReceiver">
+      <Parameter Name="receiver" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_MIS_DeleteMessageAllBySender">
+      <Parameter Name="sender" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_MIS_DeleteMessageByReceiver">
+      <Parameter Name="id" Mode="In" Type="String" />
+      <Parameter Name="receiver" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_MIS_DeleteMessageBySender">
+      <Parameter Name="id" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_QRTZ_GetJobExecuteTime" ReturnType="Collection(DB.P_QRTZ_GetJobExecuteTime_Result)">
+      <Parameter Name="id" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_Sys_ClearUnusedRightOperate" />
+    <FunctionImport Name="P_Sys_DeleteSysRoleSysUserByRoleId">
+      <Parameter Name="roleId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_Sys_DeleteSysRoleSysUserByUserId">
+      <Parameter Name="userId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_Sys_GetModule_RoleRight" ReturnType="Collection(DB.P_Sys_GetModule_RoleRight_Result)">
+      <Parameter Name="moduleId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_Sys_GetModule_UserRight" ReturnType="Collection(DB.P_Sys_GetModule_UserRight_Result)">
+      <Parameter Name="moduleId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_Sys_GetRightByRoleAndModule" ReturnType="Collection(DB.P_Sys_GetRightByRoleAndModule_Result)">
+      <Parameter Name="roleId" Mode="In" Type="String" />
+      <Parameter Name="moduleId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_Sys_GetRightOperate" ReturnType="Collection(DB.P_Sys_GetRightOperate_Result)">
+      <Parameter Name="userId" Mode="In" Type="String" />
+      <Parameter Name="url" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_Sys_GetRoleByUserId" ReturnType="Collection(DB.P_Sys_GetRoleByUserId_Result)">
+      <Parameter Name="UserId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_Sys_GetUserByRoleId" ReturnType="Collection(DB.P_Sys_GetUserByRoleId_Result)">
+      <Parameter Name="RoleId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_Sys_InsertSysRight" />
+    <FunctionImport Name="P_Sys_UpdateSysRightRightFlag">
+      <Parameter Name="moduleId" Mode="In" Type="String" />
+      <Parameter Name="roleId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_Sys_UpdateSysRoleSysUser">
+      <Parameter Name="roleId" Mode="In" Type="String" />
+      <Parameter Name="userId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_MIS_GetMessage" EntitySet="MIS_WebIM_Message" ReturnType="Collection(DB.MIS_WebIM_Message)">
+      <Parameter Name="user" Mode="In" Type="String" />
+      <Parameter Name="pageno" Mode="In" Type="Int32" />
+      <Parameter Name="rows" Mode="In" Type="Int32" />
+      <Parameter Name="rowscount" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="P_MIS_GetSenderByReceiver" ReturnType="Collection(DB.P_MIS_GetSenderByReceiver_Result)">
+      <Parameter Name="receiver" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_MIS_Info_EduMessage">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="InfoId" Mode="In" Type="String" />
+      <Parameter Name="Body" Mode="In" Type="String" />
+      <Parameter Name="UserId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_MIS_Info_GetFavoriteByUserId">
+      <Parameter Name="UserId" Mode="In" Type="String" />
+      <Parameter Name="WhereSQL" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_MIS_Info_GetICanManage">
+      <Parameter Name="WhereSQL" Mode="In" Type="String" />
+      <Parameter Name="Rows" Mode="In" Type="Int32" />
+      <Parameter Name="PageNo" Mode="In" Type="Int32" />
+      <Parameter Name="RowsCount" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="P_MIS_Info_GetICanRead">
+      <Parameter Name="UserId" Mode="In" Type="String" />
+      <Parameter Name="WhereSQL" Mode="In" Type="String" />
+      <Parameter Name="Rows" Mode="In" Type="Int32" />
+      <Parameter Name="PageNo" Mode="In" Type="Int32" />
+      <Parameter Name="RowsCount" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="P_MIS_Info_GetPostInfoByUserId">
+      <Parameter Name="UserId" Mode="In" Type="String" />
+      <Parameter Name="WhereSQL" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_MIS_SetMessageHasReadById">
+      <Parameter Name="receiver" Mode="In" Type="String" />
+      <Parameter Name="id" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_MIS_SetMessageHasReadByReceiver">
+      <Parameter Name="receiver" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_MIS_SetMessageHasReadFromSenderToReceiver">
+      <Parameter Name="sender" Mode="In" Type="String" />
+      <Parameter Name="receiver" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_DEF_DeleteTestJobsDetail">
+      <Parameter Name="vercode" Mode="In" Type="String" />
+      <Parameter Name="code" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_DEF_DeleteTestJobsItem">
+      <Parameter Name="vercode" Mode="In" Type="String" />
+      <Parameter Name="code" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_DEF_DEV_UpdateState">
+      <Parameter Name="vercode" Mode="In" Type="String" />
+      <Parameter Name="code" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_DEF_QueryDefect" EntitySet="V_DEF_Defect" ReturnType="Collection(DB.V_DEF_Defect)">
+      <Parameter Name="queryType" Mode="In" Type="String" />
+      <Parameter Name="pageno" Mode="In" Type="Int32" />
+      <Parameter Name="rows" Mode="In" Type="Int32" />
+      <Parameter Name="order" Mode="In" Type="String" />
+      <Parameter Name="rowscount" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="P_DEF_QueryDefectReport">
+      <Parameter Name="vercode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_DEF_QueryDefectReportByCode">
+      <Parameter Name="vercode" Mode="In" Type="String" />
+      <Parameter Name="code" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_DEF_REP_DefectReport">
+      <Parameter Name="vercode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_DEF_SetTestJobsDefault">
+      <Parameter Name="vercode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_DEF_CreateTestJobsDetailRelationByCode">
+      <Parameter Name="vercode" Mode="In" Type="String" />
+      <Parameter Name="code" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_DEF_CreateTestJobsItem">
+      <Parameter Name="vercode" Mode="In" Type="String" />
+      <Parameter Name="code" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_DEF_CreateTestType" />
+    <FunctionImport Name="P_DEF_DeleteTestJobs">
+      <Parameter Name="vercode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_DEF_CreateTestJobsDetailRelation">
+      <Parameter Name="vercode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_DEF_CreateDefectReport">
+      <Parameter Name="vercode" Mode="In" Type="String" />
+      <Parameter Name="creator" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_WebPart_GetInfo" ReturnType="Collection(DB.P_MIS_GetInfo_Result)">
+      <Parameter Name="Rows" Mode="In" Type="Int32" />
+      <Parameter Name="UserId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_Sys_GetRightByUser" ReturnType="Collection(DB.P_Sys_GetRightByUser_Result)">
+      <Parameter Name="userId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="P_Sys_GetRightByRole" ReturnType="Collection(DB.P_Sys_GetRightByRole_Result)">
+      <Parameter Name="roleId" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="V_DEF_Defect" EntityType="DB.V_DEF_Defect" />
+    <EntitySet Name="V_DEF_RPT_DefectReport" EntityType="DB.V_DEF_RPT_DefectReport" />
+    <FunctionImport Name="P_DEF_CreateTestJobs" ReturnType="Collection(Int32)">
+      <Parameter Name="vercode" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="SysModule" EntityType="DB.SysModule" />
+    <AssociationSet Name="FK_SysModule_SysModule" Association="DB.FK_SysModule_SysModule">
+      <End Role="SysModule" EntitySet="SysModule" />
+      <End Role="SysModule1" EntitySet="SysModule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysModuleOperate_SysModule" Association="DB.FK_SysModuleOperate_SysModule">
+      <End Role="SysModule" EntitySet="SysModule" />
+      <End Role="SysModuleOperate" EntitySet="SysModuleOperate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysRight_SysModule" Association="DB.FK_SysRight_SysModule">
+      <End Role="SysModule" EntitySet="SysModule" />
+      <End Role="SysRight" EntitySet="SysRight" />
+    </AssociationSet>
+    <EntitySet Name="MIS_Article_Category" EntityType="DB.MIS_Article_Category" />
+    <AssociationSet Name="FK_MIS_Article_MIS_Article_Category" Association="DB.FK_MIS_Article_MIS_Article_Category">
+      <End Role="MIS_Article_Category" EntitySet="MIS_Article_Category" />
+      <End Role="MIS_Article" EntitySet="MIS_Article" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MIS_Article_Category_MIS_Article_Category" Association="DB.FK_MIS_Article_Category_MIS_Article_Category">
+      <End Role="MIS_Article_Category" EntitySet="MIS_Article_Category" />
+      <End Role="MIS_Article_Category1" EntitySet="MIS_Article_Category" />
+    </AssociationSet>
+    <EntitySet Name="SysAreas" EntityType="DB.SysAreas" />
+    <AssociationSet Name="FK_SysAreas_SysAreas" Association="DB.FK_SysAreas_SysAreas">
+      <End Role="SysAreas" EntitySet="SysAreas" />
+      <End Role="SysAreas1" EntitySet="SysAreas" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="SysSample">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Age" />
+    <Property Type="DateTime" Name="Bir" Precision="3" />
+    <Property Type="String" Name="Photo" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Note" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CreateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="DEF_CaseType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ParentId" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsLast" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DEF_Defect">
+    <Key>
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="VerCode" />
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Type="String" Name="ItemID" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="VerCode" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Title" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Creator" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CrtDt" Precision="3" />
+    <Property Type="String" Name="Receiver" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="SendDt" Precision="3" />
+    <Property Type="Boolean" Name="CloseState" />
+    <Property Type="String" Name="Closer" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CloseDt" Precision="3" />
+    <Property Type="String" Name="TestContent" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ResultContent" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Remark" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MessageId" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Sort" />
+    <Property Type="Boolean" Name="ProcessState" />
+    <Property Type="String" Name="Processor" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="ProcessDt" Precision="3" />
+    <Property Type="Int32" Name="ErrorLevel" />
+    <Property Type="String" Name="CaseName" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Complex" />
+    <Property Type="DateTime" Name="PStartDt" Precision="3" />
+    <Property Type="DateTime" Name="PEndDt" Precision="3" />
+    <Property Type="String" Name="Executor" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="DEF_TestJobs" Relationship="DB.FK_DEF_Defect_DEF_TestJobs" FromRole="DEF_Defect" ToRole="DEF_TestJobs" />
+  </EntityType>
+  <EntityType Name="DEF_TestCase">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Description" MaxLength="2048" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ModuleId" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Sort" />
+    <NavigationProperty Name="DEF_TestCaseRelation" Relationship="DB.FK_DEF_TestCaseRelation_DEF_TestCase" FromRole="DEF_TestCase" ToRole="DEF_TestCaseRelation" />
+    <NavigationProperty Name="DEF_TestCaseSteps" Relationship="DB.FK_DEF_TESTCASESTEPS_REFERENCE_DEF_TESTCASE" FromRole="DEF_TestCase" ToRole="DEF_TestCaseSteps" />
+    <NavigationProperty Name="DEF_TestJobsDetail" Relationship="DB.FK_DEF_TESTJOBDETAIL_REFERENCE_DEF_TESTCASE" FromRole="DEF_TestCase" ToRole="DEF_TestJobsDetail" />
+    <NavigationProperty Name="DEF_TestJobsDetailItem" Relationship="DB.FK_DEF_TESTJOBSDETAILITEM_REFERENCE_DEF_TESTCASE" FromRole="DEF_TestCase" ToRole="DEF_TestJobsDetailItem" />
+  </EntityType>
+  <EntityType Name="DEF_TestCaseRelation">
+    <Key>
+      <PropertyRef Name="PCode" />
+      <PropertyRef Name="CCode" />
+    </Key>
+    <Property Type="String" Name="PCode" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CCode" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ReMark" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Sort" />
+    <NavigationProperty Name="DEF_TestCase" Relationship="DB.FK_DEF_TestCaseRelation_DEF_TestCase" FromRole="DEF_TestCaseRelation" ToRole="DEF_TestCase" />
+  </EntityType>
+  <EntityType Name="DEF_TestCaseSteps">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Type="String" Name="ItemID" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TestContent" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="state" />
+    <Property Type="Int32" Name="sort" />
+    <NavigationProperty Name="DEF_TestCase" Relationship="DB.FK_DEF_TESTCASESTEPS_REFERENCE_DEF_TESTCASE" FromRole="DEF_TestCaseSteps" ToRole="DEF_TestCase" />
+  </EntityType>
+  <EntityType Name="DEF_TestJobs">
+    <Key>
+      <PropertyRef Name="VerCode" />
+    </Key>
+    <Property Type="String" Name="VerCode" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="Result" />
+    <Property Type="String" Name="Description" MaxLength="2048" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Creator" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CrtDt" Precision="3" />
+    <Property Type="Boolean" Name="CloseState" />
+    <Property Type="String" Name="Closer" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CloseDt" Precision="3" />
+    <Property Type="Boolean" Name="Def" />
+    <Property Type="Boolean" Name="CheckFlag" />
+    <NavigationProperty Name="DEF_Defect" Relationship="DB.FK_DEF_Defect_DEF_TestJobs" FromRole="DEF_TestJobs" ToRole="DEF_Defect" />
+    <NavigationProperty Name="DEF_TestJobsDetail" Relationship="DB.FK_DEF_TESTJOBSDETAIL_REFERENCE_DEF_TESTJOBS" FromRole="DEF_TestJobs" ToRole="DEF_TestJobsDetail" />
+  </EntityType>
+  <EntityType Name="DEF_TestJobsDetail">
+    <Key>
+      <PropertyRef Name="VerCode" />
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Type="String" Name="VerCode" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Description" MaxLength="2048" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="Result" />
+    <Property Type="Int32" Name="Sort" />
+    <NavigationProperty Name="DEF_TestCase" Relationship="DB.FK_DEF_TESTJOBDETAIL_REFERENCE_DEF_TESTCASE" FromRole="DEF_TestJobsDetail" ToRole="DEF_TestCase" />
+    <NavigationProperty Name="DEF_TestJobs" Relationship="DB.FK_DEF_TESTJOBSDETAIL_REFERENCE_DEF_TESTJOBS" FromRole="DEF_TestJobsDetail" ToRole="DEF_TestJobs" />
+    <NavigationProperty Name="DEF_TestJobsDetailRelation" Relationship="DB.FK_DEF_TestJobsDetailRelation_DEF_TestJobsDetail" FromRole="DEF_TestJobsDetail" ToRole="DEF_TestJobsDetailRelation" />
+  </EntityType>
+  <EntityType Name="DEF_TestJobsDetailItem">
+    <Key>
+      <PropertyRef Name="VerCode" />
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Type="String" Name="VerCode" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Description" MaxLength="2048" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="Result" />
+    <Property Type="Int32" Name="Sort" />
+    <Property Type="Int32" Name="ExSort" />
+    <Property Type="Boolean" Name="Lock" Nullable="false" />
+    <Property Type="String" Name="Developer" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Tester" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="FinDt" Precision="3" />
+    <Property Type="Boolean" Name="TestRequestFlag" />
+    <Property Type="Boolean" Name="DevFinFlag" />
+    <NavigationProperty Name="DEF_TestCase" Relationship="DB.FK_DEF_TESTJOBSDETAILITEM_REFERENCE_DEF_TESTCASE" FromRole="DEF_TestJobsDetailItem" ToRole="DEF_TestCase" />
+    <NavigationProperty Name="DEF_TestJobsDetailSteps" Relationship="DB.FK_DEF_TESTJOBSDETAILSTEPS_REFERENCE_DEF_TESTJOBSDETAILITEM" FromRole="DEF_TestJobsDetailItem" ToRole="DEF_TestJobsDetailSteps" />
+  </EntityType>
+  <EntityType Name="DEF_TestJobsDetailRelation">
+    <Key>
+      <PropertyRef Name="VerCode" />
+      <PropertyRef Name="PCode" />
+      <PropertyRef Name="CCode" />
+    </Key>
+    <Property Type="String" Name="VerCode" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PCode" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CCode" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Description" MaxLength="2048" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="Result" />
+    <Property Type="Int32" Name="Sort" />
+    <Property Type="Int32" Name="ExSort" />
+    <NavigationProperty Name="DEF_TestJobsDetail" Relationship="DB.FK_DEF_TestJobsDetailRelation_DEF_TestJobsDetail" FromRole="DEF_TestJobsDetailRelation" ToRole="DEF_TestJobsDetail" />
+  </EntityType>
+  <EntityType Name="DEF_TestJobsDetailSteps">
+    <Key>
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="VerCode" />
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Type="String" Name="ItemID" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="VerCode" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TestContent" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="Result" />
+    <Property Type="Int32" Name="Sort" />
+    <Property Type="String" Name="ResultContent" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="ExSort" />
+    <Property Type="Int32" Name="StepType" Nullable="false" />
+    <Property Type="String" Name="Tester" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="TestDt" Precision="3" />
+    <Property Type="String" Name="Developer" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="PlanStartDt" Precision="3" />
+    <Property Type="DateTime" Name="PlanEndDt" Precision="3" />
+    <Property Type="DateTime" Name="FinDt" Precision="3" />
+    <Property Type="Boolean" Name="TestRequestFlag" />
+    <Property Type="Boolean" Name="DevFinFlag" />
+    <NavigationProperty Name="DEF_TestJobsDetailItem" Relationship="DB.FK_DEF_TESTJOBSDETAILSTEPS_REFERENCE_DEF_TESTJOBSDETAILITEM" FromRole="DEF_TestJobsDetailSteps" ToRole="DEF_TestJobsDetailItem" />
+  </EntityType>
+  <EntityType Name="JOB_TASKJOBS">
+    <Key>
+      <PropertyRef Name="sno" />
+    </Key>
+    <Property Type="String" Name="sno" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="taskName" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="id" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="taskTitle" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="taskCmd" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="crtDt" Precision="3" />
+    <Property Type="Int32" Name="state" />
+    <Property Type="String" Name="creator" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="procName" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="procParams" MaxLength="2048" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="JOB_TASKJOBS_LOG" Relationship="DB.FK_JOB_TASKJOBS_LOG_JOB_TASKJOBS" FromRole="JOB_TASKJOBS" ToRole="JOB_TASKJOBS_LOG" />
+  </EntityType>
+  <EntityType Name="JOB_TASKJOBS_LOG">
+    <Key>
+      <PropertyRef Name="itemID" />
+    </Key>
+    <Property Type="Int32" Name="itemID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="sno" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="taskName" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="id" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="executeDt" Precision="3" />
+    <Property Type="String" Name="executeStep" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="result" MaxLength="256" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="JOB_TASKJOBS" Relationship="DB.FK_JOB_TASKJOBS_LOG_JOB_TASKJOBS" FromRole="JOB_TASKJOBS_LOG" ToRole="JOB_TASKJOBS" />
+  </EntityType>
+  <EntityType Name="MIS_Article">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="ChannelId" Nullable="false" />
+    <Property Type="String" Name="CategoryId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ImgUrl" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BodyContent" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Sort" />
+    <Property Type="Int32" Name="Click" />
+    <Property Type="Int32" Name="CheckFlag" Nullable="false" />
+    <Property Type="String" Name="Checker" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CheckDateTime" Precision="3" />
+    <Property Type="String" Name="Creater" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CreateTime" Precision="3" />
+    <NavigationProperty Name="MIS_Article_Albums" Relationship="DB.FK_MIS_Article_Albums_MIS_Article" FromRole="MIS_Article" ToRole="MIS_Article_Albums" />
+    <NavigationProperty Name="MIS_Article_Comment" Relationship="DB.FK_MIS_Article_Comment_MIS_Article" FromRole="MIS_Article" ToRole="MIS_Article_Comment" />
+    <NavigationProperty Name="SysUser" Relationship="DB.FK_MIS_Article_SysUser" FromRole="MIS_Article" ToRole="SysUser" />
+    <NavigationProperty Name="SysUser1" Relationship="DB.FK_MIS_Article_SysUser1" FromRole="MIS_Article" ToRole="SysUser" />
+    <NavigationProperty Name="MIS_Article_Category" Relationship="DB.FK_MIS_Article_MIS_Article_Category" FromRole="MIS_Article" ToRole="MIS_Article_Category" />
+  </EntityType>
+  <EntityType Name="MIS_Article_Albums">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ArticleId" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BigImg" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SmallImg" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Remark" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MIS_Article" Relationship="DB.FK_MIS_Article_Albums_MIS_Article" FromRole="MIS_Article_Albums" ToRole="MIS_Article" />
+  </EntityType>
+  <EntityType Name="MIS_Article_Comment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ArticleId" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="UserId" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TrueName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="IP" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BodyContent" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CreateTime" Precision="3" />
+    <Property Type="Int32" Name="IsReply" />
+    <Property Type="String" Name="ReplyContent" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="ReplyTime" Precision="3" />
+    <NavigationProperty Name="MIS_Article" Relationship="DB.FK_MIS_Article_Comment_MIS_Article" FromRole="MIS_Article_Comment" ToRole="MIS_Article" />
+    <NavigationProperty Name="SysUser" Relationship="DB.FK_MIS_Article_Comment_SysUser" FromRole="MIS_Article_Comment" ToRole="SysUser" />
+  </EntityType>
+  <EntityType Name="MIS_WebIM_CommonTalk">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Talk" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="State" />
+    <Property Type="DateTime" Name="CreateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="MIS_WebIM_Message">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Message" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Sender" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="receiver" Nullable="false" MaxLength="5120" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="State" Nullable="false" />
+    <Property Type="DateTime" Name="SendDt" Precision="3" />
+    <Property Type="String" Name="receiverTitle" MaxLength="5120" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MIS_WebIM_Message_Rec" Relationship="DB.FK_MIS_MESS_REFERENCE_MIS_MESS" FromRole="MIS_WebIM_Message" ToRole="MIS_WebIM_Message_Rec" />
+  </EntityType>
+  <EntityType Name="MIS_WebIM_Message_Rec">
+    <Key>
+      <PropertyRef Name="MessageId" />
+      <PropertyRef Name="receiver" />
+    </Key>
+    <Property Type="String" Name="MessageId" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="receiver" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="State" Nullable="false" />
+    <Property Type="DateTime" Name="RecDt" Precision="3" />
+    <NavigationProperty Name="MIS_WebIM_Message" Relationship="DB.FK_MIS_MESS_REFERENCE_MIS_MESS" FromRole="MIS_WebIM_Message_Rec" ToRole="MIS_WebIM_Message" />
+  </EntityType>
+  <EntityType Name="MIS_WebIM_RecentContact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ContactPersons" Nullable="false" MaxLength="5120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="UserId" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="InfoTime" Nullable="false" Precision="3" />
+    <Property Type="String" Name="ContactPersonsTitle" MaxLength="5120" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SysException">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="HelpLink" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Message" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Source" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="StackTrace" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TargetSite" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Data" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CreateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SysLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Operator" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Message" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Result" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Type" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Module" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CreateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SysModuleOperate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="KeyCode" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ModuleId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsValid" Nullable="false" />
+    <Property Type="Int32" Name="Sort" Nullable="false" />
+    <NavigationProperty Name="SysModule" Relationship="DB.FK_SysModuleOperate_SysModule" FromRole="SysModuleOperate" ToRole="SysModule" />
+  </EntityType>
+  <EntityType Name="SysRight">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ModuleId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="RoleId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="Rightflag" Nullable="false" />
+    <NavigationProperty Name="SysRole" Relationship="DB.FK_SysRight_SysRole" FromRole="SysRight" ToRole="SysRole" />
+    <NavigationProperty Name="SysRightOperate" Relationship="DB.FK_SysRightOperate_SysRight" FromRole="SysRight" ToRole="SysRightOperate" />
+    <NavigationProperty Name="SysModule" Relationship="DB.FK_SysRight_SysModule" FromRole="SysRight" ToRole="SysModule" />
+  </EntityType>
+  <EntityType Name="SysRightOperate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="RightId" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="KeyCode" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsValid" Nullable="false" />
+    <NavigationProperty Name="SysRight" Relationship="DB.FK_SysRightOperate_SysRight" FromRole="SysRightOperate" ToRole="SysRight" />
+  </EntityType>
+  <EntityType Name="SysRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CreateTime" Nullable="false" Precision="3" />
+    <Property Type="String" Name="CreatePerson" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SysRight" Relationship="DB.FK_SysRight_SysRole" FromRole="SysRole" ToRole="SysRight" />
+    <NavigationProperty Name="SysUser" Relationship="DB.SysRoleSysUser" FromRole="SysRole" ToRole="SysUser" />
+  </EntityType>
+  <EntityType Name="SysSettings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Type" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Parameter" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ReMark" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SysStruct">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ParentId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Sort" Nullable="false" />
+    <Property Type="String" Name="Higher" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="State" Nullable="false" />
+    <Property Type="String" Name="Remark" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CreateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SysStruct1" Relationship="DB.FK_SysStruct_SysStruct" FromRole="SysStruct" ToRole="SysStruct1" />
+    <NavigationProperty Name="SysStruct2" Relationship="DB.FK_SysStruct_SysStruct" FromRole="SysStruct1" ToRole="SysStruct" />
+  </EntityType>
+  <EntityType Name="SysUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TrueName" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Card" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MobileNumber" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PhoneNumber" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="QQ" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EmailAddress" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="OtherContact" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Province" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="City" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Village" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Address" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="State" />
+    <Property Type="DateTime" Name="CreateTime" Precision="3" />
+    <Property Type="String" Name="CreatePerson" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Sex" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Birthday" Precision="3" />
+    <Property Type="DateTime" Name="JoinDate" Precision="3" />
+    <Property Type="String" Name="Marital" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Political" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Nationality" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Native" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="School" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Professional" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Degree" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DepId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PosId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Expertise" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="JobState" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Photo" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Attach" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MIS_Article" Relationship="DB.FK_MIS_Article_SysUser" FromRole="SysUser" ToRole="MIS_Article" />
+    <NavigationProperty Name="MIS_Article1" Relationship="DB.FK_MIS_Article_SysUser1" FromRole="SysUser" ToRole="MIS_Article" />
+    <NavigationProperty Name="MIS_Article_Comment" Relationship="DB.FK_MIS_Article_Comment_SysUser" FromRole="SysUser" ToRole="MIS_Article_Comment" />
+    <NavigationProperty Name="SysUserConfig" Relationship="DB.FK_SysUserConfig_SysUser" FromRole="SysUser" ToRole="SysUserConfig" />
+    <NavigationProperty Name="SysRole" Relationship="DB.SysRoleSysUser" FromRole="SysUser" ToRole="SysRole" />
+  </EntityType>
+  <EntityType Name="SysUserConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Value" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Type" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="State" />
+    <Property Type="String" Name="UserId" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SysUser" Relationship="DB.FK_SysUserConfig_SysUser" FromRole="SysUserConfig" ToRole="SysUser" />
+  </EntityType>
+  <Association Name="FK_DEF_Defect_DEF_TestJobs">
+    <End Type="DB.DEF_TestJobs" Role="DEF_TestJobs" Multiplicity="1" />
+    <End Type="DB.DEF_Defect" Role="DEF_Defect" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEF_TestJobs">
+        <PropertyRef Name="VerCode" />
+      </Principal>
+      <Dependent Role="DEF_Defect">
+        <PropertyRef Name="VerCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEF_TestCaseRelation_DEF_TestCase">
+    <End Type="DB.DEF_TestCase" Role="DEF_TestCase" Multiplicity="1" />
+    <End Type="DB.DEF_TestCaseRelation" Role="DEF_TestCaseRelation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEF_TestCase">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="DEF_TestCaseRelation">
+        <PropertyRef Name="PCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEF_TESTCASESTEPS_REFERENCE_DEF_TESTCASE">
+    <End Type="DB.DEF_TestCase" Role="DEF_TestCase" Multiplicity="1" />
+    <End Type="DB.DEF_TestCaseSteps" Role="DEF_TestCaseSteps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEF_TestCase">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="DEF_TestCaseSteps">
+        <PropertyRef Name="Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEF_TESTJOBDETAIL_REFERENCE_DEF_TESTCASE">
+    <End Type="DB.DEF_TestCase" Role="DEF_TestCase" Multiplicity="1" />
+    <End Type="DB.DEF_TestJobsDetail" Role="DEF_TestJobsDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEF_TestCase">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="DEF_TestJobsDetail">
+        <PropertyRef Name="Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEF_TESTJOBSDETAILITEM_REFERENCE_DEF_TESTCASE">
+    <End Type="DB.DEF_TestCase" Role="DEF_TestCase" Multiplicity="1" />
+    <End Type="DB.DEF_TestJobsDetailItem" Role="DEF_TestJobsDetailItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEF_TestCase">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="DEF_TestJobsDetailItem">
+        <PropertyRef Name="Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEF_TESTJOBSDETAIL_REFERENCE_DEF_TESTJOBS">
+    <End Type="DB.DEF_TestJobs" Role="DEF_TestJobs" Multiplicity="1" />
+    <End Type="DB.DEF_TestJobsDetail" Role="DEF_TestJobsDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEF_TestJobs">
+        <PropertyRef Name="VerCode" />
+      </Principal>
+      <Dependent Role="DEF_TestJobsDetail">
+        <PropertyRef Name="VerCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEF_TestJobsDetailRelation_DEF_TestJobsDetail">
+    <End Type="DB.DEF_TestJobsDetail" Role="DEF_TestJobsDetail" Multiplicity="1" />
+    <End Type="DB.DEF_TestJobsDetailRelation" Role="DEF_TestJobsDetailRelation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEF_TestJobsDetail">
+        <PropertyRef Name="VerCode" />
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="DEF_TestJobsDetailRelation">
+        <PropertyRef Name="VerCode" />
+        <PropertyRef Name="PCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEF_TESTJOBSDETAILSTEPS_REFERENCE_DEF_TESTJOBSDETAILITEM">
+    <End Type="DB.DEF_TestJobsDetailItem" Role="DEF_TestJobsDetailItem" Multiplicity="1" />
+    <End Type="DB.DEF_TestJobsDetailSteps" Role="DEF_TestJobsDetailSteps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEF_TestJobsDetailItem">
+        <PropertyRef Name="VerCode" />
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="DEF_TestJobsDetailSteps">
+        <PropertyRef Name="VerCode" />
+        <PropertyRef Name="Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JOB_TASKJOBS_LOG_JOB_TASKJOBS">
+    <End Type="DB.JOB_TASKJOBS" Role="JOB_TASKJOBS" Multiplicity="1" />
+    <End Type="DB.JOB_TASKJOBS_LOG" Role="JOB_TASKJOBS_LOG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JOB_TASKJOBS">
+        <PropertyRef Name="sno" />
+      </Principal>
+      <Dependent Role="JOB_TASKJOBS_LOG">
+        <PropertyRef Name="sno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MIS_Article_Albums_MIS_Article">
+    <End Type="DB.MIS_Article" Role="MIS_Article" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DB.MIS_Article_Albums" Role="MIS_Article_Albums" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MIS_Article">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MIS_Article_Albums">
+        <PropertyRef Name="ArticleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MIS_Article_Comment_MIS_Article">
+    <End Type="DB.MIS_Article" Role="MIS_Article" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DB.MIS_Article_Comment" Role="MIS_Article_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MIS_Article">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MIS_Article_Comment">
+        <PropertyRef Name="ArticleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MIS_Article_SysUser">
+    <End Type="DB.SysUser" Role="SysUser" Multiplicity="0..1" />
+    <End Type="DB.MIS_Article" Role="MIS_Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MIS_Article">
+        <PropertyRef Name="Creater" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MIS_Article_SysUser1">
+    <End Type="DB.SysUser" Role="SysUser" Multiplicity="0..1" />
+    <End Type="DB.MIS_Article" Role="MIS_Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MIS_Article">
+        <PropertyRef Name="Checker" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MIS_Article_Comment_SysUser">
+    <End Type="DB.SysUser" Role="SysUser" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DB.MIS_Article_Comment" Role="MIS_Article_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MIS_Article_Comment">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MIS_MESS_REFERENCE_MIS_MESS">
+    <End Type="DB.MIS_WebIM_Message" Role="MIS_WebIM_Message" Multiplicity="1" />
+    <End Type="DB.MIS_WebIM_Message_Rec" Role="MIS_WebIM_Message_Rec" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MIS_WebIM_Message">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MIS_WebIM_Message_Rec">
+        <PropertyRef Name="MessageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysRight_SysRole">
+    <End Type="DB.SysRole" Role="SysRole" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DB.SysRight" Role="SysRight" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysRight">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysRightOperate_SysRight">
+    <End Type="DB.SysRight" Role="SysRight" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DB.SysRightOperate" Role="SysRightOperate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysRight">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysRightOperate">
+        <PropertyRef Name="RightId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysStruct_SysStruct">
+    <End Type="DB.SysStruct" Role="SysStruct" Multiplicity="1" />
+    <End Type="DB.SysStruct" Role="SysStruct1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysStruct">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysStruct1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysUserConfig_SysUser">
+    <End Type="DB.SysUser" Role="SysUser" Multiplicity="0..1" />
+    <End Type="DB.SysUserConfig" Role="SysUserConfig" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysUserConfig">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SysRoleSysUser">
+    <End Type="DB.SysRole" Role="SysRole" Multiplicity="*" />
+    <End Type="DB.SysUser" Role="SysUser" Multiplicity="*" />
+  </Association>
+  <ComplexType Name="P_Sys_GetRightByRoleAndModule_Result">
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="KeyCode" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="ModuleId" Nullable="false" MaxLength="50" />
+    <Property Type="Boolean" Name="isvalid" Nullable="false" />
+    <Property Type="Int32" Name="Sort" Nullable="false" />
+    <Property Type="String" Name="RightId" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="P_Sys_GetRightOperate_Result">
+    <Property Type="String" Name="KeyCode" Nullable="false" MaxLength="200" />
+    <Property Type="Boolean" Name="IsValid" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="P_Sys_GetRoleByUserId_Result">
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="4000" />
+    <Property Type="DateTime" Name="CreateTime" Nullable="false" Precision="23" />
+    <Property Type="String" Name="CreatePerson" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="flag" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="P_Sys_GetUserByRoleId_Result">
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="TrueName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Card" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MobileNumber" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="PhoneNumber" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="QQ" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EmailAddress" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="OtherContact" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Province" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Village" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="State" Nullable="true" />
+    <Property Type="DateTime" Name="CreateTime" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatePerson" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Sex" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="Birthday" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="JoinDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Marital" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Political" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Nationality" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Native" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="School" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Professional" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Degree" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="DepId" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="PosId" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Expertise" Nullable="true" MaxLength="3000" />
+    <Property Type="String" Name="JobState" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Photo" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Attach" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="flag" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="P_Sys_GetRightByRole_Result">
+    <Property Type="String" Name="keyCode" Nullable="false" />
+    <Property Type="String" Name="moduleId" Nullable="false" />
+    <Property Type="String" Name="moduleName" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="P_Sys_GetModule_UserRight_Result">
+    <Property Type="String" Name="Id" Nullable="false" />
+    <Property Type="String" Name="keyCode" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="P_Sys_GetModule_RoleRight_Result">
+    <Property Type="String" Name="Id" Nullable="false" />
+    <Property Type="String" Name="keyCode" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="P_QRTZ_GetJobExecuteTime_Result">
+    <Property Type="Int64" Name="START_TIME" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="P_MIS_GetSenderByReceiver_Result">
+    <Property Type="Int32" Name="MessageCount" Nullable="false" />
+    <Property Type="String" Name="Sender" Nullable="false" />
+    <Property Type="String" Name="SenderTitle" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="P_Sys_GetRightByUser_Result">
+    <Property Type="String" Name="keyCode" Nullable="false" />
+    <Property Type="String" Name="moduleId" Nullable="false" />
+    <Property Type="String" Name="moduleName" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="P_MIS_GetInfo_Result">
+    <Property Type="String" Name="Author" Nullable="false" />
+    <Property Type="Int32" Name="CheckState" Nullable="false" />
+    <Property Type="DateTime" Name="CreateTime" Nullable="false" />
+    <Property Type="String" Name="DepId" Nullable="false" />
+    <Property Type="String" Name="Id" Nullable="false" />
+    <Property Type="Boolean" Name="IsAnswer" Nullable="false" />
+    <Property Type="Int32" Name="ReadCount" Nullable="false" />
+    <Property Type="String" Name="Source" Nullable="false" />
+    <Property Type="Boolean" Name="State" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="false" />
+    <Property Type="String" Name="TypeId" Nullable="false" />
+    <Property Type="String" Name="UserId" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="P_JOB_GetUnTrackTask_Result">
+    <Property Type="String" Name="JOB_NAME" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="V_DEF_Defect">
+    <Key>
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="VerCode" />
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Type="String" Name="ItemID" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="VerCode" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Title" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Creator" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CrtDt" Precision="3" />
+    <Property Type="String" Name="Receiver" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="SendDt" Precision="3" />
+    <Property Type="Boolean" Name="CloseState" />
+    <Property Type="String" Name="Closer" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CloseDt" Precision="3" />
+    <Property Type="String" Name="TestContent" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ResultContent" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Remark" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MessageId" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Sort" />
+    <Property Type="Boolean" Name="ProcessState" />
+    <Property Type="String" Name="Processor" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="ProcessDt" Precision="3" />
+    <Property Type="Int32" Name="ErrorLevel" />
+    <Property Type="String" Name="CaseName" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Complex" />
+    <Property Type="DateTime" Name="PStartDt" Precision="3" />
+    <Property Type="DateTime" Name="PEndDt" Precision="3" />
+    <Property Type="String" Name="Executor" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="V_DEF_RPT_DefectReport">
+    <Key>
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="Code" />
+      <PropertyRef Name="VerCode" />
+    </Key>
+    <Property Type="String" Name="ItemID" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CodeTitle" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Title" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CrtDt" Precision="3" />
+    <Property Type="String" Name="Creator" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CreatorTitle" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="VerCode" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SysModule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EnglishName" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ParentId" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Url" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Iconic" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Sort" />
+    <Property Type="String" Name="Remark" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="Enable" Nullable="false" />
+    <Property Type="String" Name="CreatePerson" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CreateTime" Precision="3" />
+    <Property Type="Boolean" Name="IsLast" Nullable="false" />
+    <Property Type="Binary" Name="Version" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="SysModule1" Relationship="DB.FK_SysModule_SysModule" FromRole="SysModule" ToRole="SysModule1" />
+    <NavigationProperty Name="SysModule2" Relationship="DB.FK_SysModule_SysModule" FromRole="SysModule1" ToRole="SysModule" />
+    <NavigationProperty Name="SysModuleOperate" Relationship="DB.FK_SysModuleOperate_SysModule" FromRole="SysModule" ToRole="SysModuleOperate" />
+    <NavigationProperty Name="SysRight" Relationship="DB.FK_SysRight_SysModule" FromRole="SysModule" ToRole="SysRight" />
+  </EntityType>
+  <Association Name="FK_SysModule_SysModule">
+    <End Type="DB.SysModule" Role="SysModule" Multiplicity="0..1" />
+    <End Type="DB.SysModule" Role="SysModule1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysModule">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysModule1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysModuleOperate_SysModule">
+    <End Type="DB.SysModule" Role="SysModule" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DB.SysModuleOperate" Role="SysModuleOperate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysModule">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysModuleOperate">
+        <PropertyRef Name="ModuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysRight_SysModule">
+    <End Type="DB.SysModule" Role="SysModule" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DB.SysRight" Role="SysRight" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysModule">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysRight">
+        <PropertyRef Name="ModuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="MIS_Article_Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="ChannelId" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ParentId" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Sort" />
+    <Property Type="String" Name="ImgUrl" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BodyContent" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CreateTime" Precision="3" />
+    <Property Type="Boolean" Name="Enable" Nullable="false" />
+    <NavigationProperty Name="MIS_Article" Relationship="DB.FK_MIS_Article_MIS_Article_Category" FromRole="MIS_Article_Category" ToRole="MIS_Article" />
+    <NavigationProperty Name="MIS_Article_Category1" Relationship="DB.FK_MIS_Article_Category_MIS_Article_Category" FromRole="MIS_Article_Category" ToRole="MIS_Article_Category1" />
+    <NavigationProperty Name="MIS_Article_Category2" Relationship="DB.FK_MIS_Article_Category_MIS_Article_Category" FromRole="MIS_Article_Category1" ToRole="MIS_Article_Category" />
+  </EntityType>
+  <Association Name="FK_MIS_Article_MIS_Article_Category">
+    <End Type="DB.MIS_Article_Category" Role="MIS_Article_Category" Multiplicity="1" />
+    <End Type="DB.MIS_Article" Role="MIS_Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MIS_Article_Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MIS_Article">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MIS_Article_Category_MIS_Article_Category">
+    <End Type="DB.MIS_Article_Category" Role="MIS_Article_Category" Multiplicity="0..1" />
+    <End Type="DB.MIS_Article_Category" Role="MIS_Article_Category1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MIS_Article_Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MIS_Article_Category1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="SysAreas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="String" Name="Id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ParentId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Sort" Nullable="false" />
+    <Property Type="Boolean" Name="Enable" Nullable="false" />
+    <Property Type="DateTime" Name="CreateTime" Nullable="false" Precision="3" />
+    <Property Type="Boolean" Name="IsMunicipality" Nullable="false" />
+    <Property Type="Boolean" Name="IsHKMT" Nullable="false" />
+    <Property Type="Boolean" Name="IsOther" Nullable="false" />
+    <NavigationProperty Name="SysAreas1" Relationship="DB.FK_SysAreas_SysAreas" FromRole="SysAreas" ToRole="SysAreas1" />
+    <NavigationProperty Name="SysAreas2" Relationship="DB.FK_SysAreas_SysAreas" FromRole="SysAreas1" ToRole="SysAreas" />
+  </EntityType>
+  <Association Name="FK_SysAreas_SysAreas">
+    <End Type="DB.SysAreas" Role="SysAreas" Multiplicity="1" />
+    <End Type="DB.SysAreas" Role="SysAreas1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysAreas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysAreas1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

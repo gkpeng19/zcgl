@@ -1,0 +1,29 @@
+﻿
+@{string themes = Session["themes"] == null ? "blue" : Session["themes"].ToString();}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+
+    <script src="@Url.Content("~/Scripts/jquery.min.js")" type="text/javascript"></script>
+     <script src="@Url.Content("~/Scripts/jquery.easyui.min.js")" type="text/javascript"></script>
+     @Scripts.Render("~/bundles/easyuiplus")
+    @Styles.Render("~/Content/css")
+    @if(themes=="blue")
+     {
+        @Styles.Render("~/Content/themes/blue/css")
+     }else
+     {
+         @Styles.Render("~/Content/themes/gray/css")
+     }
+    @Scripts.Render("~/bundles/common")
+    <script src="~/Scripts/easyui/locale/easyui-lang-zh_CN.js"></script>
+</head>
+<body>
+
+    <div style="padding:4px 5px 0px 5px;">
+        @RenderBody()
+    </div>
+</body>
+</html>

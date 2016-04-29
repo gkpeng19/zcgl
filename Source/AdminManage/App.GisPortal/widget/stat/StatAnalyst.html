@@ -1,0 +1,55 @@
+﻿<table>
+    <tbody>
+        <tr>
+            <td>
+                <span>当前图层：</span>
+            </td>
+            <td>
+                <input data-dojo-attach-point="jzStatAnalystLyr" disabled="disabled" type="text" class="form-control"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>当前年份：</span>
+            </td>
+            <td>
+                <input data-dojo-attach-point="jzStatAnalystYears" disabled="disabled" type="text" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>统计区域：</span>
+            </td>
+            <td>
+                <select data-dojo-attach-point="jzStatAnalystArea" class="form-control">
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><span>分组字段：</span></td>
+            <td>
+                <select data-dojo-attach-point="jzStatAnalystField" class="form-control">
+                    <option selected="selected" value="OBJQX">区县</option>
+                    <option value="GYJB">公园级别</option>
+                    <option value="SFJPGY">是否精品公园</option>
+                    <option value="SFKF">是否开放</option>
+                    <option value="SFMF">是否免费</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><span>统计方式：</span></td>
+            <td>
+                <select data-dojo-attach-point="jzStatAnalystMethod" class="form-control">
+                    <option value="1" selected="selected">计数</option>
+                    <!--<option value="2">求和</option>-->
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button data-dojo-attach-event="ondijitclick:onStart" class="btn btn-primary">开始统计</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

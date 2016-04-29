@@ -1,0 +1,87 @@
+﻿@model  Gis.Models.gis_LayerClassD
+@using App.Common;
+@using App.Models.Sys;
+@using App.Admin;
+@using System.Web.Mvc ;
+@using Gis.Models ;
+@{
+    ViewBag.Title = "编辑";
+    Layout = "~/Views/Shared/_Index_LayoutEdit.cshtml";
+    List<permModel> perm = (List<permModel>)ViewBag.Perm;
+    if (perm == null)
+    {
+        perm = new List<permModel>();
+    }
+
+}
+
+<script type="text/javascript">
+    $(function () {
+        $("#btnSave").click(function () {
+            if ($("form").valid()) {
+                $.ajax({
+                    url: "@Url.Action("EditLayerOrder")",
+                    type: "Post",
+                    data: $("form").serialize(),
+                    dataType: "json",
+                    success: function (data) {
+                       // debugger;
+                        if (data.type == 1) {
+                            window.parent.frameReturnByMes(data.message);
+                            window.parent.frameReturnByReloadOpt(true);
+                            window.parent.frameReturnByClose()
+                        }
+                        else {
+                            window.parent.frameReturnByMes(data.message);
+                        }
+                    }
+                });
+            }
+            return false;
+        });
+        $("#btnReturn").click(function () {
+            window.parent.frameReturnByClose();
+        });
+    });
+</script>
+<div class="mvctool bgb">
+    @Html.ToolButton("btnSave", "icon-save", "保存", perm, "Save", true)
+    @Html.ToolButton("btnReturn", "icon-return", "返回", false)
+</div>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.ID)
+    <table class="fromEditTable setTextWidth300">
+        <tbody>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.LayerCode_G)：
+                </td>
+                <td style="width:310px">
+                    @Html.TextBoxFor(model => model.LayerCode_G)
+                </td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.LayerName_G)：
+                </td>
+                <td style="width:310px">
+                    @Html.TextBoxFor(model => model.LayerName_G)
+                </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.ODERNUM):  
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.ODERNUM)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.ODERNUM)</td>
+            </tr>
+          
+        </tbody>
+    </table>
+}

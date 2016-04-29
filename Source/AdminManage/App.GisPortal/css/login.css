@@ -1,0 +1,145 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Arial Normal', Arial;
+	font-style: normal;
+	font-size: 13px;
+	color: #333;
+	text-align: center;
+	line-height: normal
+}
+.wrapper, body, html {
+	height: 100%;
+	width: 100%;
+	overflow: hidden
+}
+body {
+	background: -webkit-linear-gradient(top,#528ada,#d9e7ff);
+	background: -webkit-gradient(linear,0 0,0 100%,from(#528ada),to(#d9e7ff));
+	background: -ms-linear-gradient(top,#528ada,#d9e7ff);
+	background: -moz-linear-gradient(top,#528ada,#d9e7ff);
+	background: -o-linear-gradient(top,#528ada,#d9e7ff);
+	filter: progid:DXImageTransform.Microsoft.Gradient(gradientType=0, startColorStr=#528ada, endColorStr=#d9e7ff)
+}
+body .wrapper {
+	background: url(../images/login/u0.png) no-repeat center top;
+    background-size: 100% 100%;	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/login/u0.png", sizingMethod="scale");
+}
+body .wrapper .login {
+	width: 416px;
+	height: 279px;
+	margin: 250px auto 0;
+	background: url(../images/login/u2.png) no-repeat;
+	background-size: 100% 100%;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/login/u2.png", sizingMethod="scale");
+	padding: 7px;
+}
+body .wrapper #loginFrm{	position:absolute \9;	width:418px \9;	margin-left:-2px \9;}body .wrapper #loginFrm  input[type='text'],body .wrapper #loginFrm  input[type='password']{	/*padding-top:5px \9;    padding-bottom:0px \9;*/}
+body .wrapper .login .row1 {
+	width: 100%;
+	height: 56px;
+	cursor: pointer
+}
+body .wrapper .login .row1 .l-title {
+	display: inline-block;
+	width: 50%;
+	height: 56px;
+    margin:0 auto;
+	background: url(../images/login/u5.png) no-repeat;
+	background-size: 100% 100%;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/login/u5.png", sizingMethod="scale");
+}
+body .wrapper .login .row1 .r-title {
+	display: inline-block;
+	width: 50%;
+	height: 56px;
+	float: right;
+	background: url(../images/login/u10.png) no-repeat;
+	background-size: 100% 100%;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/login/u10.png", sizingMethod="scale");
+}
+body .wrapper .login .row2 .content {
+	width: 100%;
+	height: 167px;
+}
+body .wrapper .login .row3 {
+	cursor: pointer
+}
+body .wrapper .login .row3 .submit-btn {
+	display: inline-block;
+	width: 100%;
+	height: 56px;
+	background: url(../images/login/u15.png) no-repeat;
+	background-size: 100% 100%;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/login/u15.png", sizingMethod="scale");
+}
+body .wrapper .login .login-custom{
+	padding-top:20px;
+}
+body .wrapper .login .login-custom div{
+	line-height:60px;
+}
+
+.input-large{
+  display: inline-block;
+  height: 25px;
+  padding: 6px 12px;
+  width: 220px;
+  margin-bottom: 9px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #555555;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -ms-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+  text-align:left;
+}
+.input-large:focus{
+  border-color: rgba(82, 168, 236, 0.8);
+  outline: 0;
+  outline: thin dotted \9;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+  -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+}
+
+#ie-note {
+	width: 586px;
+	height: 253px;
+	background-image: url('../images/login/notes.png');
+	padding: 0 30px 40px 30px;
+	font-size: 14px;
+	color: #596679;
+	background-repeat:no-repeat;
+}
+#ie-note .hint-title {
+	height: 40px;
+	line-height: 48px;
+	text-align: left;
+	font-weight: bold;
+}
+#ie-note .hint-img {
+	background-image: url('images/hint.png');
+	background-position: left;
+	padding-left: 40px;
+	margin-top: 20px;
+	background-repeat: no-repeat;
+	height: 30px;
+	text-align: left;
+	line-height: 30px;
+	font-weight: bold;
+}
+#ie-note span {
+	display: block;
+	line-height: 14px;
+}

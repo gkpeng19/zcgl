@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=301879
+  -->
+<configuration>
+  <configSections>
+    <section name="GOMFrameWork" type="GOMFrameWork.Config.GOMFrameWork" />
+    <!--<section name="RedisService" type="G.Util.Redis.RedisService,G.Util"/>-->
+  </configSections>
+  <connectionStrings>
+    <add name="ConnectionString_EAP" connectionString="Data Source=192.168.95.16/orcl; User ID=eap; Password=111111;" providerName="Oracle.DataAccess.Client" />
+  </connectionStrings>
+  <appSettings>
+    <add key="webpages:Version" value="3.0.0.0" />
+    <add key="webpages:Enabled" value="false" />
+    <add key="ClientValidationEnabled" value="true" />
+    <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+    <add key="uploadcallbackurl" value="http://localhost:63666/upcallback.html"/>
+    <!--<add key="uploadcallbackurl" value="http://g.hollysmart.com.cn/upcallback.html"/>-->
+  </appSettings>
+  <system.web>
+    <customErrors mode="Off" />
+    <compilation debug="true" targetFramework="4.5" />
+    <httpRuntime maxRequestLength="4096" executionTimeout="30" requestValidationMode="2.0" />
+  </system.web>
+  <system.webServer>
+    <modules>
+      <remove name="WebDAVModule" />
+    </modules>
+    <handlers>
+      <remove name="WebDAV" />
+      <remove name="ExtensionlessUrlHandler-Integrated-4.0" />
+      <remove name="OPTIONSVerbHandler" />
+      <remove name="TRACEVerbHandler" />
+      <add name="ExtensionlessUrlHandler-Integrated-4.0" path="*." verb="*" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0" />
+    </handlers>
+  </system.webServer>
+  <GOMFrameWork>
+    <DBConnections>
+      <DBConnection key="ConnectionString_EAP" dbType="oracle" />
+    </DBConnections>
+    <EPMappings>
+      <EPMapping entityType="EntityBase" connectionKey="ConnectionString_EAP" />
+      <EPMapping entityType="SearchEntity" connectionKey="ConnectionString_EAP" />
+      <EPMapping entityType="ProcEntity" connectionKey="ConnectionString_EAP" />
+    </EPMappings>
+  </GOMFrameWork>
+  <!--<RedisService>
+    <RedisMaster ip="127.0.0.1" port="6379"/>
+    <RedisSelves>
+      <RedisSelve name="selve1" ip="127.0.0.1" port="6389"/>
+    </RedisSelves>
+  </RedisService>-->
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Helpers" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-5.0.0.0" newVersion="5.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Optimization" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-1.1.0.0" newVersion="1.1.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.WebPages" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="WebGrease" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="0.0.0.0-1.5.2.14234" newVersion="1.5.2.14234" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-7.0.0.0" newVersion="7.0.0.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+</configuration>

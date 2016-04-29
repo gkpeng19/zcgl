@@ -1,0 +1,155 @@
+﻿@using App.Common;
+@using App.Models.Sys;
+@using App.Admin;
+@{
+    ViewBag.Title = "创建";
+    Layout = "~/Views/Shared/_Index_LayoutEdit.cshtml";
+    List<permModel> perm = (List<permModel>)ViewBag.Perm;
+    if (perm == null)
+    {
+        perm = new List<permModel>();
+    }
+    string classid = (string)ViewBag.ClassId;
+}
+
+<script type="text/javascript">
+    $(function () {
+     
+    $("#btnReturn").click(function () {
+        window.parent.frameReturnByClose();
+    });
+});
+</script>
+<div class="mvctool bgb">
+    <input id="txtQuery" type="text" class="searchText" />
+ @Html.ToolButton("btnQuery", "icon-search", "查询", perm, "Save", true)  
+@Html.ToolButton("btnSave", "icon-save", "保存", perm, "Save", true)
+@Html.ToolButton("btnReturn", "icon-return", "返回",false)
+</div>
+
+<table id="operateList"></table>
+@*<div id="Pager"></div>*@
+<div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
+@*Jqgrid*@
+<script type="text/javascript">
+
+    $(function () {
+        $('#operateList').datagrid({
+            url: '@Url.Action("GetLayerList")?ClassID=' + @classid ,
+            width: SetGridWidthSub(10),
+            methord: 'post',
+            height: SetGridHeightSub(39),
+            fitColumns: true,
+            sortName: 'LAYERCODE',
+            sortOrder: 'desc',
+            idField: 'ID',
+            pageSize: 10,
+            pageList: [10, 20, 30, 40, 50],
+            pagination: true,
+            striped: true, //奇偶行是否区分
+            singleSelect: true,//单选模式
+            columns: [[
+                { field: 'ID', title: 'ID', width: 40, hidden: true },
+                {
+                      field: 'IsCheck_G', title: "<a href='#' title='@Suggestion.Select'  onclick=\"SelAll();\"  ><img src='/Content/Images/icon/select.gif'></a>  <a href='#' title='@Suggestion.UnSelect'  onclick=\"UnSelAll();\"  ><img src='/Content/Images/icon/unselect.gif'></a>", align: 'center', width: 60, formatter: function (value) {
+                          if (value) {
+                              return "<input type='checkbox' checked='checked' value=" + value + " />";
+                          } else {
+                              return "<input type='checkbox' value=" + value + " />";
+                          }
+                      },
+                  },
+                { field: 'LAYERCODE', title: '英文名称', width: 80 },
+                { field: 'LAYERNAME', title: '中文名称', width: 120 },              
+                { field: 'DSOURCE', title: '数据来源', width: 120 },
+                { field: 'LAYERTYPE_G', title: '图层类型', width: 60, align: 'center' },
+                { field: 'DATATYPE_G', title: '是否矢量', width: 60, align: 'center' },
+                { field: 'SHPTYPE_G', title: '元素类型', width: 60, align: 'center' },
+                { field: 'SERVICEURL', title: '服务地址', width: 120, align: 'center' },
+                { field: 'SERVICEINDEX', title: '服务序号', width: 60, align: 'center' }
+            ]]
+        });
+
+        $("#btnQuery").click(function () {
+            var queryStr = $("#txtQuery").val();
+            if (queryStr == null) {
+                queryStr = "%";
+            }
+            $('#operateList').datagrid({
+                url: '@Url.Action("GetLayerList")?ClassID=' + @classid + ' &queryStr=' + encodeURI(queryStr)
+            });
+
+        });
+
+
+        $("#btnSave").click(function () {
+            var updateRows = 0;
+            var rows = $("#operateList").datagrid("getRows"); //这段代码是获取当前页的所有行。
+           // debugger;
+            var idschecks = "0";
+            var idsunchecks = "0";
+            for (var i = 0; i < rows.length; i++) {
+                var setFlag = $("td[field='IsCheck_G'] input").eq(i).prop("checked");
+                var ids = rows[i].ID;
+                if (setFlag) {
+                    idschecks = idschecks + "," + ids;
+                }
+                else {
+                    idsunchecks = idsunchecks + "," + ids;
+                }
+
+                //  var ParentID = rows[i].ParentId;
+                //var keyCode = rows[i].PageId;
+                var isValid = rows[i].IsCheck_G;
+                if (isValid != setFlag)//判断是否有作修改
+                {                    
+                    updateRows++;
+                }
+            }
+            //save do 
+            if (updateRows > 0) {
+                $.post('@Url.Action("Updatelayer")', { "idschecks": idschecks, "idsunchecks": idsunchecks,"ClassID": @classid },
+                 function (p) {
+                     // debugger;
+                     // var p = JSON.parse(data);
+                     if (p.IntResult > 0) {
+                         $.messageBox5s('提示', '保存成功！');
+                     }
+                     else {
+                         $.messageBox5s('提示', '保存失败，请重试！');
+                     }
+                 },
+                  "json");
+
+            } else {
+                $.messageBox5s('提示', '@Suggestion.NoAnyChanges！');
+            }
+
+        });
+
+        $(window).resize(function () {
+            $('#operateList').datagrid('resize', {
+                width: SetGridWidthSub(10),
+                height: SetGridHeightSub(39)
+            }).datagrid('resize', {
+                width: SetGridWidthSub(10),
+            }); 
+
+        });
+
+    });
+
+
+    function SelAll() {
+        $("td[field='IsCheck_G'] input").prop("checked", true);
+        //  $("#btnSave").trigger("click");
+        return;
+    }
+    function UnSelAll() {
+        $("td[field='IsCheck_G'] input").prop("checked", false);
+        //  $("#btnSave").trigger("click");
+        return;
+    }
+
+</script>
+@Html.Partial("~/Views/Shared/_Partial_AutoGrid.cshtml")

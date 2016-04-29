@@ -1,0 +1,349 @@
+﻿@model NM.Model.EAP_User
+@*@model App.Models.Sys.SysUserModel*@
+@using App.Admin;
+@using App.Common;
+@using App.Models.Sys;
+
+@{
+   
+    Layout = "~/Views/Shared/_Index_LayoutEdit.cshtml";
+    
+    List<permModel> perm = (List<permModel>)ViewBag.Perm;
+    if (perm == null)
+    {
+        perm = new List<permModel>();
+    }
+}
+<script type="text/javascript">
+    $(function () {
+        //初始化下拉
+        /*
+        $("#DepId").prepend("<option value='' selected='selected'>--未选择--</option>");
+        $("#Province").prepend("<option value='' selected='selected'>--未选择--</option>");
+        $("#DepId").change(function () {
+            if ($("#DepId").val() != "") {
+                $.post("/SysStruct/GetListByParentId", { id: $("#DepId").val() }, function (data) {
+                    if (data == "") {
+                        $("#PosId").html("<option>--没有数据--</option>");
+                    }
+                    else {
+                        $("#PosId").html(data);
+                    }
+                }, "json");
+            }
+            else {
+                $("#PosId").html("<option>--未选择--</option>");
+            }
+        });
+        $("#Province").change(function () {
+            if ($("#Province").val() != "") {
+                $.post("/SysAreas/GetListByParentId", { id: $("#Province").val() }, function (data) {
+                    if (data == "") {
+                        $("#City").html("<option>--没有数据--</option>");
+                        $("#Village").html("<option>--没有数据--</option>");
+                    }
+                    else {
+                        $("#City").html(data);
+                        $("#City").trigger("change");
+                    }
+
+                }, "json");
+            } else {
+                $("#City").html("<option>--未选择--</option>");
+                $("#Village").html("<option>--未选择--</option>");
+            }
+        });
+        $("#City").change(function () {
+            if ($("#City").val() != "") {
+                $.post("/SysAreas/GetListByParentId", { id: $("#City").val() }, function (data) {
+                    if (data == "") {
+                        $("#Village").html("<option>--没有数据--</option>");
+                    }
+                    else {
+                        $("#Village").html(data);
+                    }
+                }, "json");
+            }
+        });
+        */
+        $("#btnSave").click(function () {
+            if (!$("#CreateForm").valid()) {
+                $.messageBox10s('提示', $("#ErrMesList").html());
+                return;
+            }
+            if ($("#CreateForm").valid()) {
+
+                $.ajax({
+                    url: "/SysUser/Create",
+                    type: "Post",
+                    data: $("#CreateForm").serialize(),
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.type == 1) {
+                            window.parent.frameReturnByMes(data.message);
+                            window.parent.frameReturnByReload(true);
+                            window.parent.frameReturnByClose()
+                        }
+                        else {
+                            window.parent.frameReturnByMes(data.message);
+                        }
+                    }
+                });
+            }
+            return false;
+        });
+    });
+</script>
+<div class="mvctool bgb">
+    @Html.ToolButton("btnSave", "icon-save", "保存", perm, "Save", true)
+</div>
+<script type="text/javascript">
+    $(function () {
+
+        $('#OrgId').combotree({ url: '/SysStruct/GetTreeStruct', required: true });
+        $("#PhotoCopy").click(function () {
+            $("#UpLoadAjax").attr("href", "/SysHelper/UpLoadImg?id=1&Iedate=" + GetGuid() + "");
+            $("#UpLoadAjax").trigger("click");
+            //$("#UpLoadDialog").html("<div class='panel-loading'>加载中...</div>");
+            $('#UpLoadDialog').dialog({ title: '@Suggestion.UpLoad', width: 580, height: 230, iconCls: 'icon-add', resizable: false });
+            $('#UpLoadDialog').dialog('open');
+        });
+    });
+    function UpLoadImgSucceed(imgPath, dif) {
+        if (dif == "1") {
+            $("#Photo").attr("src", imgPath);
+            $("#Photo").val(imgPath);
+        }
+    }
+</script>
+
+<a style="display:none" id="UpLoadAjax" href="" data-ajax-update="#UpLoadDialog" data-ajax-mode="replace" data-ajax-method="GET" data-ajax="true">Upload</a>
+<div id="UpLoadDialog"></div>
+@using (Html.BeginForm("Create", "SysUser", null, FormMethod.Post, new { Id = "CreateForm" }))
+{
+    <div id="ErrMesList" >
+        <div id="ErrMesListContent">
+            @Html.ValidationSummary(false)
+        </div>
+    </div>
+    
+    <table class="fromEditTable setTextWidth100">
+        <tbody>
+            <tr>
+                <td colspan="6">
+                    账户信息
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.UserName)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.UserName)
+                </td>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.TrueName)： 
+                </td>
+                <td>
+                   @Html.EditorFor(model => model.TrueName)： 
+                </td>
+                <td style="width: 100px; text-align: right;">
+                    
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.OrgId)：
+                </td>
+                <td>
+                    <select name="OrgId" id="OrgId" data-val-required="所属组织是必需的。" data-val="true" style="width:250px; "></select>
+                    
+                </td>
+                <td style="width: 100px; text-align: right;">
+
+                    @Html.LabelFor(model => model.State)：
+                </td>
+                <td>
+                    <select name="State" id="State">
+                        <option id="1" value="1">启用</option>
+                        <option id="0" value="0">停用</option>
+                    </select>
+                </td>
+                <td style="width: 100px; text-align: right;">
+                   
+                </td>
+                <td>
+                  
+                </td>
+            </tr>
+        </tbody>
+    </table>
+       
+    @*<table class="fromEditTable setTextWidth100">
+        <tr>
+            <td colspan="5">
+                基本资料
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 100px; text-align: right;">
+                @Html.LabelFor(model => model.TrueName)：
+            </td>
+            <td>
+                @Html.EditorFor(model => model.TrueName)
+            </td>
+            <td style="width: 100px; text-align: right;">
+                @Html.LabelFor(model => model.Sex)：
+            </td>
+            <td>
+                <input  checked="checked" name="Sex" value="男" type="radio" /> 男
+                <input  name="Sex" type="radio" value="女" /> 女
+            </td>
+            <td rowspan="5" style=" border-left:dashed 1px #ccc; text-align:center">
+                <img id="PhotoCopy" style="cursor:pointer; width:140px; height:140px; border:1px #ccc solid;" src="/Content/Images/NotPic.jpg" />
+                    @Html.HiddenFor(model => model.Photo)
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 100px; text-align: right;">
+                @Html.LabelFor(model => model.Birthday)：
+            </td>
+            <td>
+                 @Html.TextBoxFor(model => model.Birthday, new { @class = "Wdate", onClick = "WdatePicker()" })
+            </td>
+            <td style="width: 100px; text-align: right;">
+                @Html.LabelFor(model => model.JoinDate)：
+            </td>
+            <td>
+             @Html.TextBoxFor(model => model.JoinDate, new { @class = "Wdate", onClick = "WdatePicker()" })
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 100px; text-align: right;">
+                @Html.LabelFor(model => model.Nationality)：
+            </td>
+            <td style="width: 100px; text-align: right;">
+                @Html.EditorFor(model => model.Nationality)
+            </td>
+            <td style="width: 100px; text-align: right;">
+                @Html.LabelFor(model => model.Native)：
+            </td>
+            <td>
+                @Html.EditorFor(model => model.Native)
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 100px; text-align: right;">
+                @Html.LabelFor(model => model.Marital)：
+            </td>
+            <td>
+                @Html.EditorFor(model => model.Marital)
+            </td>
+            <td style="width: 100px; text-align: right;">
+                @Html.LabelFor(model => model.Political)：
+            </td>
+            <td>
+                @Html.EditorFor(model => model.Political)
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 100px; text-align: right;">
+                @Html.LabelFor(model => model.Degree)：
+            </td>
+            <td>
+                @Html.EditorFor(model => model.Degree)
+            </td>
+            <td style="width: 100px; text-align: right;">
+                @Html.LabelFor(model => model.Professional)：
+            </td>
+            <td>
+                @Html.EditorFor(model => model.Professional)
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 100px; text-align: right;">
+               @Html.LabelFor(model => model.School)：
+            </td>
+            <td colspan="1">@Html.EditorFor(model => model.School)
+            </td>
+            <td style="width: 100px; text-align: right;">
+                @Html.LabelFor(model => model.Card)：
+            </td>
+            <td colspan="2">
+                @Html.TextBoxFor(model => model.Card, new { style = "width:250px;" })
+            </td>
+        </tr>
+    </table>*@
+    
+    <table class="fromEditTable setTextWidth100">
+        <tbody>
+            <tr>
+                <td colspan="6">
+                    联系方式
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.MobileNumber)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.MobileNumber)
+                </td>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.PhoneNumber)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.PhoneNumber)
+                </td>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.QQ)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.QQ)
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.EmailAddress)：
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.EmailAddress)
+                </td>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.OtherContact)：
+                </td>
+                <td colspan="3">
+                     @Html.TextBoxFor(model => model.OtherContact, new { style = "width:250px;" })
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.Address)：
+                </td>
+                <td colspan="5">
+                     @Html.TextBoxFor(model => model.Address, new { style = "width:250px;" })
+                </td>
+        
+            </tr>
+            @*<tr>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.Expertise)：
+                </td>
+                <td colspan="5">
+                    @Html.TextAreaFor(model => model.Expertise, new { style = "width:350px;height:50px;" })
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.Attach)：
+                </td>
+                <td colspan="5">
+                    @Html.TextBoxFor(model => model.Attach, new { style = "width:250px;" })
+                </td>
+            </tr>*@
+        </tbody>
+    </table>
+}

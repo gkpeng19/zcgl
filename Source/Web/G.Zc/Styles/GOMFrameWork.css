@@ -1,0 +1,151 @@
+﻿body {
+    font-family: 'Microsoft YaHei','Microsoft JhengHei UI','Microsoft Tai Le','Microsoft YaHei UI';
+    padding: 3px 5px 0px 5px;
+    background-color: white;
+    min-height:600px;
+}
+
+input, textarea, select {
+    color: black !important;
+}
+
+.page-content {
+    margin: 10px;
+}
+
+.btn {
+    font-family: 'Microsoft YaHei','Microsoft JhengHei UI','Microsoft Tai Le','Microsoft YaHei UI';
+}
+
+.table {
+    margin-bottom: 10px;
+}
+
+/*Pager*/
+.pager a {
+    font-family: 'Microsoft YaHei';
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+    background-color: white;
+    border-right: none;
+    color: #337ab7;
+    text-decoration: none;
+}
+
+    .pager a:hover {
+        background-color: rgba(237, 237, 237, 1);
+    }
+
+.pager .current:hover {
+    background-color: #337ab7;
+}
+
+.pager a:first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.pager a:last-child {
+    border-right: 1px solid #ddd;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.pager .current {
+    background-color: #337ab7;
+    color: white;
+    border-color: #337ab7;
+    border-right: solid 1px #337ab7;
+}
+
+    .pager .current + a {
+        border-left: none;
+    }
+
+/*LayerOut*/
+.layerout {
+    padding: 10px 5px 0px 20px;
+    display: none;
+}
+
+.form-layer .row-fluid [class*="span"] {
+    margin-left: 0px;
+}
+
+.text_editor, .text_editor_hide {
+    max-height: 250px;
+    min-height: 250px;
+    height: 250px;
+}
+
+
+#layer-error-msg {
+    float: left;
+    padding-left: 10px;
+}
+
+.btn-header {
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+
+.loading {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+    .table-container table {
+        min-width: 100%;
+        width: auto;
+    }
+
+        .table-container table th, .table-container table.nowrap td {
+            white-space: nowrap;
+        }
+
+.layui-layer-shade {
+    background-color: transparent !important;
+}
+
+/*表格列查询窗口*/
+.th-search {
+    width: 238px;
+    border: solid 1px #70cdf8;
+    padding: 4px 5px;
+    background-color: white;
+}
+
+    .th-search input, .th-search select {
+        width: 200px;
+        margin-bottom: 0px;
+    }
+
+    .th-search select {
+        width: 215px;
+    }
+
+    .th-search .fa-filter {
+        font-size: 20px;
+        color: #2283c5;
+        cursor: pointer;
+        position: relative;
+        top: 4px;
+        margin-left: 5px;
+    }
+
+.th-searchIcon {
+    float: right;
+    position: relative;
+    top: 5px;
+    cursor: pointer;
+}
+
+th.th-operate, td.th-operate {
+    min-width: 80px;
+}

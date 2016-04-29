@@ -1,0 +1,802 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F790089E-2F06-4B43-A939-B75C31D29B17}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GIS.Portal</RootNamespace>
+    <AssemblyName>GIS.Portal</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="App.Admin, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\App.Admin\bin\App.Admin.dll</HintPath>
+    </Reference>
+    <Reference Include="App.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\App.Admin\bin\App.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="App.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\App.Admin\bin\App.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="App.Lang, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\App.Admin\bin\App.Lang.dll</HintPath>
+    </Reference>
+    <Reference Include="App.Models, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\App.Admin\bin\App.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dll\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\dll\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Regdll">
+      <HintPath>..\dll\Regdll.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ad\index.html" />
+    <Content Include="ad\index.js" />
+    <Content Include="ad\jimu\main.js" />
+    <Content Include="control\index.css" />
+    <Content Include="control\jimu\main.js" />
+    <Content Include="control\jzmap.js" />
+    <Content Include="control\map.html" />
+    <Content Include="css\print.css" />
+    <Content Include="GruntFile.js" />
+    <Content Include="images\btn_icon.gif" />
+    <Content Include="images\default\large.png" />
+    <Content Include="images\default\small.png" />
+    <Content Include="images\marker\layer.png" />
+    <Content Include="images\marker\locate.png" />
+    <Content Include="images\marker\locate_1.png" />
+    <Content Include="images\project\cyqldght.png" />
+    <Content Include="images\project\dcqldght.png" />
+    <Content Include="images\project\fjmsqt.jpg" />
+    <Content Include="images\project\fszlt.jpg" />
+    <Content Include="images\project\jygyt.jpg" />
+    <Content Include="images\project\lhxtght.jpg" />
+    <Content Include="images\project\ntxtght.jpg" />
+    <Content Include="images\project\sdxtt.jpg" />
+    <Content Include="images\project\stldt.jpg" />
+    <Content Include="images\project\wbght.jpg" />
+    <Content Include="images\project\xcqldght.png" />
+    <Content Include="images\project\zrslgyt.jpg" />
+    <Content Include="images\sprite.gif" />
+    <Content Include="images\street.png" />
+    <Content Include="images\upload\2.mp4" />
+    <Content Include="jsapi\index.css" />
+    <Content Include="jsapi\index.html" />
+    <Content Include="jsapi\jimu\test.js" />
+    <Content Include="jsapi\map.html" />
+    <Content Include="jsapi\jzmap.js" />
+    <Content Include="jsapi\jimu\main.js" />
+    <Content Include="jsapi\test.html" />
+    <Content Include="js\config.json" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\history.css" />
+    <Content Include="css\index.css" />
+    <Content Include="css\parent.css" />
+    <Content Include="css\thematic.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="css\login.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\ajax-loader.gif" />
+    <Content Include="images\allview.gif" />
+    <Content Include="images\cad.jpg" />
+    <Content Include="images\contextmenu\clear.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\contextmenu\next.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\contextmenu\pan.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\contextmenu\prev.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\contextmenu\print.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\contextmenu\zoomfull.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\contextmenu\zoomin.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\contextmenu\zoomout.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\default\bg.png" />
+    <Content Include="images\default\left.png" />
+    <Content Include="images\default\leftHeader.png" />
+    <Content Include="images\default\logo.png" />
+    <Content Include="images\draw\i_draw.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\draw\i_draw2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\draw\i_draw_circle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\draw\i_draw_ellipse.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\draw\i_draw_extent.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\draw\i_draw_freeline.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\draw\i_draw_freepoly.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\draw\i_draw_line.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\draw\i_draw_point.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\draw\i_draw_poly.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\draw\i_draw_rect.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\draw\i_draw_text.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\draw\i_edit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\edit\EditPaste32.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\edit\edit_addtoselection.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\edit\edit_attachments.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\edit\edit_attributes.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\edit\edit_autocompletepolygontool.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\edit\edit_cancel.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\edit\edit_extenttool.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\edit\edit_freehandpolygontool.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\edit\edit_freehandpolylinetool.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\edit\edit_genericdocument.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\edit\edit_linetool.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\edit\edit_markertool.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\edit\edit_newselection.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\edit\edit_polygontool.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\edit\edit_polylinetool.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\edit\edit_removefromselection.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\edit\edit_submit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\edit\EffectsTransparency16.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\left\title.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\login\notes.png" />
+    <Content Include="images\login\u0.png" />
+    <Content Include="images\login\u10.png" />
+    <Content Include="images\login\u12.png" />
+    <Content Include="images\login\u15.png" />
+    <Content Include="images\login\u17.png" />
+    <Content Include="images\login\u2.png" />
+    <Content Include="images\login\u24.png" />
+    <Content Include="images\login\u5.png" />
+    <Content Include="images\login\u7.png" />
+    <Content Include="images\favicon.png" />
+    <Content Include="images\mainImage.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\marker\blue.png" />
+    <Content Include="images\marker\green.png" />
+    <Content Include="images\marker\marker.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\marker\red.png" />
+    <Content Include="images\marker\tree.png" />
+    <Content Include="images\marker\tree1.png" />
+    <Content Include="images\nav\center.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\nav\center_on.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\nav\Down.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\nav\Down_left.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\nav\Down_left_on.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\nav\Down_on.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\nav\Down_right.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\nav\Down_right_on.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\nav\full.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\nav\Left.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\nav\Left_on.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\nav\Left_top.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\nav\Left_top_on.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\nav\pan.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\nav\right.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\nav\right_on.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\nav\top.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\nav\top_on.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\nav\top_right.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\nav\top_right_on.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\nav\zoomin.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\nav\zoomout.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\nav\zoom_in.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\nav\zoom_in_on.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\nav\zoom_out.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\nav\zoom_out_on.JPG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\popup.png" />
+    <Content Include="images\zoomTo.png" />
+    <Content Include="images\bg.png" />
+    <Content Include="images\blank.png" />
+    <Content Include="images\col-right.png" />
+    <Content Include="images\col-left.png" />
+    <Content Include="images\func\csld.png" />
+    <Content Include="images\func\csld_1.png" />
+    <Content Include="images\func\cylh.png" />
+    <Content Include="images\func\cylh_1.png" />
+    <Content Include="images\func\down.png" />
+    <Content Include="images\func\down_1.png" />
+    <Content Include="images\func\dzwbh.png" />
+    <Content Include="images\func\dzwbh_1.png" />
+    <Content Include="images\func\ld2005.png" />
+    <Content Include="images\func\ld2005_1.png" />
+    <Content Include="images\func\gyfjq.png" />
+    <Content Include="images\func\gyfjq_1.png" />
+    <Content Include="images\func\ld2015.png" />
+    <Content Include="images\func\ld2015_1.png" />
+    <Content Include="images\func\lscy.png" />
+    <Content Include="images\func\lscy_1.png" />
+    <Content Include="images\func\pylh.png" />
+    <Content Include="images\func\pylh_1.png" />
+    <Content Include="images\func\slfh.png" />
+    <Content Include="images\func\slfh_1.png" />
+    <Content Include="images\func\slzy.png" />
+    <Content Include="images\func\slzy_1.png" />
+    <Content Include="images\func\stgc.png" />
+    <Content Include="images\func\stgc_1.png" />
+    <Content Include="images\func\stlgh.png" />
+    <Content Include="images\func\stlgh_1.png" />
+    <Content Include="images\func\txjs.png" />
+    <Content Include="images\func\txjs_1.png" />
+    <Content Include="images\func\up.png" />
+    <Content Include="images\func\up_1.png" />
+    <Content Include="images\func\yhswfz.png" />
+    <Content Include="images\func\yhswfz_1.png" />
+    <Content Include="images\title-th.png" />
+    <Content Include="images\logo-title.png" />
+    <Content Include="images\header.png" />
+    <Content Include="images\hint.png" />
+    <Content Include="images\layer-title.png" />
+    <Content Include="images\left.png" />
+    <Content Include="images\loading.gif" />
+    <Content Include="images\search.png" />
+    <Content Include="images\title-dir.png" />
+    <Content Include="images\widget-loading.gif" />
+    <Content Include="images\location.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\nav.png" />
+    <Content Include="images\next.png" />
+    <Content Include="images\notes.png" />
+    <Content Include="images\title.png" />
+    <Content Include="images\up.png" />
+    <Content Include="images\down.png" />
+    <Content Include="Default.aspx" />
+    <Content Include="pages\ConstrastAnalyst.aspx" />
+    <Content Include="pages\js\angular.min.js" />
+    <Content Include="pages\js\constrast.js" />
+    <Content Include="pages\js\ie8.js" />
+    <Content Include="pages\map.aspx" />
+    <Content Include="pages\result.html" />
+    <Content Include="pages\Thematic.aspx" />
+    <Content Include="street\street-map.html" />
+    <Content Include="widget\bak\main.js" />
+    <Content Include="widget\ckplayer\ckplayer.js" />
+    <Content Include="widget\ckplayer\ckplayer.swf" />
+    <Content Include="widget\ckplayer\ckplayer.xml" />
+    <Content Include="widget\ckplayer\language.xml" />
+    <Content Include="widget\ckplayer\related.xml" />
+    <Content Include="widget\ckplayer\share.xml" />
+    <Content Include="widget\ckplayer\share\feixin.png" />
+    <Content Include="widget\ckplayer\share\google.png" />
+    <Content Include="widget\ckplayer\share\kaixin001.png" />
+    <Content Include="widget\ckplayer\share\msn.png" />
+    <Content Include="widget\ckplayer\share\qq.png" />
+    <Content Include="widget\ckplayer\share\qq2.png" />
+    <Content Include="widget\ckplayer\share\qzone.png" />
+    <Content Include="widget\ckplayer\share\rr.png" />
+    <Content Include="widget\ckplayer\share\sina.png" />
+    <Content Include="widget\ckplayer\share\sohu.png" />
+    <Content Include="widget\ckplayer\share\tianya.png" />
+    <Content Include="widget\ckplayer\style.swf" />
+    <Content Include="widget\coordinate\CoordinateDijit.js" />
+    <Content Include="pages\video.html" />
+    <Content Include="widget\dijit\Attachments-bak.js" />
+    <Content Include="widget\dijit\Attachments.js" />
+    <Content Include="widget\dijit\css\UploadProgress.css" />
+    <Content Include="widget\dijit\FileModel.js" />
+    <Content Include="widget\dijit\FlashUploader.js" />
+    <Content Include="widget\dijit\HtmlUploader.js" />
+    <Content Include="widget\dijit\LegendDijit.js" />
+    <Content Include="widget\dijit\NewMarker.js" />
+    <Content Include="widget\dijit\PasswordDijitThe.js" />
+    <Content Include="widget\dijit\SliderShow.js" />
+    <Content Include="widget\dijit\TabContainer-bak1.js" />
+    <Content Include="widget\dijit\template\Attachments.html" />
+    <Content Include="widget\dijit\template\HtmlUploader.html" />
+    <Content Include="widget\dijit\template\LegendDijit.html" />
+    <Content Include="widget\dijit\template\NewMarker.html" />
+    <Content Include="widget\dijit\template\SliderShow.html" />
+    <Content Include="widget\dijit\template\UploadProgress.html" />
+    <Content Include="widget\dijit\template\VideoHTML.html" />
+    <Content Include="widget\dijit\template\VideoShow.html" />
+    <Content Include="widget\dijit\UploadProgressHtml.js" />
+    <Content Include="widget\dijit\UploadProgress.js" />
+    <Content Include="widget\dijit\UserInfoThe.js" />
+    <Content Include="widget\dijit\VideoHTML.js" />
+    <Content Include="widget\dijit\VideoShow.js" />
+    <Content Include="widget\layer\PrintMap.js" />
+    <Content Include="widget\swfupload\images\placeholder.png" />
+    <Content Include="widget\swfupload\swfupload-bak.swf" />
+    <Content Include="widget\swfupload\SWFUpload.js" />
+    <Content Include="widget\swfupload\swfupload.swf" />
+    <Content Include="widget\swfupload\swfuploadbutton.swf" />
+    <Content Include="widget\swfupload\UploadFile.js" />
+    <Content Include="widget\UserInfo.js" />
+    <Content Include="widget\utils\BinarySearch.js" />
+    <Content Include="widget\utils\clone.js" />
+    <Content Include="widget\utils\defined.js" />
+    <Content Include="widget\dijit\AlertDialog.js" />
+    <Content Include="widget\dijit\ApiDijit.js" />
+    <Content Include="widget\dijit\Dialog.js" />
+    <Content Include="widget\dijit\DrawDijit-bak.js" />
+    <Content Include="widget\dijit\DrawDijit.js" />
+    <Content Include="widget\dijit\EditDijit.js" />
+    <Content Include="widget\dijit\EditFeature.js" />
+    <Content Include="widget\dijit\ErrorList.js" />
+    <Content Include="widget\dijit\GeoSearchDijit.js" />
+    <Content Include="widget\dijit\LocateResult.js" />
+    <Content Include="widget\dijit\StreetMap.js" />
+    <Content Include="widget\dijit\SubmitError.js" />
+    <Content Include="widget\dijit\TabContainerDijit.js" />
+    <Content Include="widget\dijit\template\AlertDialog.html" />
+    <Content Include="widget\dijit\template\ApiDijit.html" />
+    <Content Include="widget\dijit\template\Dialog.html" />
+    <Content Include="widget\dijit\template\DrawDijit.html" />
+    <Content Include="widget\dijit\template\EditDijit.html" />
+    <Content Include="widget\dijit\template\EditFeature.html" />
+    <Content Include="widget\dijit\template\ErrorList.html" />
+    <Content Include="widget\dijit\template\GeoSearchDijit.html" />
+    <Content Include="widget\dijit\template\LocateResult.html" />
+    <Content Include="widget\dijit\template\StreetMap.html" />
+    <Content Include="widget\dijit\template\SubmitError.html" />
+    <Content Include="widget\dijit\template\TabContainerDijit.html" />
+    <Content Include="widget\utils\ErrorLog.js" />
+    <Content Include="widget\layer\BDAnnoLayer.js" />
+    <Content Include="widget\layer\BDImgLayer.js" />
+    <Content Include="widget\layer\BDVecLayer.js" />
+    <Content Include="widget\layer\GoogleAnnoLayer.js" />
+    <Content Include="widget\layer\GoogleImgLayer.js" />
+    <Content Include="widget\layer\GoogleVecLayer.js" />
+    <Content Include="widget\layer\ImgLayer.js" />
+    <Content Include="widget\layer\TDTAnnoLayer.js" />
+    <Content Include="widget\layer\TDTVecLayer.js" />
+    <Content Include="widget\layer\VecLayer.js" />
+    <Content Include="widget\main.js" />
+    <Content Include="pages\js\history.js" />
+    <Content Include="js\index.js" />
+    <Content Include="js\login.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Login.aspx" />
+    <Content Include="pages\API.aspx" />
+    <Content Include="pages\js\config.js" />
+    <Content Include="pages\HistoryContrast.aspx" />
+    <Content Include="pages\Metadata.aspx" />
+    <Content Include="pages\js\metadata.js" />
+    <Content Include="pages\ResourceService.aspx" />
+    <Content Include="pages\js\thematic.js" />
+    <Content Include="street\street-foot.html" />
+    <Content Include="street\street-return.html" />
+    <Content Include="images\thematic\edit_markertool.png" />
+    <Content Include="images\thematic\edit_polygontool.png" />
+    <Content Include="images\thematic\edit_polylinetool.png" />
+    <Content Include="images\thematic\folder-open.png" />
+    <Content Include="images\thematic\folder_close.png" />
+    <Content Include="images\thematic\folder_open.png" />
+    <Content Include="images\thematic\fold_down.png" />
+    <Content Include="images\thematic\fold_up.png" />
+    <Content Include="images\thematic\group_layer1.png" />
+    <Content Include="images\thematic\group_layer2.png" />
+    <Content Include="images\thematic\line_layer1.png" />
+    <Content Include="images\thematic\line_layer2.png" />
+    <Content Include="images\thematic\mapserver_close.png" />
+    <Content Include="images\thematic\mapserver_open.png" />
+    <Content Include="images\thematic\point_layer1.png" />
+    <Content Include="images\thematic\point_layer2.png" />
+    <Content Include="images\thematic\polygon_layer1.png" />
+    <Content Include="images\thematic\polygon_layer2.png" />
+    <Content Include="images\thematic\x.png" />
+    <Content Include="Web.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="webservice\WebServiceAddin.asmx" />
+    <Content Include="webservice\WebServiceMap.asmx" />
+    <Content Include="widget\dijit\Legend.js" />
+    <Content Include="widget\dijit\template\ConstrastAnalyst.html" />
+    <Content Include="widget\dijit\ConstrastAnalyst.js" />
+    <Content Include="widget\dijit\PasswordDijit.js" />
+    <Content Include="widget\dijit\template\Legend.html" />
+    <Content Include="widget\dijit\template\PasswordDijit.html" />
+    <Content Include="widget\dijit\template\UserInfo.html" />
+    <Content Include="widget\dijit\UserInfoDijit.js" />
+    <Content Include="widget\dijit\UserInfo.js" />
+    <Content Include="widget\dijit\template\TabContainer.html" />
+    <Content Include="widget\dijit\TabContainer.js" />
+    <Content Include="widget\history\HistoryAnalyst.html" />
+    <Content Include="widget\history\HistoryAnalyst.js" />
+    <Content Include="widget\buffer\BufferAnalyst.html" />
+    <Content Include="widget\buffer\BufferAnalyst.js" />
+    <Content Include="widget\category\LayerCls.js" />
+    <Content Include="widget\cluster\ClusterFeatureLayer.js" />
+    <Content Include="widget\cluster\Clustering.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="widget\cluster\ClusteringPoint.js" />
+    <Content Include="widget\coordinate\Coordinate.html" />
+    <Content Include="widget\coordinate\Coordinate.js" />
+    <Content Include="images\widget\locate.png" />
+    <Content Include="widget\dijit\template\PrintDialog.html" />
+    <Content Include="widget\dijit\PrintDialog.js" />
+    <Content Include="widget\dijit\template\MeasureDialog.html" />
+    <Content Include="widget\dijit\MeasureDialog.js" />
+    <Content Include="widget\dijit\ContextMenu.js" />
+    <Content Include="widget\dijit\LoadingIndicator.js" />
+    <Content Include="widget\district\DistrictExtent.js" />
+    <Content Include="widget\layer\BaseMap.js" />
+    <Content Include="widget\layer\BaseMapAndLayer.js" />
+    <Content Include="widget\category\LayerOper.js" />
+    <Content Include="widget\menu\MenuBar.js" />
+    <Content Include="widget\navigation\Nav.js" />
+    <Content Include="widget\prop\Prop.js" />
+    <Content Include="widget\prop\PropertyInfo.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="widget\prop\PropInfo.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="widget\layer\rcLayer.js" />
+    <Content Include="widget\stat\StatAnalyst.html" />
+    <Content Include="widget\stat\StatAnalyst.js" />
+    <Content Include="widget\stat\StatResult.html" />
+    <Content Include="widget\stat\StatResult.js" />
+    <Content Include="widget\thematic\JZChartFeatureLayer.js" />
+    <Content Include="widget\thematic\JZChartGraphics.js" />
+    <Content Include="widget\thematic\JZChartLayer.js" />
+    <Content Include="widget\thematic\JZPieChart.js" />
+    <Content Include="widget\utils\GraphicUtils.js" />
+    <Content Include="widget\utils\MetaUtils.html" />
+    <Content Include="widget\utils\MetaUtils.js" />
+    <Content Include="widget\utils\PagingSearchResult.js" />
+    <Content Include="widget\utils\PagingUtils-bak.js" />
+    <Content Include="widget\utils\PagingUtils.js" />
+    <Content Include="widget\utils\QueryUtils.js" />
+    <Content Include="widget\utils\SearchingUtil.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PageHeader.Master.cs">
+      <DependentUpon>PageHeader.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PageHeader.Master.designer.cs">
+      <DependentUpon>PageHeader.Master</DependentUpon>
+    </Compile>
+    <Compile Include="pages\API.aspx.cs">
+      <DependentUpon>API.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\API.aspx.designer.cs">
+      <DependentUpon>API.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\ConstrastAnalyst.aspx.cs">
+      <DependentUpon>ConstrastAnalyst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\ConstrastAnalyst.aspx.designer.cs">
+      <DependentUpon>ConstrastAnalyst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\HistoryContrast.aspx.cs">
+      <DependentUpon>HistoryContrast.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\HistoryContrast.aspx.designer.cs">
+      <DependentUpon>HistoryContrast.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\map.aspx.cs">
+      <DependentUpon>map.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\map.aspx.designer.cs">
+      <DependentUpon>map.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Metadata.aspx.cs">
+      <DependentUpon>Metadata.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\Metadata.aspx.designer.cs">
+      <DependentUpon>Metadata.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\ResourceService.aspx.cs">
+      <DependentUpon>ResourceService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\ResourceService.aspx.designer.cs">
+      <DependentUpon>ResourceService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Thematic.aspx.cs">
+      <DependentUpon>Thematic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\Thematic.aspx.designer.cs">
+      <DependentUpon>Thematic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="proxy\GeocoderProxy.ashx.cs">
+      <DependentUpon>GeocoderProxy.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="proxy\Proxy.ashx.cs">
+      <DependentUpon>Proxy.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="webservice\Handler.ashx.cs">
+      <DependentUpon>Handler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="webservice\MapTileHandler.ashx.cs">
+      <DependentUpon>MapTileHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="webservice\TileModel.cs" />
+    <Compile Include="webservice\UploadHandler.ashx.cs">
+      <DependentUpon>UploadHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="webservice\WebServiceAddin.asmx.cs">
+      <DependentUpon>WebServiceAddin.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="webservice\WebServiceMap.asmx.cs">
+      <DependentUpon>WebServiceMap.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="proxy\Handler.ashx" />
+    <Content Include="PageHeader.Master" />
+    <Content Include="package.json" />
+    <Content Include="images\upload\1.flv" />
+    <Content Include="logs\05e9a84a-9280-432b-bb90-84ead03bafc2.json" />
+    <Content Include="logs\2f3d3f47-15fa-4392-9cf5-0afa0f0a5b1b.json" />
+    <None Include="Properties\PublishProfiles\aaa.pubxml" />
+    <None Include="Properties\PublishProfiles\gis.pubxml" />
+    <None Include="Properties\PublishProfiles\gisportal.pubxml" />
+    <Content Include="proxy\Proxy.ashx" />
+    <Content Include="proxy\GeocoderProxy.ashx" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="widget\dijit\template\web.config" />
+    <Content Include="webservice\Handler.ashx" />
+    <Content Include="webservice\UploadHandler.ashx" />
+    <Content Include="webservice\MapTileHandler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\E9.Server.Util\NM.Server.Util.csproj">
+      <Project>{27bffe20-4789-42dc-821a-d11febbfd8e7}</Project>
+      <Name>NM.Server.Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GIS.Models\GIS.Models.csproj">
+      <Project>{ebba3103-3939-48fa-ae73-f2fd429372cf}</Project>
+      <Name>GIS.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="esri\" />
+    <Folder Include="images\slider\" />
+    <Folder Include="uploads\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>25600</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:25600/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,1248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="DBStoreContainer">
+    <EntitySet Name="DEF_CaseType" EntityType="DB.Store.DEF_CaseType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DEF_Defect" EntityType="DB.Store.DEF_Defect" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DEF_TestCase" EntityType="DB.Store.DEF_TestCase" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DEF_TestCaseRelation" EntityType="DB.Store.DEF_TestCaseRelation" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DEF_TestCaseSteps" EntityType="DB.Store.DEF_TestCaseSteps" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DEF_TestJobs" EntityType="DB.Store.DEF_TestJobs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DEF_TestJobsDetail" EntityType="DB.Store.DEF_TestJobsDetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DEF_TestJobsDetailItem" EntityType="DB.Store.DEF_TestJobsDetailItem" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DEF_TestJobsDetailRelation" EntityType="DB.Store.DEF_TestJobsDetailRelation" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DEF_TestJobsDetailSteps" EntityType="DB.Store.DEF_TestJobsDetailSteps" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="JOB_TASKJOBS" EntityType="DB.Store.JOB_TASKJOBS" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="JOB_TASKJOBS_LOG" EntityType="DB.Store.JOB_TASKJOBS_LOG" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MIS_Article" EntityType="DB.Store.MIS_Article" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MIS_Article_Albums" EntityType="DB.Store.MIS_Article_Albums" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MIS_Article_Category" EntityType="DB.Store.MIS_Article_Category" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MIS_Article_Comment" EntityType="DB.Store.MIS_Article_Comment" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MIS_WebIM_CommonTalk" EntityType="DB.Store.MIS_WebIM_CommonTalk" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MIS_WebIM_Message" EntityType="DB.Store.MIS_WebIM_Message" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MIS_WebIM_Message_Rec" EntityType="DB.Store.MIS_WebIM_Message_Rec" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MIS_WebIM_RecentContact" EntityType="DB.Store.MIS_WebIM_RecentContact" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysAreas" EntityType="DB.Store.SysAreas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysException" EntityType="DB.Store.SysException" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysLog" EntityType="DB.Store.SysLog" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysModule" EntityType="DB.Store.SysModule" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysModuleOperate" EntityType="DB.Store.SysModuleOperate" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysRight" EntityType="DB.Store.SysRight" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysRightOperate" EntityType="DB.Store.SysRightOperate" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysRole" EntityType="DB.Store.SysRole" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysRoleSysUser" EntityType="DB.Store.SysRoleSysUser" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysSample" EntityType="DB.Store.SysSample" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysSettings" EntityType="DB.Store.SysSettings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysStruct" EntityType="DB.Store.SysStruct" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysUser" EntityType="DB.Store.SysUser" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SysUserConfig" EntityType="DB.Store.SysUserConfig" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="V_DEF_Defect" EntityType="DB.Store.V_DEF_Defect" store:Type="Views" store:Schema="dbo" store:Name="V_DEF_Defect">
+      <DefiningQuery>SELECT 
+      [V_DEF_Defect].[ItemID] AS [ItemID], 
+      [V_DEF_Defect].[VerCode] AS [VerCode], 
+      [V_DEF_Defect].[Code] AS [Code], 
+      [V_DEF_Defect].[Title] AS [Title], 
+      [V_DEF_Defect].[Creator] AS [Creator], 
+      [V_DEF_Defect].[CrtDt] AS [CrtDt], 
+      [V_DEF_Defect].[Receiver] AS [Receiver], 
+      [V_DEF_Defect].[SendDt] AS [SendDt], 
+      [V_DEF_Defect].[CloseState] AS [CloseState], 
+      [V_DEF_Defect].[Closer] AS [Closer], 
+      [V_DEF_Defect].[CloseDt] AS [CloseDt], 
+      [V_DEF_Defect].[TestContent] AS [TestContent], 
+      [V_DEF_Defect].[ResultContent] AS [ResultContent], 
+      [V_DEF_Defect].[Remark] AS [Remark], 
+      [V_DEF_Defect].[MessageId] AS [MessageId], 
+      [V_DEF_Defect].[Sort] AS [Sort], 
+      [V_DEF_Defect].[ProcessState] AS [ProcessState], 
+      [V_DEF_Defect].[Processor] AS [Processor], 
+      [V_DEF_Defect].[ProcessDt] AS [ProcessDt], 
+      [V_DEF_Defect].[ErrorLevel] AS [ErrorLevel], 
+      [V_DEF_Defect].[CaseName] AS [CaseName], 
+      [V_DEF_Defect].[Complex] AS [Complex], 
+      [V_DEF_Defect].[PStartDt] AS [PStartDt], 
+      [V_DEF_Defect].[PEndDt] AS [PEndDt], 
+      [V_DEF_Defect].[Executor] AS [Executor]
+      FROM [dbo].[V_DEF_Defect] AS [V_DEF_Defect]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_DEF_RPT_DefectReport" EntityType="DB.Store.V_DEF_RPT_DefectReport" store:Type="Views" store:Schema="dbo" store:Name="V_DEF_RPT_DefectReport">
+      <DefiningQuery>SELECT 
+      [V_DEF_RPT_DefectReport].[ItemID] AS [ItemID], 
+      [V_DEF_RPT_DefectReport].[Code] AS [Code], 
+      [V_DEF_RPT_DefectReport].[CodeTitle] AS [CodeTitle], 
+      [V_DEF_RPT_DefectReport].[Title] AS [Title], 
+      [V_DEF_RPT_DefectReport].[CrtDt] AS [CrtDt], 
+      [V_DEF_RPT_DefectReport].[Creator] AS [Creator], 
+      [V_DEF_RPT_DefectReport].[CreatorTitle] AS [CreatorTitle], 
+      [V_DEF_RPT_DefectReport].[VerCode] AS [VerCode]
+      FROM [dbo].[V_DEF_RPT_DefectReport] AS [V_DEF_RPT_DefectReport]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_DEF_Defect_DEF_TestJobs" Association="DB.Store.FK_DEF_Defect_DEF_TestJobs">
+      <End Role="DEF_TestJobs" EntitySet="DEF_TestJobs" />
+      <End Role="DEF_Defect" EntitySet="DEF_Defect" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEF_TestCaseRelation_DEF_TestCase" Association="DB.Store.FK_DEF_TestCaseRelation_DEF_TestCase">
+      <End Role="DEF_TestCase" EntitySet="DEF_TestCase" />
+      <End Role="DEF_TestCaseRelation" EntitySet="DEF_TestCaseRelation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEF_TESTCASESTEPS_REFERENCE_DEF_TESTCASE" Association="DB.Store.FK_DEF_TESTCASESTEPS_REFERENCE_DEF_TESTCASE">
+      <End Role="DEF_TestCase" EntitySet="DEF_TestCase" />
+      <End Role="DEF_TestCaseSteps" EntitySet="DEF_TestCaseSteps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEF_TESTJOBDETAIL_REFERENCE_DEF_TESTCASE" Association="DB.Store.FK_DEF_TESTJOBDETAIL_REFERENCE_DEF_TESTCASE">
+      <End Role="DEF_TestCase" EntitySet="DEF_TestCase" />
+      <End Role="DEF_TestJobsDetail" EntitySet="DEF_TestJobsDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEF_TESTJOBSDETAIL_REFERENCE_DEF_TESTJOBS" Association="DB.Store.FK_DEF_TESTJOBSDETAIL_REFERENCE_DEF_TESTJOBS">
+      <End Role="DEF_TestJobs" EntitySet="DEF_TestJobs" />
+      <End Role="DEF_TestJobsDetail" EntitySet="DEF_TestJobsDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEF_TESTJOBSDETAILITEM_REFERENCE_DEF_TESTCASE" Association="DB.Store.FK_DEF_TESTJOBSDETAILITEM_REFERENCE_DEF_TESTCASE">
+      <End Role="DEF_TestCase" EntitySet="DEF_TestCase" />
+      <End Role="DEF_TestJobsDetailItem" EntitySet="DEF_TestJobsDetailItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEF_TestJobsDetailRelation_DEF_TestJobsDetail" Association="DB.Store.FK_DEF_TestJobsDetailRelation_DEF_TestJobsDetail">
+      <End Role="DEF_TestJobsDetail" EntitySet="DEF_TestJobsDetail" />
+      <End Role="DEF_TestJobsDetailRelation" EntitySet="DEF_TestJobsDetailRelation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEF_TESTJOBSDETAILSTEPS_REFERENCE_DEF_TESTJOBSDETAILITEM" Association="DB.Store.FK_DEF_TESTJOBSDETAILSTEPS_REFERENCE_DEF_TESTJOBSDETAILITEM">
+      <End Role="DEF_TestJobsDetailItem" EntitySet="DEF_TestJobsDetailItem" />
+      <End Role="DEF_TestJobsDetailSteps" EntitySet="DEF_TestJobsDetailSteps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JOB_TASKJOBS_LOG_JOB_TASKJOBS" Association="DB.Store.FK_JOB_TASKJOBS_LOG_JOB_TASKJOBS">
+      <End Role="JOB_TASKJOBS" EntitySet="JOB_TASKJOBS" />
+      <End Role="JOB_TASKJOBS_LOG" EntitySet="JOB_TASKJOBS_LOG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MIS_Article_Albums_MIS_Article" Association="DB.Store.FK_MIS_Article_Albums_MIS_Article">
+      <End Role="MIS_Article" EntitySet="MIS_Article" />
+      <End Role="MIS_Article_Albums" EntitySet="MIS_Article_Albums" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MIS_Article_Category_MIS_Article_Category" Association="DB.Store.FK_MIS_Article_Category_MIS_Article_Category">
+      <End Role="MIS_Article_Category" EntitySet="MIS_Article_Category" />
+      <End Role="MIS_Article_Category1" EntitySet="MIS_Article_Category" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MIS_Article_Comment_MIS_Article" Association="DB.Store.FK_MIS_Article_Comment_MIS_Article">
+      <End Role="MIS_Article" EntitySet="MIS_Article" />
+      <End Role="MIS_Article_Comment" EntitySet="MIS_Article_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MIS_Article_Comment_SysUser" Association="DB.Store.FK_MIS_Article_Comment_SysUser">
+      <End Role="SysUser" EntitySet="SysUser" />
+      <End Role="MIS_Article_Comment" EntitySet="MIS_Article_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MIS_Article_MIS_Article_Category" Association="DB.Store.FK_MIS_Article_MIS_Article_Category">
+      <End Role="MIS_Article_Category" EntitySet="MIS_Article_Category" />
+      <End Role="MIS_Article" EntitySet="MIS_Article" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MIS_Article_SysUser" Association="DB.Store.FK_MIS_Article_SysUser">
+      <End Role="SysUser" EntitySet="SysUser" />
+      <End Role="MIS_Article" EntitySet="MIS_Article" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MIS_Article_SysUser1" Association="DB.Store.FK_MIS_Article_SysUser1">
+      <End Role="SysUser" EntitySet="SysUser" />
+      <End Role="MIS_Article" EntitySet="MIS_Article" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MIS_MESS_REFERENCE_MIS_MESS" Association="DB.Store.FK_MIS_MESS_REFERENCE_MIS_MESS">
+      <End Role="MIS_WebIM_Message" EntitySet="MIS_WebIM_Message" />
+      <End Role="MIS_WebIM_Message_Rec" EntitySet="MIS_WebIM_Message_Rec" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysAreas_SysAreas" Association="DB.Store.FK_SysAreas_SysAreas">
+      <End Role="SysAreas" EntitySet="SysAreas" />
+      <End Role="SysAreas1" EntitySet="SysAreas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysModule_SysModule" Association="DB.Store.FK_SysModule_SysModule">
+      <End Role="SysModule" EntitySet="SysModule" />
+      <End Role="SysModule1" EntitySet="SysModule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysModuleOperate_SysModule" Association="DB.Store.FK_SysModuleOperate_SysModule">
+      <End Role="SysModule" EntitySet="SysModule" />
+      <End Role="SysModuleOperate" EntitySet="SysModuleOperate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysRight_SysModule" Association="DB.Store.FK_SysRight_SysModule">
+      <End Role="SysModule" EntitySet="SysModule" />
+      <End Role="SysRight" EntitySet="SysRight" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysRight_SysRole" Association="DB.Store.FK_SysRight_SysRole">
+      <End Role="SysRole" EntitySet="SysRole" />
+      <End Role="SysRight" EntitySet="SysRight" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysRightOperate_SysRight" Association="DB.Store.FK_SysRightOperate_SysRight">
+      <End Role="SysRight" EntitySet="SysRight" />
+      <End Role="SysRightOperate" EntitySet="SysRightOperate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysRoleSysUser_SysRole" Association="DB.Store.FK_SysRoleSysUser_SysRole">
+      <End Role="SysRole" EntitySet="SysRole" />
+      <End Role="SysRoleSysUser" EntitySet="SysRoleSysUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysRoleSysUser_SysUser" Association="DB.Store.FK_SysRoleSysUser_SysUser">
+      <End Role="SysUser" EntitySet="SysUser" />
+      <End Role="SysRoleSysUser" EntitySet="SysRoleSysUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysStruct_SysStruct" Association="DB.Store.FK_SysStruct_SysStruct">
+      <End Role="SysStruct" EntitySet="SysStruct" />
+      <End Role="SysStruct1" EntitySet="SysStruct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysUserConfig_SysUser" Association="DB.Store.FK_SysUserConfig_SysUser">
+      <End Role="SysUser" EntitySet="SysUser" />
+      <End Role="SysUserConfig" EntitySet="SysUserConfig" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="DEF_CaseType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="ParentId" Type="varchar" MaxLength="36" />
+    <Property Name="IsLast" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DEF_Defect">
+    <Key>
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="VerCode" />
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="ItemID" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="VerCode" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="Code" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="Title" Type="varchar" MaxLength="500" />
+    <Property Name="Creator" Type="varchar" MaxLength="50" />
+    <Property Name="CrtDt" Type="datetime" />
+    <Property Name="Receiver" Type="varchar" MaxLength="500" />
+    <Property Name="SendDt" Type="datetime" />
+    <Property Name="CloseState" Type="bit" />
+    <Property Name="Closer" Type="varchar" MaxLength="50" />
+    <Property Name="CloseDt" Type="datetime" />
+    <Property Name="TestContent" Type="varchar" />
+    <Property Name="ResultContent" Type="varchar" />
+    <Property Name="Remark" Type="varchar" />
+    <Property Name="MessageId" Type="varchar" MaxLength="36" />
+    <Property Name="Sort" Type="int" />
+    <Property Name="ProcessState" Type="bit" />
+    <Property Name="Processor" Type="varchar" MaxLength="50" />
+    <Property Name="ProcessDt" Type="datetime" />
+    <Property Name="ErrorLevel" Type="int" />
+    <Property Name="CaseName" Type="varchar" MaxLength="500" />
+    <Property Name="Complex" Type="int" />
+    <Property Name="PStartDt" Type="datetime" />
+    <Property Name="PEndDt" Type="datetime" />
+    <Property Name="Executor" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DEF_TestCase">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="500" />
+    <Property Name="Description" Type="varchar" MaxLength="2048" />
+    <Property Name="ModuleId" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="Sort" Type="int" />
+  </EntityType>
+  <EntityType Name="DEF_TestCaseRelation">
+    <Key>
+      <PropertyRef Name="PCode" />
+      <PropertyRef Name="CCode" />
+    </Key>
+    <Property Name="PCode" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="CCode" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="ReMark" Type="varchar" MaxLength="200" />
+    <Property Name="Sort" Type="int" />
+  </EntityType>
+  <EntityType Name="DEF_TestCaseSteps">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="Code" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="500" />
+    <Property Name="TestContent" Type="varchar" />
+    <Property Name="state" Type="bit" />
+    <Property Name="sort" Type="int" />
+  </EntityType>
+  <EntityType Name="DEF_TestJobs">
+    <Key>
+      <PropertyRef Name="VerCode" />
+    </Key>
+    <Property Name="VerCode" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="500" />
+    <Property Name="Result" Type="bit" />
+    <Property Name="Description" Type="varchar" MaxLength="2048" />
+    <Property Name="Creator" Type="varchar" MaxLength="50" />
+    <Property Name="CrtDt" Type="datetime" />
+    <Property Name="CloseState" Type="bit" />
+    <Property Name="Closer" Type="varchar" MaxLength="50" />
+    <Property Name="CloseDt" Type="datetime" />
+    <Property Name="Def" Type="bit" />
+    <Property Name="CheckFlag" Type="bit" />
+  </EntityType>
+  <EntityType Name="DEF_TestJobsDetail">
+    <Key>
+      <PropertyRef Name="VerCode" />
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="VerCode" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="Code" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="500" />
+    <Property Name="Description" Type="varchar" MaxLength="2048" />
+    <Property Name="Result" Type="bit" />
+    <Property Name="Sort" Type="int" />
+  </EntityType>
+  <EntityType Name="DEF_TestJobsDetailItem">
+    <Key>
+      <PropertyRef Name="VerCode" />
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="VerCode" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="Code" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="500" />
+    <Property Name="Description" Type="varchar" MaxLength="2048" />
+    <Property Name="Result" Type="bit" />
+    <Property Name="Sort" Type="int" />
+    <Property Name="ExSort" Type="int" />
+    <Property Name="Lock" Type="bit" Nullable="false" />
+    <Property Name="Developer" Type="varchar" MaxLength="50" />
+    <Property Name="Tester" Type="varchar" MaxLength="50" />
+    <Property Name="FinDt" Type="datetime" />
+    <Property Name="TestRequestFlag" Type="bit" />
+    <Property Name="DevFinFlag" Type="bit" />
+  </EntityType>
+  <EntityType Name="DEF_TestJobsDetailRelation">
+    <Key>
+      <PropertyRef Name="VerCode" />
+      <PropertyRef Name="PCode" />
+      <PropertyRef Name="CCode" />
+    </Key>
+    <Property Name="VerCode" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="PCode" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="CCode" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="500" />
+    <Property Name="Description" Type="varchar" MaxLength="2048" />
+    <Property Name="Result" Type="bit" />
+    <Property Name="Sort" Type="int" />
+    <Property Name="ExSort" Type="int" />
+  </EntityType>
+  <EntityType Name="DEF_TestJobsDetailSteps">
+    <Key>
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="VerCode" />
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="ItemID" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="VerCode" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="Code" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="500" />
+    <Property Name="TestContent" Type="varchar" />
+    <Property Name="Result" Type="bit" />
+    <Property Name="Sort" Type="int" />
+    <Property Name="ResultContent" Type="varchar" />
+    <Property Name="ExSort" Type="int" />
+    <Property Name="StepType" Type="int" Nullable="false" />
+    <Property Name="Tester" Type="varchar" MaxLength="50" />
+    <Property Name="TestDt" Type="datetime" />
+    <Property Name="Developer" Type="varchar" MaxLength="50" />
+    <Property Name="PlanStartDt" Type="datetime" />
+    <Property Name="PlanEndDt" Type="datetime" />
+    <Property Name="FinDt" Type="datetime" />
+    <Property Name="TestRequestFlag" Type="bit" />
+    <Property Name="DevFinFlag" Type="bit" />
+  </EntityType>
+  <EntityType Name="JOB_TASKJOBS">
+    <Key>
+      <PropertyRef Name="sno" />
+    </Key>
+    <Property Name="sno" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="taskName" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="id" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="taskTitle" Type="varchar" MaxLength="150" />
+    <Property Name="taskCmd" Type="varchar" MaxLength="150" />
+    <Property Name="crtDt" Type="datetime" />
+    <Property Name="state" Type="int" />
+    <Property Name="creator" Type="varchar" MaxLength="32" />
+    <Property Name="procName" Type="varchar" MaxLength="512" />
+    <Property Name="procParams" Type="varchar" MaxLength="2048" />
+  </EntityType>
+  <EntityType Name="JOB_TASKJOBS_LOG">
+    <Key>
+      <PropertyRef Name="itemID" />
+    </Key>
+    <Property Name="itemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="sno" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="taskName" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="id" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="executeDt" Type="datetime" />
+    <Property Name="executeStep" Type="varchar" MaxLength="150" />
+    <Property Name="result" Type="varchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="MIS_Article">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="ChannelId" Type="int" Nullable="false" />
+    <Property Name="CategoryId" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="ImgUrl" Type="varchar" MaxLength="255" />
+    <Property Name="BodyContent" Type="varchar" />
+    <Property Name="Sort" Type="int" />
+    <Property Name="Click" Type="int" />
+    <Property Name="CheckFlag" Type="int" Nullable="false" />
+    <Property Name="Checker" Type="varchar" MaxLength="50" />
+    <Property Name="CheckDateTime" Type="datetime" />
+    <Property Name="Creater" Type="varchar" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="MIS_Article_Albums">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="ArticleId" Type="varchar" MaxLength="50" />
+    <Property Name="BigImg" Type="varchar" MaxLength="255" />
+    <Property Name="SmallImg" Type="varchar" MaxLength="255" />
+    <Property Name="Remark" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="MIS_Article_Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="ChannelId" Type="int" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="ParentId" Type="varchar" MaxLength="50" />
+    <Property Name="Sort" Type="int" />
+    <Property Name="ImgUrl" Type="varchar" MaxLength="255" />
+    <Property Name="BodyContent" Type="varchar" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Enable" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MIS_Article_Comment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="ArticleId" Type="varchar" MaxLength="50" />
+    <Property Name="UserId" Type="varchar" MaxLength="50" />
+    <Property Name="TrueName" Type="varchar" MaxLength="50" />
+    <Property Name="IP" Type="varchar" MaxLength="255" />
+    <Property Name="BodyContent" Type="varchar" MaxLength="4000" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="IsReply" Type="int" />
+    <Property Name="ReplyContent" Type="varchar" MaxLength="4000" />
+    <Property Name="ReplyTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="MIS_WebIM_CommonTalk">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Talk" Type="varchar" MaxLength="300" />
+    <Property Name="State" Type="bit" />
+    <Property Name="CreateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="MIS_WebIM_Message">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="Message" Type="varchar" MaxLength="1024" />
+    <Property Name="Sender" Type="varchar" Nullable="false" MaxLength="16" />
+    <Property Name="receiver" Type="varchar" Nullable="false" MaxLength="5120" />
+    <Property Name="State" Type="bit" Nullable="false" />
+    <Property Name="SendDt" Type="datetime" />
+    <Property Name="receiverTitle" Type="varchar" MaxLength="5120" />
+  </EntityType>
+  <EntityType Name="MIS_WebIM_Message_Rec">
+    <Key>
+      <PropertyRef Name="MessageId" />
+      <PropertyRef Name="receiver" />
+    </Key>
+    <Property Name="MessageId" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="receiver" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="State" Type="bit" Nullable="false" />
+    <Property Name="RecDt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="MIS_WebIM_RecentContact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ContactPersons" Type="varchar" Nullable="false" MaxLength="5120" />
+    <Property Name="UserId" Type="varchar" Nullable="false" MaxLength="16" />
+    <Property Name="InfoTime" Type="datetime" Nullable="false" />
+    <Property Name="ContactPersonsTitle" Type="varchar" MaxLength="5120" />
+  </EntityType>
+  <EntityType Name="SysAreas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="ParentId" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Sort" Type="int" Nullable="false" />
+    <Property Name="Enable" Type="bit" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="IsMunicipality" Type="bit" Nullable="false" />
+    <Property Name="IsHKMT" Type="bit" Nullable="false" />
+    <Property Name="IsOther" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SysException">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="HelpLink" Type="varchar" MaxLength="500" />
+    <Property Name="Message" Type="varchar" MaxLength="500" />
+    <Property Name="Source" Type="varchar" MaxLength="500" />
+    <Property Name="StackTrace" Type="text" />
+    <Property Name="TargetSite" Type="varchar" MaxLength="500" />
+    <Property Name="Data" Type="varchar" MaxLength="500" />
+    <Property Name="CreateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SysLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Operator" Type="varchar" MaxLength="50" />
+    <Property Name="Message" Type="varchar" MaxLength="500" />
+    <Property Name="Result" Type="varchar" MaxLength="20" />
+    <Property Name="Type" Type="varchar" MaxLength="20" />
+    <Property Name="Module" Type="varchar" MaxLength="20" />
+    <Property Name="CreateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SysModule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="EnglishName" Type="varchar" MaxLength="200" />
+    <Property Name="ParentId" Type="varchar" MaxLength="50" />
+    <Property Name="Url" Type="varchar" MaxLength="200" />
+    <Property Name="Iconic" Type="varchar" MaxLength="200" />
+    <Property Name="Sort" Type="int" />
+    <Property Name="Remark" Type="varchar" MaxLength="4000" />
+    <Property Name="Enable" Type="bit" Nullable="false" />
+    <Property Name="CreatePerson" Type="varchar" MaxLength="200" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="IsLast" Type="bit" Nullable="false" />
+    <Property Name="Version" Type="timestamp" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="SysModuleOperate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="KeyCode" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="ModuleId" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="IsValid" Type="bit" Nullable="false" />
+    <Property Name="Sort" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SysRight">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="ModuleId" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="RoleId" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Rightflag" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SysRightOperate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="RightId" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="KeyCode" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="IsValid" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SysRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="Description" Type="varchar" Nullable="false" MaxLength="4000" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="CreatePerson" Type="varchar" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="SysRoleSysUser">
+    <Key>
+      <PropertyRef Name="SysUserId" />
+      <PropertyRef Name="SysRoleId" />
+    </Key>
+    <Property Name="SysUserId" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="SysRoleId" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SysSample">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Bir" Type="datetime" />
+    <Property Name="Photo" Type="varchar" MaxLength="50" />
+    <Property Name="Note" Type="text" />
+    <Property Name="CreateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SysSettings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Type" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Parameter" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="ReMark" Type="varchar" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="SysStruct">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="ParentId" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Sort" Type="int" Nullable="false" />
+    <Property Name="Higher" Type="varchar" MaxLength="50" />
+    <Property Name="State" Type="bit" Nullable="false" />
+    <Property Name="Remark" Type="varchar" MaxLength="500" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SysUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="Password" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="TrueName" Type="varchar" MaxLength="200" />
+    <Property Name="Card" Type="varchar" MaxLength="50" />
+    <Property Name="MobileNumber" Type="varchar" MaxLength="200" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="200" />
+    <Property Name="QQ" Type="varchar" MaxLength="50" />
+    <Property Name="EmailAddress" Type="varchar" MaxLength="200" />
+    <Property Name="OtherContact" Type="varchar" MaxLength="200" />
+    <Property Name="Province" Type="varchar" MaxLength="200" />
+    <Property Name="City" Type="varchar" MaxLength="200" />
+    <Property Name="Village" Type="varchar" MaxLength="200" />
+    <Property Name="Address" Type="varchar" MaxLength="200" />
+    <Property Name="State" Type="bit" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreatePerson" Type="varchar" MaxLength="200" />
+    <Property Name="Sex" Type="varchar" MaxLength="10" />
+    <Property Name="Birthday" Type="datetime" />
+    <Property Name="JoinDate" Type="datetime" />
+    <Property Name="Marital" Type="varchar" MaxLength="10" />
+    <Property Name="Political" Type="varchar" MaxLength="50" />
+    <Property Name="Nationality" Type="varchar" MaxLength="20" />
+    <Property Name="Native" Type="varchar" MaxLength="20" />
+    <Property Name="School" Type="varchar" MaxLength="50" />
+    <Property Name="Professional" Type="varchar" MaxLength="100" />
+    <Property Name="Degree" Type="varchar" MaxLength="20" />
+    <Property Name="DepId" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="PosId" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Expertise" Type="varchar" MaxLength="3000" />
+    <Property Name="JobState" Type="varchar" MaxLength="20" />
+    <Property Name="Photo" Type="varchar" MaxLength="200" />
+    <Property Name="Attach" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="SysUserConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Value" Type="varchar" />
+    <Property Name="Type" Type="varchar" MaxLength="50" />
+    <Property Name="State" Type="bit" />
+    <Property Name="UserId" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--生成过程中发现错误:
+      警告 6002: 表/视图“AppDB.dbo.V_DEF_Defect”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+  <EntityType Name="V_DEF_Defect">
+    <Key>
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="VerCode" />
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="ItemID" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="VerCode" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="Code" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="Title" Type="varchar" MaxLength="500" />
+    <Property Name="Creator" Type="varchar" MaxLength="50" />
+    <Property Name="CrtDt" Type="datetime" />
+    <Property Name="Receiver" Type="varchar" MaxLength="500" />
+    <Property Name="SendDt" Type="datetime" />
+    <Property Name="CloseState" Type="bit" />
+    <Property Name="Closer" Type="varchar" MaxLength="50" />
+    <Property Name="CloseDt" Type="datetime" />
+    <Property Name="TestContent" Type="varchar" />
+    <Property Name="ResultContent" Type="varchar" />
+    <Property Name="Remark" Type="varchar" />
+    <Property Name="MessageId" Type="varchar" MaxLength="36" />
+    <Property Name="Sort" Type="int" />
+    <Property Name="ProcessState" Type="bit" />
+    <Property Name="Processor" Type="varchar" MaxLength="50" />
+    <Property Name="ProcessDt" Type="datetime" />
+    <Property Name="ErrorLevel" Type="int" />
+    <Property Name="CaseName" Type="varchar" MaxLength="500" />
+    <Property Name="Complex" Type="int" />
+    <Property Name="PStartDt" Type="datetime" />
+    <Property Name="PEndDt" Type="datetime" />
+    <Property Name="Executor" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--生成过程中发现错误:
+      警告 6002: 表/视图“AppDB.dbo.V_DEF_RPT_DefectReport”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+  <EntityType Name="V_DEF_RPT_DefectReport">
+    <Key>
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="Code" />
+      <PropertyRef Name="VerCode" />
+    </Key>
+    <Property Name="ItemID" Type="varchar" Nullable="false" MaxLength="36" />
+    <Property Name="Code" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="CodeTitle" Type="varchar" MaxLength="500" />
+    <Property Name="Title" Type="varchar" MaxLength="500" />
+    <Property Name="CrtDt" Type="datetime" />
+    <Property Name="Creator" Type="varchar" MaxLength="50" />
+    <Property Name="CreatorTitle" Type="varchar" MaxLength="200" />
+    <Property Name="VerCode" Type="varchar" Nullable="false" MaxLength="36" />
+  </EntityType>
+  <Association Name="FK_DEF_Defect_DEF_TestJobs">
+    <End Role="DEF_TestJobs" Type="DB.Store.DEF_TestJobs" Multiplicity="1" />
+    <End Role="DEF_Defect" Type="DB.Store.DEF_Defect" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEF_TestJobs">
+        <PropertyRef Name="VerCode" />
+      </Principal>
+      <Dependent Role="DEF_Defect">
+        <PropertyRef Name="VerCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEF_TestCaseRelation_DEF_TestCase">
+    <End Role="DEF_TestCase" Type="DB.Store.DEF_TestCase" Multiplicity="1" />
+    <End Role="DEF_TestCaseRelation" Type="DB.Store.DEF_TestCaseRelation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEF_TestCase">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="DEF_TestCaseRelation">
+        <PropertyRef Name="PCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEF_TESTCASESTEPS_REFERENCE_DEF_TESTCASE">
+    <End Role="DEF_TestCase" Type="DB.Store.DEF_TestCase" Multiplicity="1" />
+    <End Role="DEF_TestCaseSteps" Type="DB.Store.DEF_TestCaseSteps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEF_TestCase">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="DEF_TestCaseSteps">
+        <PropertyRef Name="Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEF_TESTJOBDETAIL_REFERENCE_DEF_TESTCASE">
+    <End Role="DEF_TestCase" Type="DB.Store.DEF_TestCase" Multiplicity="1" />
+    <End Role="DEF_TestJobsDetail" Type="DB.Store.DEF_TestJobsDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEF_TestCase">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="DEF_TestJobsDetail">
+        <PropertyRef Name="Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEF_TESTJOBSDETAIL_REFERENCE_DEF_TESTJOBS">
+    <End Role="DEF_TestJobs" Type="DB.Store.DEF_TestJobs" Multiplicity="1" />
+    <End Role="DEF_TestJobsDetail" Type="DB.Store.DEF_TestJobsDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEF_TestJobs">
+        <PropertyRef Name="VerCode" />
+      </Principal>
+      <Dependent Role="DEF_TestJobsDetail">
+        <PropertyRef Name="VerCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEF_TESTJOBSDETAILITEM_REFERENCE_DEF_TESTCASE">
+    <End Role="DEF_TestCase" Type="DB.Store.DEF_TestCase" Multiplicity="1" />
+    <End Role="DEF_TestJobsDetailItem" Type="DB.Store.DEF_TestJobsDetailItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEF_TestCase">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="DEF_TestJobsDetailItem">
+        <PropertyRef Name="Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEF_TestJobsDetailRelation_DEF_TestJobsDetail">
+    <End Role="DEF_TestJobsDetail" Type="DB.Store.DEF_TestJobsDetail" Multiplicity="1" />
+    <End Role="DEF_TestJobsDetailRelation" Type="DB.Store.DEF_TestJobsDetailRelation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEF_TestJobsDetail">
+        <PropertyRef Name="VerCode" />
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="DEF_TestJobsDetailRelation">
+        <PropertyRef Name="VerCode" />
+        <PropertyRef Name="PCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEF_TESTJOBSDETAILSTEPS_REFERENCE_DEF_TESTJOBSDETAILITEM">
+    <End Role="DEF_TestJobsDetailItem" Type="DB.Store.DEF_TestJobsDetailItem" Multiplicity="1" />
+    <End Role="DEF_TestJobsDetailSteps" Type="DB.Store.DEF_TestJobsDetailSteps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEF_TestJobsDetailItem">
+        <PropertyRef Name="VerCode" />
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="DEF_TestJobsDetailSteps">
+        <PropertyRef Name="VerCode" />
+        <PropertyRef Name="Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JOB_TASKJOBS_LOG_JOB_TASKJOBS">
+    <End Role="JOB_TASKJOBS" Type="DB.Store.JOB_TASKJOBS" Multiplicity="1" />
+    <End Role="JOB_TASKJOBS_LOG" Type="DB.Store.JOB_TASKJOBS_LOG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JOB_TASKJOBS">
+        <PropertyRef Name="sno" />
+      </Principal>
+      <Dependent Role="JOB_TASKJOBS_LOG">
+        <PropertyRef Name="sno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MIS_Article_Albums_MIS_Article">
+    <End Role="MIS_Article" Type="DB.Store.MIS_Article" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MIS_Article_Albums" Type="DB.Store.MIS_Article_Albums" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MIS_Article">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MIS_Article_Albums">
+        <PropertyRef Name="ArticleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MIS_Article_Category_MIS_Article_Category">
+    <End Role="MIS_Article_Category" Type="DB.Store.MIS_Article_Category" Multiplicity="0..1" />
+    <End Role="MIS_Article_Category1" Type="DB.Store.MIS_Article_Category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MIS_Article_Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MIS_Article_Category1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MIS_Article_Comment_MIS_Article">
+    <End Role="MIS_Article" Type="DB.Store.MIS_Article" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MIS_Article_Comment" Type="DB.Store.MIS_Article_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MIS_Article">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MIS_Article_Comment">
+        <PropertyRef Name="ArticleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MIS_Article_Comment_SysUser">
+    <End Role="SysUser" Type="DB.Store.SysUser" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MIS_Article_Comment" Type="DB.Store.MIS_Article_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MIS_Article_Comment">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MIS_Article_MIS_Article_Category">
+    <End Role="MIS_Article_Category" Type="DB.Store.MIS_Article_Category" Multiplicity="1" />
+    <End Role="MIS_Article" Type="DB.Store.MIS_Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MIS_Article_Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MIS_Article">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MIS_Article_SysUser">
+    <End Role="SysUser" Type="DB.Store.SysUser" Multiplicity="0..1" />
+    <End Role="MIS_Article" Type="DB.Store.MIS_Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MIS_Article">
+        <PropertyRef Name="Creater" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MIS_Article_SysUser1">
+    <End Role="SysUser" Type="DB.Store.SysUser" Multiplicity="0..1" />
+    <End Role="MIS_Article" Type="DB.Store.MIS_Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MIS_Article">
+        <PropertyRef Name="Checker" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MIS_MESS_REFERENCE_MIS_MESS">
+    <End Role="MIS_WebIM_Message" Type="DB.Store.MIS_WebIM_Message" Multiplicity="1" />
+    <End Role="MIS_WebIM_Message_Rec" Type="DB.Store.MIS_WebIM_Message_Rec" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MIS_WebIM_Message">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MIS_WebIM_Message_Rec">
+        <PropertyRef Name="MessageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysAreas_SysAreas">
+    <End Role="SysAreas" Type="DB.Store.SysAreas" Multiplicity="1" />
+    <End Role="SysAreas1" Type="DB.Store.SysAreas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysAreas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysAreas1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysModule_SysModule">
+    <End Role="SysModule" Type="DB.Store.SysModule" Multiplicity="0..1" />
+    <End Role="SysModule1" Type="DB.Store.SysModule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysModule">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysModule1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysModuleOperate_SysModule">
+    <End Role="SysModule" Type="DB.Store.SysModule" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SysModuleOperate" Type="DB.Store.SysModuleOperate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysModule">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysModuleOperate">
+        <PropertyRef Name="ModuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysRight_SysModule">
+    <End Role="SysModule" Type="DB.Store.SysModule" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SysRight" Type="DB.Store.SysRight" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysModule">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysRight">
+        <PropertyRef Name="ModuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysRight_SysRole">
+    <End Role="SysRole" Type="DB.Store.SysRole" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SysRight" Type="DB.Store.SysRight" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysRight">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysRightOperate_SysRight">
+    <End Role="SysRight" Type="DB.Store.SysRight" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SysRightOperate" Type="DB.Store.SysRightOperate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysRight">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysRightOperate">
+        <PropertyRef Name="RightId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysRoleSysUser_SysRole">
+    <End Role="SysRole" Type="DB.Store.SysRole" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SysRoleSysUser" Type="DB.Store.SysRoleSysUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysRoleSysUser">
+        <PropertyRef Name="SysRoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysRoleSysUser_SysUser">
+    <End Role="SysUser" Type="DB.Store.SysUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SysRoleSysUser" Type="DB.Store.SysRoleSysUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysRoleSysUser">
+        <PropertyRef Name="SysUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysStruct_SysStruct">
+    <End Role="SysStruct" Type="DB.Store.SysStruct" Multiplicity="1" />
+    <End Role="SysStruct1" Type="DB.Store.SysStruct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysStruct">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysStruct1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysUserConfig_SysUser">
+    <End Role="SysUser" Type="DB.Store.SysUser" Multiplicity="0..1" />
+    <End Role="SysUserConfig" Type="DB.Store.SysUserConfig" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SysUserConfig">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="P_DEF_CopyTestJobs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vercode" Type="varchar" Mode="In" />
+    <Parameter Name="newvercode" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_DEF_CreateDefectReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vercode" Type="varchar" Mode="In" />
+    <Parameter Name="creator" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_DEF_CreateTestJobs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vercode" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_DEF_CreateTestJobsDetailRelation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vercode" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_DEF_CreateTestJobsDetailRelationByCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vercode" Type="varchar" Mode="In" />
+    <Parameter Name="code" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_DEF_CreateTestJobsItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vercode" Type="varchar" Mode="In" />
+    <Parameter Name="code" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_DEF_CreateTestType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="P_DEF_DeleteTestJobs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vercode" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_DEF_DeleteTestJobsDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vercode" Type="varchar" Mode="In" />
+    <Parameter Name="code" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_DEF_DeleteTestJobsItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vercode" Type="varchar" Mode="In" />
+    <Parameter Name="code" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_DEF_DEV_UpdateState" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vercode" Type="varchar" Mode="In" />
+    <Parameter Name="code" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_DEF_QueryDefect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="queryType" Type="varchar" Mode="In" />
+    <Parameter Name="pageno" Type="int" Mode="In" />
+    <Parameter Name="rows" Type="int" Mode="In" />
+    <Parameter Name="order" Type="varchar" Mode="In" />
+    <Parameter Name="rowscount" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="P_DEF_QueryDefectReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vercode" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_DEF_QueryDefectReportByCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vercode" Type="varchar" Mode="In" />
+    <Parameter Name="code" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_DEF_REP_DefectReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vercode" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_DEF_SetTestJobsDefault" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vercode" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_JOB_DeleteTaskJobs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="sno" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_JOB_ENTERY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="sno" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_JOB_GetUnTrackTask" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="P_JOB_U1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CUSTOMERID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_JOB_UpdateState" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="sno" Type="varchar" Mode="In" />
+    <Parameter Name="state" Type="int" Mode="In" />
+    <Parameter Name="result" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_MIS_CreateMessage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="varchar" Mode="In" />
+    <Parameter Name="message" Type="varchar" Mode="In" />
+    <Parameter Name="sender" Type="varchar" Mode="In" />
+    <Parameter Name="receiver" Type="varchar" Mode="In" />
+    <Parameter Name="receiverTitle" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_MIS_DeleteMessageAllByReceiver" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="receiver" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_MIS_DeleteMessageAllBySender" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="sender" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_MIS_DeleteMessageByReceiver" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="varchar" Mode="In" />
+    <Parameter Name="receiver" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_MIS_DeleteMessageBySender" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_MIS_GetMessage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="user" Type="varchar" Mode="In" />
+    <Parameter Name="pageno" Type="int" Mode="In" />
+    <Parameter Name="rows" Type="int" Mode="In" />
+    <Parameter Name="rowscount" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="P_MIS_GetSenderByReceiver" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="receiver" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_MIS_Info_EduMessage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="InfoId" Type="varchar" Mode="In" />
+    <Parameter Name="Body" Type="text" Mode="In" />
+    <Parameter Name="UserId" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_MIS_Info_GetFavoriteByUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="varchar" Mode="In" />
+    <Parameter Name="WhereSQL" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_MIS_Info_GetICanManage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereSQL" Type="varchar" Mode="In" />
+    <Parameter Name="Rows" Type="int" Mode="In" />
+    <Parameter Name="PageNo" Type="int" Mode="In" />
+    <Parameter Name="RowsCount" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="P_MIS_Info_GetICanRead" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="varchar" Mode="In" />
+    <Parameter Name="WhereSQL" Type="varchar" Mode="In" />
+    <Parameter Name="Rows" Type="int" Mode="In" />
+    <Parameter Name="PageNo" Type="int" Mode="In" />
+    <Parameter Name="RowsCount" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="P_MIS_Info_GetPostInfoByUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="varchar" Mode="In" />
+    <Parameter Name="WhereSQL" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_MIS_SetMessageHasReadById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="receiver" Type="varchar" Mode="In" />
+    <Parameter Name="id" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_MIS_SetMessageHasReadByReceiver" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="receiver" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_MIS_SetMessageHasReadFromSenderToReceiver" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="sender" Type="varchar" Mode="In" />
+    <Parameter Name="receiver" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_QRTZ_GetJobExecuteTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_Sys_ClearUnusedRightOperate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="P_Sys_DeleteSysRoleSysUserByRoleId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="roleId" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_Sys_DeleteSysRoleSysUserByUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userId" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_Sys_GetModule_RoleRight" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="moduleId" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_Sys_GetModule_UserRight" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="moduleId" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_Sys_GetRightByRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="roleId" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_Sys_GetRightByRoleAndModule" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="roleId" Type="varchar" Mode="In" />
+    <Parameter Name="moduleId" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_Sys_GetRightByUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userId" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_Sys_GetRightOperate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userId" Type="varchar" Mode="In" />
+    <Parameter Name="url" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_Sys_GetRoleByUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_Sys_GetUserByRoleId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleId" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_Sys_InsertSysRight" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="P_Sys_UpdateSysRightRightFlag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="moduleId" Type="varchar" Mode="In" />
+    <Parameter Name="roleId" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_Sys_UpdateSysRoleSysUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="roleId" Type="varchar" Mode="In" />
+    <Parameter Name="userId" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="P_WebPart_GetInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Rows" Type="int" Mode="In" />
+    <Parameter Name="UserId" Type="varchar" Mode="In" />
+  </Function>
+</Schema>

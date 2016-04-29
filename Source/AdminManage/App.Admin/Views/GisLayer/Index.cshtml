@@ -1,0 +1,191 @@
+﻿@using App.Admin;
+@using App.Common;
+@using App.Models.Sys;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Index_Layout.cshtml";
+
+    List<permModel> perm = (List<permModel>)ViewBag.Perm;
+    if (perm == null)
+    {
+        perm = new List<permModel>();
+    }
+}
+<div class="mvctool">
+    <input id="txtQuery" type="text" class="searchText" />
+    @Html.ToolButton("btnQuery", "icon-search", "查询", perm, "Query", true)
+    @Html.ToolButton("btnCreate", "icon-add", "新增", perm, "Create", true)
+    @Html.ToolButton("btnEdit", "icon-edit", "编辑", perm, "Edit", true)  
+    @Html.ToolButton("btnDetails", "icon-details", "详细", perm, "Details", true)
+    @Html.ToolButton("btnDelete", "icon-remove", "删除", perm, "Delete", true) 
+    @Html.ToolButton("btnEditXY", "icon-details", "设置范围", perm, "Edit", true)
+    @Html.ToolButton("btnDeleteXY", "icon-details", "清除范围", perm, "Edit", true)
+    @Html.ToolButton("btnSetCols", "icon-details", "设置字段", perm, "Edit", true)
+    @Html.ToolButton("btnSetlayersub", "icon-details", "图层元数据", perm, "Edit", true)
+</div>
+
+<table id="List"></table>
+@*<div id="Pager"></div>*@
+<div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
+@*Jqgrid*@
+<script type="text/javascript">
+
+    //ifram 返回
+    function frameReturnByClose() {
+        $("#modalwindow").window('close');
+    }
+    function frameReturnByReload(flag) {
+        if (flag)
+            $("#List").datagrid('load');
+        else
+            $("#List").datagrid('reload');
+    }
+    function frameReturnByMes(mes) {
+        $.messageBox5s('提示', mes);
+    }
+
+    $(function () {
+        $('#List').datagrid({   
+            url: '/Gislayer/GetList',
+            width: SetGridWidthSub(10),
+            methord: 'post',
+            height: SetGridHeightSub(39),
+            fitColumns: true,
+            sortName: 'LAYERCODE',
+            sortOrder: 'desc',
+            idField: 'ID',
+            pageSize: 10,
+            pageList: [10, 20, 30, 40, 50],
+            pagination: true,
+            striped: true, //奇偶行是否区分
+            singleSelect: true,//单选模式
+            columns: [[
+                { field: 'ID', title: 'ID', width: 5, hidden: true },
+                { field: 'LAYERCODE', title: '英文名称', width: 40 },
+                { field: 'LAYERNAME', title: '中文名称', width: 100 },
+                { field: 'DSOURCE', title: '数据来源', width: 100 },
+                { field: 'LAYERTYPE', title: 'LAYERTYPE', width: 5, hidden: true },
+                { field: 'LAYERTYPE_G', title: '图层类型', width: 40, align: 'center' },
+                { field: 'DATATYPE_G', title: '是否矢量', width: 40, align: 'center' },
+                { field: 'SHPTYPE_G', title: '元素类型', width: 40, align: 'center' },
+                { field: 'SERVICEURL', title: '服务地址', width: 120, align: 'center' },
+                { field: 'SERVICEINDEX', title: '服务序号', width: 30, align: 'center' },
+                 { field: 'VLEVEL', title: '显示级别', width: 30, align: 'center' },
+                { field: 'DataYears', title: '数据年份', width: 30, align: 'center' },
+                { field: 'XMIN_G', title: 'XMin', width: 50, align: 'center' },
+                { field: 'YMIN_G', title: 'YMin', width: 50, align: 'center' },
+                { field: 'XMAX_G', title: 'XMax', width: 50, align: 'center' },
+                { field: 'YMAX_G', title: 'YMax', width: 50, align: 'center' },
+                { field: 'COORSYS_G', title: '坐标系', width: 50, align: 'center' },
+            ]]
+        });
+    });
+
+</script>
+@Html.Partial("~/Views/Shared/_Partial_AutoGrid.cshtml")
+@*operation*@
+<script type="text/javascript">
+      $(function () {
+        $("#btnCreate").click(function () {
+            $("#modalwindow").html("<iframe width='100%' height='100%' scrolling='no' frameborder='0'' src='/Gislayer/Create'></iframe>");
+            $("#modalwindow").window({ title: '新增', width: 700, height: 550, iconCls: 'icon-add' }).window('open');
+        });
+        $("#btnEdit").click(function () {
+            var row = $('#List').datagrid('getSelected');
+            if (row != null) {
+                $("#modalwindow").html("<iframe width='100%' height='99%'  frameborder='0' src='/Gislayer/Edit?id=" + row.ID + "&Ieguid=" + GetGuid() + "'></iframe>");
+                $("#modalwindow").window({ title: '编辑', width: 700, height: 430, iconCls: 'icon-edit' }).window('open');
+            } else { $.messageBox5s('提示', '@Suggestion.PlaseChooseToOperatingRecords'); }
+        });
+          $("#btnEditXY").click(function () {
+              var row = $('#List').datagrid('getSelected');
+              if (row != null) {
+                  var laytype = row.LAYERTYPE;
+                  if (laytype == 0) {
+                      $("#modalwindow").html("<iframe width='100%' height='99%'  frameborder='0' src='/Gislayer/CreateXY?id=" + row.ID + "&Ieguid=" + GetGuid() + "'></iframe>");
+                      $("#modalwindow").window({ title: '编辑', width: 600, height: 400, iconCls: 'icon-edit' }).window('open');
+                  }
+                  else
+                  {
+                      $.messageBox5s('提示', '@Suggestion.PlaseChooseToztRecords');
+                  }
+                  } else { $.messageBox5s('提示', '@Suggestion.PlaseChooseToztRecords'); }
+          });
+
+          $("#btnSetCols").click(function () {
+              var row = $('#List').datagrid('getSelected');
+              if (row != null) {
+                  // var laytype = row.LAYERTYPE;
+                  //if (laytype == 0) {
+                      $("#modalwindow").html("<iframe width='100%' height='99%'  frameborder='0' src='/Gislayer/SetlayerCols?id=" + row.ID + "&Ieguid=" + GetGuid() + "'></iframe>");
+                      $("#modalwindow").window({ title: '字段列表', width: 700, height: 530, iconCls: 'icon-edit' }).window('open');
+                 //}
+                 // else {
+                 //     $.messageBox5s('提示', '@Suggestion.PlaseChooseToztRecords');
+                 //  } 
+              } else { $.messageBox5s('提示', '@Suggestion.PlaseChooseToztRecords'); }
+          });
+          $("#btnSetlayersub").click(function () {
+              var row = $('#List').datagrid('getSelected');
+              if (row != null) {
+                  // var laytype = row.LAYERTYPE;
+                  //if (laytype == 0) {
+                  $("#modalwindow").html("<iframe width='100%' height='99%'  frameborder='0' src='/Gislayer/Setlayersub?id=" + row.ID + "&Ieguid=" + GetGuid() + "'></iframe>");
+                  $("#modalwindow").window({ title: '图层元数据', width: 700, height: 530, iconCls: 'icon-edit' }).window('open');
+                  //}
+                  // else {
+                  //     $.messageBox5s('提示', '@Suggestion.PlaseChooseToztRecords');
+                  //  } 
+              } else { $.messageBox5s('提示', '@Suggestion.PlaseChooseToztRecords'); }
+          });
+          
+          $("#btnDeleteXY").click(function () {
+              var row = $('#List').datagrid('getSelected');
+              if (row != null) {
+                  $.messager.confirm('提示', '@Suggestion.YouWantToDeleteXY', function (r) {
+                      if (r) {
+                          $.post("@Url.Action("DeleteXY")?id=" + row.ID, function (data) {
+                              if (data.type == 1)
+                                  $("#List").datagrid('reload');
+                              $.messageBox5s('提示', data.message);
+                          }, "json");
+
+                      }
+                  });
+              } else { $.messageBox5s('提示', '@Suggestion.PlaseChooseToOperatingRecords'); }
+          });
+        $("#btnDetails").click(function () {
+            var row = $('#List').datagrid('getSelected');
+            if (row != null) {
+                $("#modalwindow").html("<iframe width='100%' height='98%' scrolling='no' frameborder='0' src='/Gislayer/Details?id=" + row.ID + "&Ieguid=" + GetGuid() + "'></iframe>");
+                $("#modalwindow").window({ title: '详细', width: 500, height: 300, iconCls: 'icon-details' }).window('open');
+            } else { $.messageBox5s('提示', '@Suggestion.PlaseChooseToOperatingRecords'); }
+        });
+        $("#btnQuery").click(function () {
+            var queryStr = $("#txtQuery").val();
+            if (queryStr == null) {
+                queryStr = "%";
+            }
+            $('#List').datagrid({
+                url: '@Url.Action("GetList")?queryStr=' + encodeURI(queryStr)
+            });
+
+        });
+        $("#btnDelete").click(function () {
+            var row = $('#List').datagrid('getSelected');
+            if (row != null) {
+                $.messager.confirm('提示', '@Suggestion.YouWantToDeleteTheSelectedRecords', function (r) {
+                    if (r) {
+                        $.post("@Url.Action("Delete")?id=" + row.ID, function (data) {
+	                            if (data.type == 1)
+	                                $("#List").datagrid('load');
+	                            $.messageBox5s('提示', data.message);
+	                        }, "json");
+
+	                    }
+                });
+                } else { $.messageBox5s('提示', '@Suggestion.PlaseChooseToOperatingRecords'); }
+        });
+    });
+</script>

@@ -1,0 +1,15 @@
+D:\Work\HLStudio\trunk\Sources\AdminManage\App.Common\bin\Debug\App.Common.dll.config
+D:\Work\HLStudio\trunk\Sources\AdminManage\App.Common\bin\Debug\App.Common.dll
+D:\Work\HLStudio\trunk\Sources\AdminManage\App.Common\bin\Debug\App.Common.pdb
+D:\Work\HLStudio\trunk\Sources\AdminManage\App.Common\bin\Debug\MySql.Data.dll
+D:\Work\HLStudio\trunk\Sources\AdminManage\App.Common\bin\Debug\MySql.Web.dll
+D:\Work\HLStudio\trunk\Sources\AdminManage\App.Common\obj\Debug\App.Common.dll
+D:\Work\HLStudio\trunk\Sources\AdminManage\App.Common\obj\Debug\App.Common.pdb
+D:\Work\HLStudio\trunk\Sources\AdminManage\App.Common\obj\Debug\App.Common.csprojResolveAssemblyReference.cache
+D:\Gkpeng\zcgl\Source\AdminManage\App.Common\bin\Debug\App.Common.dll.config
+D:\Gkpeng\zcgl\Source\AdminManage\App.Common\bin\Debug\App.Common.dll
+D:\Gkpeng\zcgl\Source\AdminManage\App.Common\bin\Debug\App.Common.pdb
+D:\Gkpeng\zcgl\Source\AdminManage\App.Common\bin\Debug\MySql.Data.dll
+D:\Gkpeng\zcgl\Source\AdminManage\App.Common\bin\Debug\MySql.Web.dll
+D:\Gkpeng\zcgl\Source\AdminManage\App.Common\obj\Debug\App.Common.dll
+D:\Gkpeng\zcgl\Source\AdminManage\App.Common\obj\Debug\App.Common.pdb

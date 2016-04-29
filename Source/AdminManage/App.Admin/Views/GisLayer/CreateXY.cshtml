@@ -1,0 +1,115 @@
+﻿@model Gis.Models.GIS_BASEMAP
+@using App.Common;
+@using App.Models.Sys;
+@using App.Admin;
+@using System.Web.Mvc ;
+@{
+    ViewBag.Title = "创建";
+    Layout = "~/Views/Shared/_Index_LayoutEdit.cshtml";
+    List<permModel> perm = (List<permModel>)ViewBag.Perm;
+    if (perm == null)
+    {
+        perm = new List<permModel>();
+    }
+
+}
+
+<script type="text/javascript">
+    $(function () {
+        $("#btnSave").click(function () {
+            if ($("form").valid()) {
+                $.ajax({
+                    url: "@Url.Action("CreateXY")",
+                type: "Post",
+                data: $("form").serialize(),
+                dataType: "json",
+                success: function (data) {
+                    //debugger;
+                    if (data.type == 1) {
+                        window.parent.frameReturnByMes(data.message);
+                        window.parent.frameReturnByReload(true);
+                        window.parent.frameReturnByClose()
+                    }
+                    else {
+                        window.parent.frameReturnByMes(data.message);
+                    }
+                }
+            });
+        }
+        return false;
+    });
+    $("#btnReturn").click(function () {
+        window.parent.frameReturnByClose();
+    });
+});
+</script>
+<div class="mvctool bgb">
+@Html.ToolButton("btnSave", "icon-save", "保存", perm, "Save", true)
+@Html.ToolButton("btnReturn", "icon-return", "返回",false)
+</div>
+@using (Html.BeginForm())
+{
+             @*@Html.HiddenFor(model => model.ID)*@
+         @Html.HiddenFor(model => model.LayerID)
+            
+ <table class="fromEditTable setTextWidth300">
+    <tbody>
+        <tr>
+            <td style="width:100px; text-align:right;">
+                @Html.LabelFor(model => model.YEAR)：
+            </td>
+            <td style="width:310px">
+                @Html.EditorFor(model => model.YEAR)
+            </td>
+            <td>@Html.ValidationMessageFor(model => model.YEAR)</td>
+        </tr>
+        <tr>
+            <td style="width:100px; text-align:right;">
+                @Html.LabelFor(model => model.XMIN)：
+            </td>
+            <td style="width:310px">
+                @Html.EditorFor(model => model.XMIN)
+            </td>
+            <td>@Html.ValidationMessageFor(model => model.XMIN)</td>
+        </tr>
+     
+        <tr>
+            <td style="width:100px; text-align:right;">
+                @Html.LabelFor(model => model.YMIN)：
+            </td>
+            <td style="width:310px">
+                @Html.EditorFor(model => model.YMIN)
+            </td>
+            <td>@Html.ValidationMessageFor(model => model.YMIN)</td>
+        </tr>
+        <tr>
+            <td style="width:100px; text-align:right;">
+                @Html.LabelFor(model => model.XMAX)：
+            </td>
+            <td style="width:310px">
+                @Html.EditorFor(model => model.XMAX)
+            </td>
+            <td>@Html.ValidationMessageFor(model => model.XMAX)</td>
+        </tr>
+        <tr>
+            <td style="width:100px; text-align:right;">
+                @Html.LabelFor(model => model.YMAX)：
+            </td>
+            <td style="width:310px">
+                @Html.EditorFor(model => model.YMAX)
+            </td>
+            <td>@Html.ValidationMessageFor(model => model.YMAX)</td>
+        </tr>
+        <tr>
+            <td style="width:100px; text-align:right;">
+                @Html.LabelFor(model => model.COORSYS)：
+            </td>
+            <td style="width:310px">
+                @Html.EditorFor(model => model.COORSYS)
+            </td>
+            <td>@Html.ValidationMessageFor(model => model.COORSYS)</td>
+        </tr>
+       
+    </tbody>
+</table>
+}

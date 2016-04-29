@@ -1,0 +1,2 @@
+D:\Work\HLStudio\trunk\Sources\AdminManage\App.GisPortal\obj\Debug\GIS.Portal.csprojResolveAssemblyReference.cache
+D:\Gkpeng\zcgl\Source\AdminManage\App.GisPortal\obj\Debug\GIS.Portal.csprojResolveAssemblyReference.cache

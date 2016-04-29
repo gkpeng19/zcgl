@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+    </style>
+</head>
+<body>
+    <div id="a1" style="position:absolute;top:0;left:0;right:0;bottom:0;"></div>
+    <script type="text/javascript" src="../widget/ckplayer/ckplayer.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        function showVideo(url) {
+            var flashvars = {
+                f: url,
+                c: 0,
+                b: 1
+            };
+            CKobject.embed('../widget/ckplayer/ckplayer.swf', 'a1', 'ckplayer_a1', '100%', '100%', false, flashvars, null);
+        }
+    </script>
+</body>
+</html>

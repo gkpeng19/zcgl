@@ -1,0 +1,556 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset=utf-8 />
+    <title>铁路工务安全检测监测信息系统</title>
+    <meta name=description content="" />
+    <meta name=viewport content="width=device-width,initial-scale=1" />
+    <link href="Styles/main.css" rel="stylesheet" />
+    <link href="Scripts/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script src="Scripts/jquery.cookie.js"></script>
+    <script src="Scripts/jqueryApi.js"></script>
+    <script src="Scripts/layer/layer.js"></script>
+</head>
+<body>
+    <div class="container-fluid container-full">
+        <div class="row header">
+            <div>
+                <div class=logo>
+                    <img src=images/logo2.png style="position:relative;top:35px;" />
+                </div>
+            </div>
+            <div>
+                <div class="sub-menu" style="position:relative;top:20px;">
+                    <div class=user-info> 欢迎您，<a href="#" id="username"></a></div>
+                    <div style="font-size:13px;margin-top:5px;">
+                        <ul class="nav nav-pills">
+                            <li role=presentation>
+                                <a href=# onclick="toHome()"><span class="fa fa-home"></span>主页</a>
+                            </li>
+                            <li role=presentation>
+                                <a href=# onclick="refreshPage()"><span class="fa fa-refresh"></span>刷新</a>
+                            </li>
+                            <li role=presentation><a href=#><span class="fa fa-edit"></span>修改个人信息</a></li>
+                            <li role=presentation><a href="#" onclick="$api.loginOut()"><span class="fa fa-power-off"></span>退出</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row menu">
+            <ul class="nav nav-pills" id="topmenu">
+                <div class=nav-current-time style="font-size: 12px;">
+                    <span class="fa fa-calendar" style="margin-right:5px;"></span>当前时间：<span id=currentTime></span>
+                    <span style="margin-left:15px;"><i class="fa fa-arrow-up arrowTop" style="border:solid 1px white;padding:3px;border-radius:5px;cursor:pointer;"></i></span>
+                </div>
+            </ul>
+        </div>
+        <div class="row content">
+            <div class="pull-left left-content">
+                <div class=slider-box>
+                    <div id=carousel-example-generic class="carousel slide" data-ride=carousel>
+                        <ol class=carousel-indicators>
+                            <li data-target=#carousel-example-generic data-slide-to=0 class=active></li>
+                            <li data-target=#carousel-example-generic data-slide-to=1></li>
+                            <li data-target=#carousel-example-generic data-slide-to=2></li>
+                        </ol>
+                        <div class=carousel-inner role=listbox>
+                            <div class="item active">
+                                <img src="images/place/slide.png" />
+                            </div>
+                            <div class=item> <img src="images/place/slide.png" /> </div>
+                            <div class=item> <img src="images/place/slide.png" /> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=menu-box>
+                    <div class=menu-title>
+                        <span><i class="fa fa-list"></i>功能导航</span>
+                    </div>
+                    <div class=nav-menu-content>
+                        <ul id="leftmenu"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="right-content">
+                <div id="main-content" class="clearfix" style="border: solid 1px #a5cee0;">
+                    <div class="tab" id="tab-content">
+                        <div style="overflow:hidden;position:relative;top:1px;" id="tab-content-labels">
+                            <div style="width:3000px;">
+                            </div>
+                        </div>
+                        <span id="ifm-angle"><i class="fa fa-angle-double-left toLeft" title="向左"></i><i class="fa fa-angle-double-right toRight" title="向右"></i><i class="fa fa-close closeAll" title="关闭所有"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div><div class=footer> <p>北京高铁工务段&nbsp;&nbsp;&nbsp;北京燕宏达铁路设备有限公司研制</p> </div>
+    </div>
+    <script src="Scripts/prompt/Dialog.js"></script>
+    <script type="text/javascript">
+        function getCurrTime() {
+            var a = new Date, b = ""; b = a.getFullYear() + "年" + (a.getMonth() + 1) + "月" + a.getDate() + "日&nbsp;&nbsp;"; var c = ""; switch (a.getDay()) { case 1: c = "星期一"; break; case 2: c = "星期二"; break; case 3: c = "星期三"; break; case 4: c = "星期四"; break; case 5: c = "星期五"; break; case 6: c = "星期六"; break; case 0: c = "星期日" } return b += c
+        }
+
+        $("#currentTime").html(getCurrTime());
+
+        $api.get("api/LoginInfo", {}, function (r) {
+            $("#username").text(r);
+        });
+
+        function initLeftMenus(zmenu) {
+            var leftmenuhtml = "";
+            $(zmenu.children).each(function (cidx) {
+                if (this.children.length == 0) {
+                    var id = this.id;
+                    if (this.link && this.link != '#') {
+                        var pid = getUrlParam("pageid", this.link);
+                        if (pid) {
+                            id = pid;
+                        }
+                    }
+                    leftmenuhtml += '<li class="leftmenuli"><a data-id="' + id + '" href="' + (this.link == "" ? "javascript:void(0)" : this.link) + '"><i class="fa ' + this.icon + '"></i><span>' + this.text + '</span></a></li>';
+                }
+                else {
+                    leftmenuhtml += '<li class="leftmenuli"><a href="javascript:void(0)"><i class="fa ' + this.icon + '"></i><span>' + this.text + '</span></a><ul>';
+                    $(this.children).each(function () {
+                        var id = this.id;
+                        if (this.link && this.link != '#') {
+                            var pid = getUrlParam("pageid", this.link);
+                            if (pid) {
+                                id = pid;
+                            }
+                        }
+                        leftmenuhtml += '<li><a class="leftmenuli2" data-id="' + id + '" href="' + (this.link == "" ? "javascript:void(0)" : this.link) + '"><span class="fa fa-caret-right"></span><span>' + this.text + '</span></a></li>';
+                    });
+                    leftmenuhtml += '</ul></li>';
+                }
+            });
+
+            $("#leftmenu").html(leftmenuhtml);
+            $("#leftmenu li:first").addClass("active");
+            $(".leftmenuli").bind("click", function () {
+                $(".leftmenuli.active").removeClass("active");
+                $(this).addClass("active");
+            });
+
+            //初始化左侧菜单点击事件
+            $("#leftmenu a").each(function () {
+                var link = $(this).attr("href");
+                if (link != "javascript:void(0)") {
+                    $(this).attr("href", "javascript:void(0)");
+                    $(this).attr("data-link", 1);
+                    $(this).bind("click", function () {
+                        var text = $(this).find("span:last").text();
+                        AddNewTab($(this).attr("data-id"), text, link);
+                    });
+                }
+                else {
+                    $(this).addClass("dislink");
+                }
+            });
+
+            $(".leftmenuli2").each(function () {
+                if ($(this).attr("data-link")) {
+                    $(this).parent().parent().prev().removeClass("dislink");
+                }
+            });
+
+            $(".leftmenuli a").bind("click", function () {
+                if ($(this).parent().hasClass("active")) {
+                    var li = $(this).parent();
+                    setTimeout(function () {
+                        li.removeClass("active");
+                    }, 50);
+                }
+            });
+        }
+
+        var menus = null;
+        $api.get("api/AppMenu", { appid: 179, ran: Math.random() }, function (orderNodes) {
+            for (var i = orderNodes.length - 1; i >= 0; --i) {
+                var node = orderNodes[i];
+                if (node.parentid == 0) {
+                    if (node.children.length > 0) {
+                        node.children.reverse();
+                    }
+                    continue;
+                }
+                for (var j = i - 1; j >= 0; --j) {
+                    if (node.parentid == orderNodes[j].id) {
+                        orderNodes[j].children.push(node);
+
+                        if (orderNodes[i].children.length > 0) {
+                            orderNodes[i].children.reverse();
+                        }
+                        orderNodes[i] = null;
+                        break;
+                    }
+                }
+            }
+
+            //orderNodes[0]为铁路公务系统
+            menus = orderNodes[0].children;
+
+            var topmenuhtml = "";
+            $(menus).each(function (idx) {
+                var link = this.children.length == 0 ? (this.link.length == 0 ? "#" : this.link) : "#";
+
+                if (idx == 0) {
+                    topmenuhtml += '<li class="active"><a data-id="' + this.id + '" href="' + link + '" class="linkBtn">' + this.text + '</a></li>';
+                }
+                else {
+                    topmenuhtml += '<li><a data-id="' + this.id + '" href="' + link + '" class="linkBtn">' + this.text + '</a></li>';
+                }
+
+                if (idx == 0) {
+                    initLeftMenus(this);
+                }
+            });
+
+            $(topmenuhtml).insertBefore($("#topmenu div"));
+
+            $(".linkBtn").bind("click", function () {
+                $("#topmenu li.active").removeClass("active");
+                $(this).parent().addClass("active");
+
+                var id = $(this).attr("data-id");
+                $(menus).each(function () {
+                    if (this.id == id) {
+                        initLeftMenus(this);
+                        return;
+                    }
+                });
+            });
+        });
+
+        function initIfmHeight() {
+            var interval = setInterval(function () {
+                var ifmIndex = $("#tab-content input").index($("#tab-content input:checked"));
+                var ifm = $("#tab-content section iframe").eq(ifmIndex)[0];
+                try {
+                    var subWeb = ifm.contentDocument;
+                    if (ifm != null && subWeb != null) {
+                        var subWebHeight = $(subWeb.body).height();
+                        var leftHeight = $(".left-content").height() - 35;
+                        if (subWebHeight < leftHeight) {
+                            subWebHeight = leftHeight;
+                        }
+                        if ($(ifm).height() != subWebHeight) {
+                            $(ifm).height(subWebHeight);
+                            lastHeight = subWebHeight;
+                        }
+                    }
+                }
+                catch (ex) {
+                    clearInterval(interval);
+                    $(ifm).height(1582);
+                }
+            }, 200);
+        }
+        initIfmHeight();
+
+        //右侧选项卡数据
+        var prevTabLabel = null;
+        var rightContents = [];//label,content,link
+        function AddNewTab(pageId, text, link, showClose) {
+            prevTabLabel = getCurrTabLabel();
+
+            var existLabel = null;
+            $(rightContents).each(function () {
+                if (this.link == link) {
+                    existLabel = this.label;
+                    this.label.click();
+                    return;
+                }
+            });
+            if (existLabel) {
+                ScorllToTab(existLabel);
+                return;
+            }
+
+            if (rightContents.length >= 16) {
+                layer.alert("打开选项卡过多，请关闭后再操作！", { icon: 0 });
+                return;
+            }
+
+            var nextTabIndex = 0;
+            while ($("#tab" + nextTabIndex).length > 0) {
+                nextTabIndex += 1;
+            }
+
+            showClose = showClose == false ? false : true;
+
+            var input = $('<input id="tab' + nextTabIndex + '" type="radio" name="tabs" />');
+            var label = $('<label data-pageid="' + pageId + '" for="tab' + nextTabIndex + '">' + text + (showClose == true ? '<i class="fa fa-close"></i>' : '') + '</label>');
+            var content = $('<section id="content' + nextTabIndex + '"><iframe allowfullscreen mozallowfullscreen webkitallowfullscreen class="clearfix" src="' + link + '" frameborder="0" style="padding: 0px; width: 100%;" scrolling="no"></iframe></section>');
+            if (rightContents.length == 0) {
+                $("#tab-content-labels>div").append(label);
+                input.insertBefore($("#tab-content-labels"));
+                $("#tab-content").append(content);
+            }
+            else {
+                $("#tab-content-labels>div").append(label);
+                input.insertBefore($("#tab-content-labels"));
+                content.insertAfter(rightContents[rightContents.length - 1].content);
+            }
+            rightContents.push({ label: label, content: content, link: link });
+
+            label.click();
+
+            ScorllToTab(label);
+
+            initTabClose(label);
+        }
+
+        //右侧选显卡关闭事件
+        function initTabClose(label) {
+            label.find(".fa-close").bind("click", function () {
+                var clabel = getCurrTabLabel();
+
+                var rcontents = [];
+                for (var i = 0; i < rightContents.length; ++i) {
+                    if (rightContents[i].label[0] != label[0]) {
+                        rcontents.push(rightContents[i]);
+                    }
+                }
+                rightContents = rcontents;
+
+                var index = $("#tab-content-labels label").index($(this).parent());
+                var section = $("#tab-content section").eq(index);
+                section.find("iframe").remove();
+                section.remove();
+
+                $("#" + $(this).parent().attr("for")).remove();
+                $(this).parent().remove();
+
+                if (toPrevTab == true) {
+                    if (prevTabLabel) {
+                        prevTabLabel.click();
+                        refreshPage();
+                    }
+                    toPrevTab = false;
+                }
+                else {
+                    if (clabel[0] == $(this).parent()[0]) {
+                        $("#tab-content-labels label:last").click();
+                    }
+                }
+            });
+        }
+
+        function getCurrTabLabel() {
+            var index = $("#tab-content input").index($("#tab-content input:checked"));
+            if (index >= 0) {
+                return $("#tab-content-labels label").eq(index);
+            }
+            return null;
+        }
+
+        function getCurrPageId() {
+            var label = getCurrTabLabel();
+            return label.attr("data-pageid");
+        }
+
+        function getCurrIframe() {
+            var label = getCurrTabLabel();
+
+            var ifm = null;
+            $(rightContents).each(function () {
+                if (this && this.label && this.label[0] == label[0]) {
+                    ifm = this.content.find("iframe")[0];
+                    return;
+                }
+            });
+
+            return ifm;
+        }
+
+        var toPrevTab = false;
+        function closeCurrTab(toPrev) {
+            if (toPrev == true) {
+                toPrevTab = toPrev;
+            }
+
+            var currTabLabel = getCurrTabLabel();
+            if (currTabLabel) {
+                currTabLabel.find(".fa-close").click();
+            }
+        }
+
+        function toHome() {
+            AddNewTab(0, "首  页", "/dist/index.html", false);
+        }
+
+        function refreshPage() {
+            var ifm = getCurrIframe();
+            if (ifm != null) {
+                ifm.contentWindow.location.reload();
+            }
+        }
+
+        var sLeft = 0;
+        $("#ifm-angle .toLeft").bind("click", function () {
+            sLeft += 100;
+            $("#tab-content-labels").animate({
+                scrollLeft: sLeft
+            });
+        });
+        $("#ifm-angle .toRight").bind("click", function () {
+            if (sLeft <= 0) {
+                return;
+            }
+            sLeft -= 100;
+            if (sLeft < 0) {
+                sLeft = 0;
+            }
+            $("#tab-content-labels").animate({
+                scrollLeft: sLeft
+            });
+        });
+        $("#ifm-angle .closeAll").bind("click", function () {
+            $("#tab-content-labels .fa-close").each(function () {
+                this.click();
+            });
+        });
+
+        function ScorllToTab(label) {
+            var width = $("#tab-content-labels").width() - 53;
+            var left = label.offset().left - 255 + $("#tab-content-labels")[0].scrollLeft;
+            var labelWidth = label.width();
+            var toleft = left + labelWidth - width;
+            sLeft = toleft < 0 ? 0 : toleft;
+            $("#tab-content-labels").animate({
+                scrollLeft: sLeft
+            });
+        }
+
+        var isTopHide = false;
+        $(".arrowTop").bind("click", function () {
+            if (!isTopHide) {
+                isTopHide = true;
+                $(".header").hide(100);
+                $(this).removeClass("fa-arrow-up");
+                $(this).addClass("fa-arrow-down");
+            }
+            else {
+                isTopHide = false;
+                $(".header").show(100);
+                $(this).removeClass("fa-arrow-down");
+                $(this).addClass("fa-arrow-up");
+            }
+        });
+
+        toHome();
+
+        function getUrlParam(pname, url) {
+            var pvalue = null;
+
+            var hrefs = url.split('?');
+            if (hrefs.length > 1) {
+                var params = hrefs[1].split('&');
+                $(params).each(function () {
+                    var strs = this.split('=');
+                    if (strs.length > 1) {
+                        if (strs[0] == pname) {
+                            pvalue = strs[1];
+                            return;
+                        }
+                    }
+                });
+            }
+            return pvalue;
+        }
+
+        function PromptMessage(title, message) {
+            var diag = new Dialog("Diag1");
+            diag.Width = 300;
+            diag.Height = 100;
+            if (!title) {
+                title = "系统提示";
+            }
+            diag.Title = title;
+            diag.innerHTML = message;
+            diag.OKEvent = function () { diag.close(); };
+            diag.show();
+            $("#_DialogBGDiv").hide();
+        }
+
+        function SubmitPlan1DayPrompt() {
+            var p1p_count = $.cookie("p1p_count");
+            if (p1p_count >= 2) {
+                return;
+            }
+            $api.get("api/WorkPlan1DayPrompt", { ran: Math.random() }, function (r) {
+                if (r <= 0) {
+                    PromptMessage(null, "<p style='line-height:2em;font-size:18px;'>您的次日作业日计划未提交完毕，请及时提交！</p>");
+                    if (!p1p_count) {
+                        p1p_count = 1;
+                    }
+                    else {
+                        p1p_count += 1;
+                    }
+
+                    $.cookie('p1p_count', p1p_count, { path: '/' });
+                }
+            });
+        }
+
+        function PromptMessageCSPlan(title, message) {
+            var diag = new Dialog("DiagCSPlan");
+            diag.Width = 600;
+            diag.Height = 300;
+            if (!title) {
+                title = "系统提示";
+            }
+            diag.Title = title;
+            diag.innerHTML = message;
+            diag.OKEvent = function () { diag.close(); };
+            diag.show();
+            $('#_Covering_DiagCSPlan').parent().css("overflow-y", "auto");
+            $("#_DialogBGDiv").hide();
+            
+        }
+
+        function SubmitCheckSummaryPlan() {
+
+            var dd = new Date();
+            dd.setDate(dd.getDate() + 1);
+            var y = dd.getFullYear();
+            var m = dd.getMonth() + 1;
+            m = m.toString().length == 1 ? ("0" + m.toString()) : m;
+            var d = dd.getDate();
+            d = d.toString().length == 1 ? ("0" + d.toString()) : d;
+            var sumdate = (y + "-" + m + "-" + d);
+            if (sumdate == $.cookie("sumdate")) {
+                return;
+            }
+            $api.get("api/R_CheckSummaryShopPlanToStation", { CHECKDATE: sumdate }, function (r) {
+                if (r.ID > 0) {
+                    var Msg = "";
+                    for (var i = 0; i < r.result.length; i++) {
+                        Msg = Msg + "<p>检测日期：" + r.result[i].CHECKDATE_G + ";&nbsp;&nbsp;设备编号：" + r.result[i].Collection.MANCHINECODE.Value + ";&nbsp;&nbsp;线路：" + r.result[i].Collection.LINENAME.Value + ";&nbsp;&nbsp;车间：" + r.result[i].Collection.SHOPNAME.Value + ";&nbsp;&nbsp;车次：" + r.result[i].Collection.TRAINNO.Value + ";&nbsp;&nbsp;存在综合检测车计划，计划信息如下：</p><table class='table table-striped table-bordered table-hover'><tr><th>车站</th><th>到点</th><th>发点</th></tr>";
+                        for (var j = 0; j < r.result[i].StationList.length; j++) {
+                            Msg = Msg + "<tr><td>" + (!r.result[i].StationList[j].Collection.STATIONNAME.Value ? '&nbsp;' : r.result[i].StationList[j].Collection.STATIONNAME.Value) + "</td><td>" + (!r.result[i].StationList[j].Collection.ETIME ? '&nbsp;' : r.result[i].StationList[j].Collection.ETIME.Value) + "</td><td>" + (!r.result[i].StationList[j].Collection.BTIME ? '&nbsp;' : r.result[i].StationList[j].Collection.BTIME.Value) + "</td></tr>";
+                        }
+                        Msg = Msg + "</table>";
+                    }
+
+                    PromptMessageCSPlan(null, Msg);
+                    $.cookie('sumdate', sumdate, { path: '/' });
+                }
+            });
+        }
+
+        setInterval(function () {
+            SubmitPlan1DayPrompt();
+        }, 600000);
+
+        SubmitPlan1DayPrompt();
+
+        SubmitCheckSummaryPlan();  //综合检测车计划
+
+    </script>
+    <script src="Scripts/website/plugins.js"></script>
+</body>
+</html>

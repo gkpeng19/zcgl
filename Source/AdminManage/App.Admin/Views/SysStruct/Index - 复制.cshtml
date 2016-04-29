@@ -1,0 +1,119 @@
+﻿@using App.Admin;
+@using App.Common;
+@using App.Models.Sys;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Index_Layout.cshtml";
+    
+    List<permModel> perm = (List<permModel>)ViewBag.Perm;
+    if (perm == null)
+    {
+        perm = new List<permModel>();
+    }
+}
+
+<div class="mvctool">
+
+@Html.ToolButton("btnCreate", "icon-add", "新增", perm,"Create",true)
+@Html.ToolButton("btnDelete", "icon-remove", "删除", perm, "Delete", true)
+</div>
+@Ajax.ActionLink("Create", "Create", null, new AjaxOptions { UpdateTargetId = "modalwindow", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" }, new { id = "CreateAjax", style = "display:none" })
+
+<table id="List"></table>
+<div id="Pager"></div>
+<div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
+@*Jqgrid*@
+<script type="text/javascript">
+    $(function () {
+        $('#List').datagrid({
+            treeGrid: true,
+            treeGridModel: 'adjacency',
+            ExpandColumn: 'Name',
+            url: '/SysStruct/GetList',
+            datatype: "json",
+            colNames: ['', 'ID', '名称', '上级ID', '排序号', '是否启用', '说明', '', '创建时间', ],
+            colModel: [
+                    { name: 'Operate', index: 'Operate', width: 35 },
+					{ name: 'Id', index: 'Id', width: 55, key: true },
+					{ name: 'Name', index: 'Name', width: 55, editable: true },
+					{ name: 'ParentId', index: 'ParentId', width: 55, editable: true },
+					{ name: 'Sort', index: 'Sort', width: 55, editable: true },
+					{ name: 'State', index: 'State', width: 20, editable: true, edittype: 'checkbox', align: 'center', editoptions: { value: "True:False" }, formatter: 'checkbox' },
+                    { name: 'Remark', index: 'Remark', width: 55, editable: true },
+                    { name: 'Higher', index: 'Higher', width: 55, editable: true,hidden:true },
+					{ name: 'CreateTime', index: 'CreateTime', width: 55 },
+   	        ],
+            rowNum: 100000,
+            pager: '#Pager',
+            loadtext: '加载中...',
+            sortname: 'CreateTime',
+            ExpandColClick: true,
+            viewrecords: true,
+            sortorder: "desc", //asc
+            //caption: "JSON Example",
+            autowidth: true,
+            editurl: "/SysStruct/Edit",
+            gridComplete: function () {
+                var ids = jQuery("#List").jqGrid('getDataIDs');
+                for (var i = 0; i < ids.length; i++) {
+                    var id = ids[i];
+                    var be = "<a class=\"icon-edit\"  title=\"编辑\" href='#' onclick=\"jQuery('#List').editRow('" + id + "').setSelection('" + id + "');\"></a>";
+                    var se = "<a class=\"icon-save\"  title=\"保存\" href='#' onclick=\"jQuery('#List').saveRow('" + id + "').setSelection('" + id + "');\"></a>";
+                    var ce = "<a class=\"icon-return\" title=\"取消\" href='#' onclick=\"jQuery('#List').restoreRow('" + id + "').setSelection('" + id + "');\"></a>";
+                    jQuery("#List").jqGrid('setRowData', ids[i], { Operate: be + " " + se + " " + ce });
+                }
+            }
+        });
+        //jQuery("#List").jqGrid('navGrid', '#Pager', { edit: false, add: false, del: false });
+
+        $(window).resize(function () {
+            $("#List").setGridWidth($(window).width() - 12);
+            $("#List").setGridHeight($(window).height() - 92);
+        });
+        //$("#List").setGridHeight($(window).height() - 92);
+    });
+</script>
+
+@*operation*@
+<script type="text/javascript">
+    //ifram 返回
+    function frameReturnByClose() {
+        $("#modalwindow").window('close');
+    }
+    function frameReturnByReload(flag) {
+        if (flag)
+            $("#List").datagrid('load');
+        else
+            $("#List").datagrid('reload');
+    }
+    function frameReturnByMes(mes) {
+        $.messageBox5s('提示',mes);
+    }
+    $(function () {
+        $("#btnCreate").click(function () {
+            var row = $('#List').datagrid('getSelected');
+            if (gsr == "" || gsr == null) {
+                gsr = 0;
+            }
+            $("#modalwindow").html("<iframe width='100%' height='98%' scrolling='no' frameborder='0'' src='/SysStruct/Create?ParentId=" + gsr + "'></iframe>");
+            $("#modalwindow").window({ title: '新增', width: 700, height: 300, iconCls: 'icon-add' }).window('open');
+        });
+        $("#btnDelete").click(function () {
+            var row = $('#List').datagrid('getSelected');
+            if (row != null) {
+                $.messager.confirm('提示', '@Suggestion.YouWantToDeleteTheSelectedRecords', function (r) {
+                    if (r) {
+                        $.post("/SysStruct/Delete?id=" + row.Id, function (data) {
+                            if (data.type == 1)
+                                $("#List").datagrid('load');
+                            $.messageBox5s('提示',data.message);
+                        }, "json");
+
+                    }
+                });
+            } else {$.messageBox5s('提示','@Suggestion.PlaseChooseToOperatingRecords'); }
+        });
+      
+    });
+</script>

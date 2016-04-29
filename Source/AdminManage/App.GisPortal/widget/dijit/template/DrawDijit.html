@@ -1,0 +1,53 @@
+﻿<div class='jz-locate-dialog-pane' style="width:300px;">
+    <div data-dojo-attach-point='titleBar' class='jz-titlebar'>
+        <span data-dojo-attach-point='titleNode' class='jz-locate-dialog-title'>地图编辑</span>
+    </div>
+    <div class="jz-tab">
+        <ul class="jz-tab-nav clearfix">
+            <li data-dojo-attach-point="jzBasic" data-dojo-attach-event="ondijitclick:onBasicShow" class="active"><a>标注信息</a></li>
+            <li data-dojo-attach-point="jzDetail" data-dojo-attach-event="ondijitclick:onDetailShow"><a data-dojo-attach-point="jzAddLength">已标注</a></li>
+        </ul>
+        <div class="jz-tab-content">
+            <div class="jz-tab-pane jz-tab-show" data-dojo-attach-point="jzTabBasic">
+                <div data-dojo-attach-point="jzDrawTool" class="jz-info" style="text-align:center;">
+                    <select data-dojo-attach-point="jzOptions" class="form-control" style="vertical-align:middle;">
+                    </select>
+                    <button data-dojo-attach-event="ondijitclick:onStartDraw" data-dojo-attach-point="jzStartDraw" class="btn btn-default" style="vertical-align:middle;">开始编辑</button>
+                </div>
+                <div class="jz-info">
+                    <label>业务编码：</label>
+                    <input data-dojo-attach-point="jzObjCode" type="text" class="form-control" />
+                </div>
+                <div class="jz-info">
+                    <label>项目名称：</label>
+                    <input data-dojo-attach-point="jzObjName" type="text" class="form-control" />
+                </div>
+                <div class="jz-info">
+                    <label>业务年份：</label>
+                    <input data-dojo-attach-point="jzObjYear" type="text" class="form-control" />
+                </div>
+                <div class="jz-info">
+                    <label>项目面积：</label>
+                    <input data-dojo-attach-point="jzObjArea" type="text" class="form-control" />
+                </div>
+                <div class="jz-info">
+                    <label>规&nbsp;划&nbsp;图：</label>
+                    <input data-dojo-attach-point="jzObjPic" type="text" class="form-control" />
+                </div>
+                <div data-dojo-attach-point="jzAddNewFeature" class="jz-info" style="text-align:center;margin-bottom:10px;">
+                    <button style="margin-right:20px;" data-dojo-attach-event="ondijitclick:onAddFeature" disabled data-dojo-attach-point="jzBtnOK" class="btn btn-default">确定</button>
+                    <button data-dojo-attach-event="ondijitclick:onCancelFeature" disabled data-dojo-attach-point="jzBtnCancel" class="btn btn-default">取消</button>
+                </div>
+                <div data-dojo-attach-point="jzUpdateExistFeature" class="jz-info" style="text-align:center;margin-bottom:10px;display:none;">
+                    <button style="width:70px" data-dojo-attach-event="ondijitclick:onUpdateFeature" data-dojo-attach-point="jzBtnUpdate" class="btn btn-default">更新</button>
+                    <button style="width:70px" data-dojo-attach-event="ondijitclick:onDeleteFeature" data-dojo-attach-point="jzBtnDelete" class="btn btn-default">删除</button>
+                    <button style="width:70px" data-dojo-attach-event="ondijitclick:onCancelEditFeature" data-dojo-attach-point="jzBtnCancelEdit" class="btn btn-default">取消</button>
+                </div>
+            </div>
+            <div class="jz-tab-pane" data-dojo-attach-point="jzTabDetail" style="padding-bottom:10px;">
+                <div data-dojo-attach-point="jzFeatureGrid" class="jz-grid" style="min-height:250px;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

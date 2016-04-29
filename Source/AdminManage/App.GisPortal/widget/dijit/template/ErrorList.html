@@ -1,0 +1,23 @@
+﻿<div class='jz-errorlist-dialog-pane'>
+    <div data-dojo-attach-point='titleBar' class='jz-titlebar'>
+        <span data-dojo-attach-point='titleNode' class='jz-errorlist-dialog-title'></span>
+        <span data-dojo-attach-point='closeButtonNode' class='jz-close-button'
+              data-dojo-attach-event='ondijitclick: onCancel' title='关闭'>
+            <span data-dojo-attach-point='closeText' class='closeText' title='关闭'>X</span>
+        </span>
+    </div>
+    <div data-dojo-attach-point='containerNode' class='jz-errorlist-dialog-content' style="padding:10px;max-height:400px;overflow-y:auto;">
+        <div style="text-align:center;padding-bottom:5px;">
+            <input type="radio" name="errorStatus" checked="checked" data-dojo-attach-point="cbk_no" data-dojo-attach-event="ondijitclick: onSelectedNo" id="rone" />
+            <label for="rone">未处理</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="errorStatus" data-dojo-attach-event="ondijitclick:onSelectedYes" id="rtwo" />
+            <label for="rtwo">已处理</label>
+        </div>
+        <table data-dojo-attach-point="tbl_errorlist" class="table table-bordered table-striped">
+            <thead>
+                <tr><th>图层名称</th><th>元素名称</th><th style="width:150px;">错误描述</th><th>提交人</th><th>提交日期</th><th>操作</th></tr>
+            </thead>
+        </table>
+    </div>
+</div>

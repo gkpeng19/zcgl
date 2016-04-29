@@ -1,0 +1,20 @@
+2016-03-29 15:30:55,678 [8](d:\Work\HLStudio\trunk\Sources\MyFramework\G.Simple.Api\App_Start\Startup.Auth.cs:98) FATAL G.Simple.Api.BaseOAuthorizationServerProvider [(null)] - 用户登录发生错误！
+Oracle.DataAccess.Client.OracleException ORA-12170: TNS: 连接超时    在 Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck)
+   在 Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, Object src)
+   在 Oracle.DataAccess.Client.OracleConnection.Open()
+   在 GOMFrameWork.DBContext.DBProvider.OpenConn() 位置 d:\Work\HLStudio\trunk\Sources\MyFramework\GOMFrameWork\DBContext\DBProvider.cs:行号 23
+   在 GOMFrameWork.DBContext.OracleProvider.ExcuteProc(String procName, DbParameter[] parameters) 位置 d:\Work\HLStudio\trunk\Sources\MyFramework\GOMFrameWork\DBContext\DBProvider.cs:行号 173
+   在 GOMFrameWork.DBContext.EntityProvider.ExcuteProcResult[T](ProcEntity entity) 位置 d:\Work\HLStudio\trunk\Sources\MyFramework\GOMFrameWork\DBContext\EntityProvider.cs:行号 164
+   在 GOMFrameWork.DataEntity.ProcEntity.Execute[T]() 位置 d:\Work\HLStudio\trunk\Sources\MyFramework\GOMFrameWork\DataEntity\SearchEntity.cs:行号 412
+   在 G.Simple.Api.Biz.LoginIn.Login(String username, String password, String clientIp, String clientName, Int32 nametype, Int32 port) 位置 d:\Work\HLStudio\trunk\Sources\MyFramework\G.Simple.Api\Biz\LoginIn.cs:行号 30
+   在 G.Simple.Api.BaseOAuthorizationServerProvider.GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context) 位置 d:\Work\HLStudio\trunk\Sources\MyFramework\G.Simple.Api\App_Start\Startup.Auth.cs:行号 93
+2016-03-29 15:31:16,798 [10](d:\Work\HLStudio\trunk\Sources\MyFramework\G.Simple.Api\App_Start\Startup.Auth.cs:98) FATAL G.Simple.Api.BaseOAuthorizationServerProvider [(null)] - 用户登录发生错误！
+Oracle.DataAccess.Client.OracleException ORA-12170: TNS: 连接超时    在 Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck)
+   在 Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, Object src)
+   在 Oracle.DataAccess.Client.OracleConnection.Open()
+   在 GOMFrameWork.DBContext.DBProvider.OpenConn() 位置 d:\Work\HLStudio\trunk\Sources\MyFramework\GOMFrameWork\DBContext\DBProvider.cs:行号 23
+   在 GOMFrameWork.DBContext.OracleProvider.ExcuteProc(String procName, DbParameter[] parameters) 位置 d:\Work\HLStudio\trunk\Sources\MyFramework\GOMFrameWork\DBContext\DBProvider.cs:行号 173
+   在 GOMFrameWork.DBContext.EntityProvider.ExcuteProcResult[T](ProcEntity entity) 位置 d:\Work\HLStudio\trunk\Sources\MyFramework\GOMFrameWork\DBContext\EntityProvider.cs:行号 164
+   在 GOMFrameWork.DataEntity.ProcEntity.Execute[T]() 位置 d:\Work\HLStudio\trunk\Sources\MyFramework\GOMFrameWork\DataEntity\SearchEntity.cs:行号 412
+   在 G.Simple.Api.Biz.LoginIn.Login(String username, String password, String clientIp, String clientName, Int32 nametype, Int32 port) 位置 d:\Work\HLStudio\trunk\Sources\MyFramework\G.Simple.Api\Biz\LoginIn.cs:行号 30
+   在 G.Simple.Api.BaseOAuthorizationServerProvider.GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context) 位置 d:\Work\HLStudio\trunk\Sources\MyFramework\G.Simple.Api\App_Start\Startup.Auth.cs:行号 93

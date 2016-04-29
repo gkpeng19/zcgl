@@ -1,0 +1,189 @@
+﻿@using App.Admin;
+@using App.Common;
+@using App.Models.Sys;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Index_Layout.cshtml";
+
+    List<permModel> perm = (List<permModel>)ViewBag.Perm;
+    if (perm == null)
+    {
+        perm = new List<permModel>();
+    }
+}
+
+<table id="List"></table>
+<script type="text/javascript">
+    var editRow = undefined;
+    function MoveUp() {
+        var row = $("#List").datagrid('getSelected');
+        var index = $("#List").datagrid('getRowIndex', row);
+        mysort(index, 'up', 'colsList');
+    }
+    //下移
+    function MoveDown() {
+        var row = $("#List").datagrid('getSelected');
+        var index = $("#List").datagrid('getRowIndex', row);
+        mysort(index, 'down', 'colsList');
+    }
+
+    function mysort(index, type, gridname) {
+        if ("up" == type) {
+            if (index != 0) {
+                var toup = $('#' + gridname).datagrid('getData').rows[index];
+                var todown = $('#' + gridname).datagrid('getData').rows[index - 1];
+                $('#' + gridname).datagrid('getData').rows[index] = todown;
+                $('#' + gridname).datagrid('getData').rows[index - 1] = toup;
+                $('#' + gridname).datagrid('refreshRow', index);
+                $('#' + gridname).datagrid('refreshRow', index - 1);
+                $('#' + gridname).datagrid('selectRow', index - 1);
+            }
+        } else if ("down" == type) {
+            var rows = $('#' + gridname).datagrid('getRows').length;
+            if (index != rows - 1) {
+                var todown = $('#' + gridname).datagrid('getData').rows[index];
+                var toup = $('#' + gridname).datagrid('getData').rows[index + 1];
+                $('#' + gridname).datagrid('getData').rows[index + 1] = todown;
+                $('#' + gridname).datagrid('getData').rows[index] = toup;
+                $('#' + gridname).datagrid('refreshRow', index);
+                $('#' + gridname).datagrid('refreshRow', index + 1);
+                $('#' + gridname).datagrid('selectRow', index + 1);
+            }
+        }
+    }
+
+    $(function () {
+        $("#List").datagrid({
+            // width: SetGridWidthSub(20),
+            methord: 'post',
+            // height: SetGridHeightSub(29),
+            title: '',
+            collapsible: true,
+            singleSelect: true,
+            pageSize: 10,
+            pageList: [10, 20, 30, 40, 50],
+            pagination: true,
+            striped: true, //奇偶行是否区分
+            url: '/GisLayer/getlayerSubList?id=@(ViewBag.LayerID)' ,
+            idField: 'ID',
+            columns: [[
+                { field: 'ID', title: 'ID', width: 100 },
+                //{ field: 'COLCODE', title: '字段名', width: 100, editor: { type: 'text', options: { required: true } } },
+                { field: 'PROPNAME', title: '数据元名', width: 100, sortable: true },
+                { field: 'PROPVALUE', title: '数据元值', width: 100, align: 'center', sortable: true, editor: { type: 'text', options: { required: true } } },
+                {
+                    field: 'ISVISIBLE', title: '是否可见', width: 100, align: 'center',sortable: true, formatter: function (value) {
+                    if (value) {
+                        return "是";
+                    } else {
+                        return "否";
+                    }
+                }, editor: { type: 'checkbox', options: { on: '1', off: '0' } }
+                },
+                { field: 'ODERNUM', title: '显示顺序', width: 80, align: 'center', editor: { type: 'numberbox', options: { required: true } } },
+            ]],
+            toolbar: [
+            //    {
+            //    text: '添加', iconCls: 'icon-add', handler: function () {
+            //        if (editRow != undefined) {
+            //            $("#List").datagrid('endEdit', editRow);
+            //        }
+            //        if (editRow == undefined) {
+            //            $("#List").datagrid('insertRow', {
+            //                index: 0,
+            //                row: {}
+            //            });
+            //            $("#List").datagrid('beginEdit', 0);
+            //            editRow = 0;
+            //        }
+            //    }
+
+            //}, '-',
+            {
+                text: '保存', iconCls: 'icon-save', handler: function () {
+                    $("#List").datagrid('endEdit', editRow);
+                    //如果调用acceptChanges(),使用getChanges()则获取不到编辑和新增的数据。
+                    //使用JSON序列化datarow对象，发送到后台。
+                    var rows = $("#List").datagrid('getChanges');
+                    var rowstr = JSON.stringify(rows);
+                    $.post('/GisLayer/SavelayerSubList', rowstr, function (data) {
+                        $("#List").datagrid('load');
+                        $.messageBox5s('提示', data.message);
+                    });
+                }
+            }, '-', {
+                text: '撤销', iconCls: 'icon-redo', handler: function () {
+                    editRow = undefined;
+                    $("#List").datagrid('rejectChanges');
+                    $("#List").datagrid('unselectAll');
+                }
+            }
+            //, '-', {
+            //    text: '删除', iconCls: 'icon-remove', handler: function () {
+            //        var row = $("#List").datagrid('getSelections');
+            //    }
+
+            //}
+            , '-', {
+                text: '修改', iconCls: 'icon-edit', handler: function () {
+                    var row = $("#List").datagrid('getSelected');
+                    if (row != null) {
+                        if (editRow != undefined) {
+                            $("#List").datagrid('endEdit', editRow);
+                            editRow = null;
+                        }
+                        if (editRow == undefined) {
+                            var index = $("#List").datagrid('getRowIndex', row);
+                            $("#List").datagrid('beginEdit', index);
+                            editRow = index;
+                            $("#List").datagrid('unselectAll');
+                        }
+                    } else {
+                    }
+                }
+            }, '-', {
+                text: '上移', iconCls: 'icon-up', handler: function () {
+                    MoveUp();
+                }
+            }, '-', {
+                text: '下移', iconCls: 'icon-down', handler: function () {
+                    MoveDown();
+                }
+            }],
+            onAfterEdit: function (rowIndex, rowData, changes) {
+                editRow = undefined;
+            },
+            onDblClickRow: function (rowIndex, rowData) {
+                if (editRow != undefined) {
+                    $("#List").datagrid('endEdit', editRow);
+                }
+                if (editRow == undefined) {
+                    $("#List").datagrid('beginEdit', rowIndex);
+                    editRow = rowIndex;
+                }
+            },
+            onClickRow: function (rowIndex, rowData) {
+                if (editRow != undefined) {
+                    $("#List").datagrid('endEdit', editRow);
+                }
+            }
+        });
+
+    });
+    $(function () {
+        $(window).resize(function () {
+            $('#List').datagrid('resize', {
+                width: $(window).width() - 10,
+                height: SetGridHeightSub(19)
+            }).datagrid('resize', {
+                width: $(window).width() - 10,
+                height: SetGridHeightSub(19)
+            });
+        });
+
+    });
+</script>
+
+@Html.Partial("~/Views/Shared/_Partial_AutoGrid.cshtml")
+

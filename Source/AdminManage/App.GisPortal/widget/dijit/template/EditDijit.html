@@ -1,0 +1,19 @@
+﻿<div class='jz-locate-dialog-pane'>
+    <div data-dojo-attach-point='titleBar' class='jz-titlebar'>
+        <span data-dojo-attach-point='titleNode' class='jz-locate-dialog-title'>地图定位</span>
+    </div>
+    <div class="jz-edit-tab" style="">
+        <h5 style="text-align: center; color: #0099CC">属性信息修改</h5>
+        <div class="jz-tab-content">
+            <div class="jz-info" style="position:absolute;top:40px;bottom:40px;left:0;right:0;">
+                <div data-dojo-attach-point="jzFeatureGrid" class="jz-grid" style="position:absolute;top:0;bottom:0;left:0;right:0;">
+                </div>
+            </div>
+            <div class="jz-info" style="position:absolute;bottom:0px;left:0;right:0;text-align:center;">
+                <!--<button style="margin-right:20px;" data-dojo-attach-event="ondijitclick:onAttachManage" data-dojo-attach-point="jzBtnManageFile" class="btn btn-default">附件管理</button>-->
+                <button style="margin-right:20px;" data-dojo-attach-event="ondijitclick:onUpdateFeature" data-dojo-attach-point="jzBtnUpdate" class="btn btn-default">更新</button>
+                <button data-dojo-attach-event="ondijitclick:onDeleteFeature" data-dojo-attach-point="jzBtnDelete" class="btn btn-default">删除</button>
+            </div>
+        </div>
+    </div>
+</div>

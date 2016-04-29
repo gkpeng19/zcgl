@@ -1,0 +1,16 @@
+D:\Work\HLStudio\trunk\Sources\AdminManage\E9.Server.Util\bin\Debug\NM.Server.Util.dll.config
+D:\Work\HLStudio\trunk\Sources\AdminManage\E9.Server.Util\bin\Debug\NM.Server.Util.dll
+D:\Work\HLStudio\trunk\Sources\AdminManage\E9.Server.Util\bin\Debug\NM.Server.Util.pdb
+D:\Work\HLStudio\trunk\Sources\AdminManage\E9.Server.Util\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\Work\HLStudio\trunk\Sources\AdminManage\E9.Server.Util\bin\Debug\Oracle.DataAccess.dll
+D:\Work\HLStudio\trunk\Sources\AdminManage\E9.Server.Util\obj\Debug\NM.Server.Util.dll
+D:\Work\HLStudio\trunk\Sources\AdminManage\E9.Server.Util\obj\Debug\NM.Server.Util.pdb
+D:\Work\HLStudio\trunk\Sources\AdminManage\E9.Server.Util\obj\Debug\NM.Server.Util.csprojResolveAssemblyReference.cache
+D:\Gkpeng\zcgl\Source\AdminManage\E9.Server.Util\bin\Debug\NM.Server.Util.dll.config
+D:\Gkpeng\zcgl\Source\AdminManage\E9.Server.Util\bin\Debug\NM.Server.Util.dll
+D:\Gkpeng\zcgl\Source\AdminManage\E9.Server.Util\bin\Debug\NM.Server.Util.pdb
+D:\Gkpeng\zcgl\Source\AdminManage\E9.Server.Util\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\Gkpeng\zcgl\Source\AdminManage\E9.Server.Util\bin\Debug\Oracle.DataAccess.dll
+D:\Gkpeng\zcgl\Source\AdminManage\E9.Server.Util\obj\Debug\NM.Server.Util.csprojResolveAssemblyReference.cache
+D:\Gkpeng\zcgl\Source\AdminManage\E9.Server.Util\obj\Debug\NM.Server.Util.dll
+D:\Gkpeng\zcgl\Source\AdminManage\E9.Server.Util\obj\Debug\NM.Server.Util.pdb

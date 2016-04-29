@@ -1,0 +1,62 @@
+﻿<div class="jz-tab">
+    <ul class="jz-tab-nav clearfix">
+        <li data-dojo-attach-point="jzBasic" data-dojo-attach-event="ondijitclick:onBasicShow" class="active"><a>基本信息</a></li>
+        <li data-dojo-attach-point="jzDetail" data-dojo-attach-event="ondijitclick:onDetailShow"><a>详细信息</a></li>
+        <li data-dojo-attach-point="jzFeature" data-dojo-attach-event="ondijitclick:onFeatureShow"><a>附件管理</a></li>
+    </ul>
+    <div class="jz-tab-content">
+        <div class="jz-tab-pane jz-tab-show" data-dojo-attach-point="jzTabBasic">
+            <div class="jz-info">
+                <p>编码：<span data-dojo-attach-point="jzObjCode"></span></p>
+            </div>
+            <div class="jz-info">
+                <p>名称：<span data-dojo-attach-point="jzObjName"></span></p>
+            </div>
+            <div class="jz-info jz-info-last" style="margin-top:50px;">
+                <button data-dojo-attach-point="jzSubmitError" class="btn btn-default" data-dojo-attach-event="ondijitclick:onSubmitError">纠错</button>
+                <button data-dojo-attach-point="jzFeatureEdit" class="btn btn-default" data-dojo-attach-event="ondijitclick:onEditFeature">编辑</button>
+                <!--<button data-dojo-attach-point="jzAttachMents" style="width:70px;" class="btn btn-default" data-dojo-attach-event="ondijitclick:onManageAttach">附件管理</button>-->
+                <button data-dojo-attach-point="jzSliderShow" class="btn btn-default" data-dojo-attach-event="ondijitclick:onShowSlider">图片</button>
+                <button data-dojo-attach-point="jzVideoBtn" class="btn btn-default" data-dojo-attach-event="ondijitclick:onShowVideo">视频</button>
+            </div>
+        </div>
+        <div class="jz-tab-pane" data-dojo-attach-point="jzTabDetail">
+            <div data-dojo-attach-point="jzFeatureGrid" class="jz-grid"></div>
+        </div>
+        <div class="jz-tab-pane" data-dojo-attach-point="jzTabFeature">
+            <p style="color:#F00;text-align:center;">注意:只能上传.mp4，.flv格式的视频</p>
+            <!-- 文件名，类型、操作 -->
+            <div class="jz-listview">
+                <div class="title">
+                    <div class="item clearfix">
+                        <!-- 第一列 -->
+                        <div class="col c1" style="width: 40%">
+                            文件名
+                        </div>
+                        <div class="col" style="width: 29%;">
+                            类型
+                        </div>
+                        <div class="col" style="width: 29%;border-right:none;">
+                            操作
+                        </div>
+                    </div>
+                </div>
+                <div class="list" data-dojo-attach-point='jzAttachList'>
+
+                </div>
+            </div>
+
+            <div data-dojo-attach-point="jzAttachDialogTools" class='jz-attach-dialog-tools'>
+                <!--<input type="file" style="width:100%;height:100%;position:relative;visibility:hidden" />-->
+                <i id='jzUploadFiles'></i>
+                <!--<button class="btn btn-default" style="font-size: 13px">开始上传</button>-->
+            </div>
+            <!--<div class="jz-info">
+                <p>要素长度：<span data-dojo-attach-point="jzObjLength"></span></p>
+            </div>
+            <div class="jz-info">
+                <p>要素面积：<span data-dojo-attach-point="jzObjArea"></span></p>
+            </div>-->
+        </div>
+    </div>
+</div>

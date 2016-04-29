@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C596D223-60C5-4116-A468-7E6ADB854FC4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>G.Zc</RootNamespace>
+    <AssemblyName>G.Zc</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="G.Util">
+      <HintPath>..\packages\GOMFramework\G.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="GOMFrameWork">
+      <HintPath>..\packages\GOMFramework\GOMFrameWork.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\error.png" />
+    <Content Include="Images\login\logo-logo1.png" />
+    <Content Include="Images\login\logo-logo2.png" />
+    <Content Include="Images\logo1.png" />
+    <Content Include="Images\logo2.png" />
+    <Content Include="Images\print_header.png" />
+    <Content Include="Scripts\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Scripts\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Scripts\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Scripts\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Scripts\colorpicker\less\colorpicker.less" />
+    <Content Include="Scripts\DateFormat.js" />
+    <Content Include="Scripts\fixTable.js" />
+    <Content Include="Scripts\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Scripts\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Scripts\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Scripts\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Scripts\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Scripts\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Scripts\font-awesome\less\animated.less" />
+    <Content Include="Scripts\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Scripts\font-awesome\less\core.less" />
+    <Content Include="Scripts\font-awesome\less\fixed-width.less" />
+    <Content Include="Scripts\font-awesome\less\font-awesome.less" />
+    <Content Include="Scripts\font-awesome\less\icons.less" />
+    <Content Include="Scripts\font-awesome\less\larger.less" />
+    <Content Include="Scripts\font-awesome\less\list.less" />
+    <Content Include="Scripts\font-awesome\less\mixins.less" />
+    <Content Include="Scripts\font-awesome\less\path.less" />
+    <Content Include="Scripts\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Scripts\font-awesome\less\stacked.less" />
+    <Content Include="Scripts\font-awesome\less\variables.less" />
+    <Content Include="Scripts\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Scripts\font-awesome\scss\_animated.scss" />
+    <Content Include="Scripts\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Scripts\font-awesome\scss\_core.scss" />
+    <Content Include="Scripts\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Scripts\font-awesome\scss\_icons.scss" />
+    <Content Include="Scripts\font-awesome\scss\_larger.scss" />
+    <Content Include="Scripts\font-awesome\scss\_list.scss" />
+    <Content Include="Scripts\font-awesome\scss\_mixins.scss" />
+    <Content Include="Scripts\font-awesome\scss\_path.scss" />
+    <Content Include="Scripts\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Scripts\font-awesome\scss\_stacked.scss" />
+    <Content Include="Scripts\font-awesome\scss\_variables.scss" />
+    <Content Include="Scripts\GMUI.js" />
+    <Content Include="Scripts\layer\layer_bak.js" />
+    <Content Include="Scripts\prompt\Dialog.js" />
+    <Content Include="Scripts\prompt\images\dialog_bg.jpg" />
+    <Content Include="Scripts\prompt\images\dialog_cb.png" />
+    <Content Include="Scripts\prompt\images\dialog_closebtn.gif" />
+    <Content Include="Scripts\prompt\images\dialog_closebtn.png" />
+    <Content Include="Scripts\prompt\images\dialog_closebtn_over.gif" />
+    <Content Include="Scripts\prompt\images\dialog_closebtn_over.png" />
+    <Content Include="Scripts\prompt\images\dialog_ct.png" />
+    <Content Include="Scripts\prompt\images\dialog_footercenter.png" />
+    <Content Include="Scripts\prompt\images\dialog_footerleft.png" />
+    <Content Include="Scripts\prompt\images\dialog_footerright.png" />
+    <Content Include="Scripts\prompt\images\dialog_lb.png" />
+    <Content Include="Scripts\prompt\images\dialog_lt.png" />
+    <Content Include="Scripts\prompt\images\dialog_mc.gif" />
+    <Content Include="Scripts\prompt\images\dialog_mc.png" />
+    <Content Include="Scripts\prompt\images\dialog_mlb.png" />
+    <Content Include="Scripts\prompt\images\dialog_mlm.png" />
+    <Content Include="Scripts\prompt\images\dialog_mlt.png" />
+    <Content Include="Scripts\prompt\images\dialog_mrb.png" />
+    <Content Include="Scripts\prompt\images\dialog_mrm.png" />
+    <Content Include="Scripts\prompt\images\dialog_mrt.png" />
+    <Content Include="Scripts\prompt\images\dialog_rb.png" />
+    <Content Include="Scripts\prompt\images\dialog_rt.png" />
+    <Content Include="Scripts\prompt\images\icon_alert.gif" />
+    <Content Include="Scripts\prompt\images\icon_dialog.gif" />
+    <Content Include="Scripts\prompt\images\icon_query.gif" />
+    <Content Include="Scripts\prompt\images\window.gif" />
+    <Content Include="Scripts\umeditor\net\fileUp.ashx" />
+    <Content Include="Scripts\umeditor\net\fileUpProgress.ashx" />
+    <Content Include="Scripts\umeditor\net\getContent.ashx" />
+    <Content Include="Scripts\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneral-webfont.eot" />
+    <Content Include="Scripts\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneral-webfont.svg" />
+    <Content Include="Scripts\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneral-webfont.ttf" />
+    <Content Include="Scripts\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneral-webfont.woff" />
+    <Content Include="Scripts\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbol-webfont.eot" />
+    <Content Include="Scripts\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbol-webfont.svg" />
+    <Content Include="Scripts\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbol-webfont.ttf" />
+    <Content Include="Scripts\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbol-webfont.woff" />
+    <Content Include="Scripts\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbolita-webfont.eot" />
+    <Content Include="Scripts\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbolita-webfont.svg" />
+    <Content Include="Scripts\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbolita-webfont.ttf" />
+    <Content Include="Scripts\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbolita-webfont.woff" />
+    <Content Include="Scripts\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralitalic-webfont.eot" />
+    <Content Include="Scripts\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralitalic-webfont.svg" />
+    <Content Include="Scripts\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralitalic-webfont.ttf" />
+    <Content Include="Scripts\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralitalic-webfont.woff" />
+    <Content Include="Scripts\umeditor\third-party\mathquill\font\Symbola.eot" />
+    <Content Include="Scripts\umeditor\third-party\mathquill\font\Symbola.otf" />
+    <Content Include="Scripts\umeditor\third-party\mathquill\font\Symbola.svg" />
+    <Content Include="Scripts\umeditor\third-party\mathquill\font\Symbola.ttf" />
+    <Content Include="Scripts\umeditor\third-party\mathquill\font\Symbola.woff" />
+    <Content Include="Scripts\validate\_cmd.bat" />
+    <Content Include="Scripts\validate\_run.bat" />
+    <None Include="Properties\PublishProfiles\G.Simple.pubxml" />
+    <Content Include="Scripts\prompt\images\Thumbs.db" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\banner.png" />
+    <Content Include="Images\chart\refresh.png" />
+    <Content Include="Images\chart\settings.png" />
+    <Content Include="Images\left-nav\class.png" />
+    <Content Include="Images\left-nav\close.png" />
+    <Content Include="Images\left-nav\dtjcjh.png" />
+    <Content Include="Images\left-nav\dtjcsj.png" />
+    <Content Include="Images\left-nav\dtsjsb.png" />
+    <Content Include="Images\left-nav\jczlgl.png" />
+    <Content Include="Images\left-nav\jtjcsj.png" />
+    <Content Include="Images\left-nav\open.png" />
+    <Content Include="Images\left-nav\qxmhgl.png" />
+    <Content Include="Images\left-nav\title-bg.png" />
+    <Content Include="Images\login\auth.png" />
+    <Content Include="Images\login\login-logo.png" />
+    <Content Include="Images\login\login.png" />
+    <Content Include="Images\login\password.png" />
+    <Content Include="Images\login\username.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\map\chenjiang.png" />
+    <Content Include="Images\map\clip.png" />
+    <Content Include="Images\map\fangzai.png" />
+    <Content Include="Images\map\fullscreen.png" />
+    <Content Include="Images\map\lukuang.png" />
+    <Content Include="Images\map\measure.png" />
+    <Content Include="Images\map\menjin.png" />
+    <Content Include="Images\map\satelite.png" />
+    <Content Include="Images\map\shigong.png" />
+    <Content Include="Images\map\spin.png" />
+    <Content Include="Images\map\video.png" />
+    <Content Include="Images\map\weiyi.png" />
+    <Content Include="Images\menu.png" />
+    <Content Include="Images\place\slide.png" />
+    <Content Include="Images\place\slider.png" />
+    <Content Include="Login.html" />
+    <Content Include="main.html" />
+    <Content Include="Scripts\ace\ace-elements.min.js" />
+    <Content Include="Scripts\ace\ace.min.js" />
+    <Content Include="Scripts\ace\css\ace-responsive.min.css" />
+    <Content Include="Scripts\ace\css\ace-skins.min.css" />
+    <Content Include="Scripts\ace\css\ace.min.css" />
+    <Content Include="Scripts\bootstrap\bootstrap-datepicker.css" />
+    <Content Include="Scripts\bootstrap\bootstrap-datepicker.min.js" />
+    <Content Include="Scripts\bootstrap\bootstrap-timepicker.css" />
+    <Content Include="Scripts\bootstrap\bootstrap-timepicker.min.js" />
+    <Content Include="Scripts\bootstrap\css\bootstrap-responsive.min.css" />
+    <Content Include="Scripts\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Scripts\bootstrap\js\bootstrap-datepicker.min.js" />
+    <Content Include="Scripts\bootstrap\js\bootstrap.js" />
+    <Content Include="Scripts\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap\js\npm.js" />
+    <Content Include="Scripts\colorpicker\css\colorpicker.css" />
+    <Content Include="Scripts\colorpicker\img\alpha.png" />
+    <Content Include="Scripts\colorpicker\img\hue.png" />
+    <Content Include="Scripts\colorpicker\img\saturation.png" />
+    <Content Include="Scripts\colorpicker\js\bootstrap-colorpicker.js" />
+    <Content Include="Scripts\font-awesome\css\font-awesome.css" />
+    <Content Include="Scripts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Scripts\GOMFrameWork.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery.cookie.js" />
+    <Content Include="Scripts\jqueryApi.js" />
+    <Content Include="Scripts\layer\extend\layer.ext.js" />
+    <Content Include="Scripts\layer\layer.js" />
+    <Content Include="Scripts\layer\skins\default\default\icon-ext.png" />
+    <Content Include="Scripts\layer\skins\default\default\icon.png" />
+    <Content Include="Scripts\layer\skins\default\default\icon_ext.png" />
+    <Content Include="Scripts\layer\skins\default\default\loading-0.gif" />
+    <Content Include="Scripts\layer\skins\default\default\loading-1.gif" />
+    <Content Include="Scripts\layer\skins\default\default\loading-2.gif" />
+    <Content Include="Scripts\layer\skins\default\default\textbg.png" />
+    <Content Include="Scripts\layer\skins\default\default\xubox_ico0.png" />
+    <Content Include="Scripts\layer\skins\default\default\xubox_loading0.gif" />
+    <Content Include="Scripts\layer\skins\default\default\xubox_loading1.gif" />
+    <Content Include="Scripts\layer\skins\default\default\xubox_loading2.gif" />
+    <Content Include="Scripts\layer\skins\default\default\xubox_loading3.gif" />
+    <Content Include="Scripts\layer\skins\default\default\xubox_title0.png" />
+    <Content Include="Scripts\layer\skins\default\layer.css" />
+    <Content Include="Scripts\layer\skins\default\layer.ext.css" />
+    <Content Include="Scripts\layer\skins\moon\default.png" />
+    <Content Include="Scripts\layer\skins\moon\style.css" />
+    <Content Include="Scripts\modernizr.js" />
+    <Content Include="Scripts\umeditor\dialogs\emotion\emotion.css" />
+    <Content Include="Scripts\umeditor\dialogs\emotion\emotion.js" />
+    <Content Include="Scripts\umeditor\dialogs\emotion\images\0.gif" />
+    <Content Include="Scripts\umeditor\dialogs\emotion\images\bface.gif" />
+    <Content Include="Scripts\umeditor\dialogs\emotion\images\cface.gif" />
+    <Content Include="Scripts\umeditor\dialogs\emotion\images\fface.gif" />
+    <Content Include="Scripts\umeditor\dialogs\emotion\images\jxface2.gif" />
+    <Content Include="Scripts\umeditor\dialogs\emotion\images\neweditor-tab-bg.png" />
+    <Content Include="Scripts\umeditor\dialogs\emotion\images\tface.gif" />
+    <Content Include="Scripts\umeditor\dialogs\emotion\images\wface.gif" />
+    <Content Include="Scripts\umeditor\dialogs\emotion\images\yface.gif" />
+    <Content Include="Scripts\umeditor\dialogs\formula\formula.css" />
+    <Content Include="Scripts\umeditor\dialogs\formula\formula.html" />
+    <Content Include="Scripts\umeditor\dialogs\formula\formula.js" />
+    <Content Include="Scripts\umeditor\dialogs\formula\images\formula.png" />
+    <Content Include="Scripts\umeditor\dialogs\image\image.css" />
+    <Content Include="Scripts\umeditor\dialogs\image\image.js" />
+    <Content Include="Scripts\umeditor\dialogs\image\images\close.png" />
+    <Content Include="Scripts\umeditor\dialogs\image\images\upload1.png" />
+    <Content Include="Scripts\umeditor\dialogs\image\images\upload2.png" />
+    <Content Include="Scripts\umeditor\dialogs\link\link.js" />
+    <Content Include="Scripts\umeditor\dialogs\map\map.html" />
+    <Content Include="Scripts\umeditor\dialogs\map\map.js" />
+    <Content Include="Scripts\umeditor\dialogs\video\images\center_focus.jpg" />
+    <Content Include="Scripts\umeditor\dialogs\video\images\left_focus.jpg" />
+    <Content Include="Scripts\umeditor\dialogs\video\images\none_focus.jpg" />
+    <Content Include="Scripts\umeditor\dialogs\video\images\right_focus.jpg" />
+    <Content Include="Scripts\umeditor\dialogs\video\video.css" />
+    <Content Include="Scripts\umeditor\dialogs\video\video.js" />
+    <Content Include="Scripts\umeditor\index.html" />
+    <Content Include="Scripts\umeditor\lang\en\en.js" />
+    <Content Include="Scripts\umeditor\lang\en\images\addimage.png" />
+    <Content Include="Scripts\umeditor\lang\en\images\alldeletebtnhoverskin.png" />
+    <Content Include="Scripts\umeditor\lang\en\images\alldeletebtnupskin.png" />
+    <Content Include="Scripts\umeditor\lang\en\images\background.png" />
+    <Content Include="Scripts\umeditor\lang\en\images\button.png" />
+    <Content Include="Scripts\umeditor\lang\en\images\copy.png" />
+    <Content Include="Scripts\umeditor\lang\en\images\deletedisable.png" />
+    <Content Include="Scripts\umeditor\lang\en\images\deleteenable.png" />
+    <Content Include="Scripts\umeditor\lang\en\images\imglabel.png" />
+    <Content Include="Scripts\umeditor\lang\en\images\listbackground.png" />
+    <Content Include="Scripts\umeditor\lang\en\images\localimage.png" />
+    <Content Include="Scripts\umeditor\lang\en\images\music.png" />
+    <Content Include="Scripts\umeditor\lang\en\images\rotateleftdisable.png" />
+    <Content Include="Scripts\umeditor\lang\en\images\rotateleftenable.png" />
+    <Content Include="Scripts\umeditor\lang\en\images\rotaterightdisable.png" />
+    <Content Include="Scripts\umeditor\lang\en\images\rotaterightenable.png" />
+    <Content Include="Scripts\umeditor\lang\en\images\upload.png" />
+    <Content Include="Scripts\umeditor\lang\zh-cn\images\copy.png" />
+    <Content Include="Scripts\umeditor\lang\zh-cn\images\imglabel.png" />
+    <Content Include="Scripts\umeditor\lang\zh-cn\images\localimage.png" />
+    <Content Include="Scripts\umeditor\lang\zh-cn\images\music.png" />
+    <Content Include="Scripts\umeditor\lang\zh-cn\images\upload.png" />
+    <Content Include="Scripts\umeditor\lang\zh-cn\zh-cn.js" />
+    <Content Include="Scripts\umeditor\themes\default\css\umeditor.css" />
+    <Content Include="Scripts\umeditor\themes\default\css\umeditor.min.css" />
+    <Content Include="Scripts\umeditor\themes\default\images\caret.png" />
+    <Content Include="Scripts\umeditor\themes\default\images\close.png" />
+    <Content Include="Scripts\umeditor\themes\default\images\icons.gif" />
+    <Content Include="Scripts\umeditor\themes\default\images\icons.png" />
+    <Content Include="Scripts\umeditor\themes\default\images\ok.gif" />
+    <Content Include="Scripts\umeditor\themes\default\images\pop-bg.png" />
+    <Content Include="Scripts\umeditor\themes\default\images\spacer.gif" />
+    <Content Include="Scripts\umeditor\themes\default\images\videologo.gif" />
+    <Content Include="Scripts\umeditor\third-party\jquery.min.js" />
+    <Content Include="Scripts\umeditor\third-party\mathquill\font\stixgeneral-bundle\STIXFontLicense2010.txt" />
+    <Content Include="Scripts\umeditor\third-party\mathquill\mathquill.css" />
+    <Content Include="Scripts\umeditor\third-party\mathquill\mathquill.js" />
+    <Content Include="Scripts\umeditor\third-party\mathquill\mathquill.min.js" />
+    <Content Include="Scripts\umeditor\umeditor.config.js" />
+    <Content Include="Scripts\umeditor\umeditor.js" />
+    <Content Include="Scripts\umeditor\umeditor.min.js" />
+    <Content Include="Scripts\validate\config\config.js" />
+    <Content Include="Scripts\validate\css\img\001_06.gif" />
+    <Content Include="Scripts\validate\css\img\accept.png" />
+    <Content Include="Scripts\validate\css\img\close.gif" />
+    <Content Include="Scripts\validate\css\img\close44.gif" />
+    <Content Include="Scripts\validate\css\img\error.png" />
+    <Content Include="Scripts\validate\css\img\error2.png" />
+    <Content Include="Scripts\validate\css\img\success.png" />
+    <Content Include="Scripts\validate\css\img\tip.png" />
+    <Content Include="Scripts\validate\css\validate.css" />
+    <Content Include="Scripts\validate\filter\DefaultFilter.js" />
+    <Content Include="Scripts\validate\filter\ElementFilter.js" />
+    <Content Include="Scripts\validate\filter\FormFilter.js" />
+    <Content Include="Scripts\validate\filter\IdFilter.js" />
+    <Content Include="Scripts\validate\filter\NameFilter.js" />
+    <Content Include="Scripts\validate\handle\bh - 副本.js" />
+    <Content Include="Scripts\validate\handle\bh.js" />
+    <Content Include="Scripts\validate\handle\error\alert.js" />
+    <Content Include="Scripts\validate\handle\error\text.js" />
+    <Content Include="Scripts\validate\handle\tip\tip.js" />
+    <Content Include="Scripts\validate\i18n\message_zh_CN.js" />
+    <Content Include="Scripts\validate\talent-validate-all-init.js" />
+    <Content Include="Scripts\validate\talent-validate-all.js" />
+    <Content Include="Scripts\validate\utils\api.js" />
+    <Content Include="Scripts\validate\utils\core.js" />
+    <Content Include="Scripts\validate\utils\utils.js" />
+    <Content Include="Scripts\validate\validator\BaseValidator.js" />
+    <Content Include="Scripts\validate\validator\CompareValidator.js" />
+    <Content Include="Scripts\validate\validator\DatetimeValidator.js" />
+    <Content Include="Scripts\validate\validator\ExpValidator.js" />
+    <Content Include="Scripts\validate\validator\Field.js" />
+    <Content Include="Scripts\validate\validator\GroupValidator.js" />
+    <Content Include="Scripts\validate\validator\IntValidator.js" />
+    <Content Include="Scripts\validate\validator\LengthValidator.js" />
+    <Content Include="Scripts\validate\validator\NumRangeValidator.js" />
+    <Content Include="Scripts\validate\validator\NumValidator.js" />
+    <Content Include="Scripts\validate\validator\OnlyShow.js" />
+    <Content Include="Scripts\validate\validator\RegexValidator.js" />
+    <Content Include="Scripts\validate\validator\RemoteValidator.js" />
+    <Content Include="Scripts\validate\validator\RequiredValidator.js" />
+    <Content Include="Scripts\validate\validator\SelectCountValidator.js" />
+    <Content Include="Scripts\validate\validator\ValidatorFactory.js" />
+    <Content Include="Styles\GOMFrameWork.css" />
+    <Content Include="Styles\gtree\themes\default-dark\32px.png" />
+    <Content Include="Styles\gtree\themes\default-dark\40px.png" />
+    <Content Include="Styles\gtree\themes\default-dark\style.css" />
+    <Content Include="Styles\gtree\themes\default-dark\style.min.css" />
+    <Content Include="Styles\gtree\themes\default-dark\throbber.gif" />
+    <Content Include="Styles\gtree\themes\default\32px.png" />
+    <Content Include="Styles\gtree\themes\default\40px.png" />
+    <Content Include="Styles\gtree\themes\default\style.css" />
+    <Content Include="Styles\gtree\themes\default\style.min.css" />
+    <Content Include="Styles\gtree\themes\default\throbber.gif" />
+    <Content Include="Styles\login.css" />
+    <Content Include="Styles\main.css" />
+    <Content Include="upcallback.html" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scripts\umeditor\net\fileUp.ashx.cs">
+      <DependentUpon>fileUp.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Scripts\umeditor\net\fileUpProgress.ashx.cs">
+      <DependentUpon>fileUpProgress.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Scripts\umeditor\net\UMeditorUploader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Scripts\website\" />
+    <Folder Include="Views\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51574</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:63666/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

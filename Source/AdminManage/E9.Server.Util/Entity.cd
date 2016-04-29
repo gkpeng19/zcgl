@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="NM.Model.EntityBase" BaseTypeListCollapsed="true">
+    <Position X="5.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hAMAAIAAAACAgIAAAAABAAAAgAEAAAAAAQAAAICAAAA=</HashCode>
+      <FileName>Model\EntityBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NM.Model.EntityList&lt;T&gt;" BaseTypeListCollapsed="true">
+    <Position X="7.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAIAAAACAAoAAAAABAAAAAAAAAAQAAYAAAICAAAA=</HashCode>
+      <FileName>Model\EntityBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="NM.Util.SerializableData">
+    <Position X="3.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EghAAAIgIAGQDlAECkECBAIGIIEEAAUQAFEgAACAIAA=</HashCode>
+      <FileName>Util\SerializableData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NM.Util.TJson">
+    <Position X="1.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIgAAAAAAAAgAAAIAAAAAgAiEBCAAAAIBAAgAAAAAA=</HashCode>
+      <FileName>Util\IJson.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NM.Util.TJsonList&lt;T&gt;">
+    <Position X="7.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAgAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Util\IJson.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NM.OP.EntityProviderOP&lt;T&gt;">
+    <Position X="7.25" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAAAAEAAAAAAAAEAAAAAAAAAAAAABAAAAoAIA=</HashCode>
+      <FileName>OP\EntityProviderOP.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NM.OP.CertifiedProviderOP">
+    <Position X="8.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>OP\CertifiedProviderOP.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NM.OP.NamedProviderOP">
+    <Position X="5.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OP\NamedProviderOP.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="NM.Model.IEntity">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAIAAAACAAoAAAAABAAAAAAAAAAQAAQAAAICAAAA=</HashCode>
+      <FileName>Model\EntityBase.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="宋体" Size="9" />
+</ClassDiagram>

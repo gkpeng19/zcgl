@@ -1,0 +1,196 @@
+﻿@model NM.Model.EAP_User
+@using App.Admin;
+@using App.Common;
+@{
+    
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Index_Layout.cshtml";
+}
+<script type="text/javascript">
+    $(function () {
+        $("#Edit").click(function () {
+            $("#modalwindow").window({ title: '编辑', width: 330, height: 200, iconCls: 'icon-edit'});
+            $("#modalwindow").window('open');
+        });
+        $("#btnSave").click(function () {
+            $("#EditMes").html("");
+            if ($.trim($("#Password1").val()).length < 6) {
+                $("#EditMes").html("旧密码不匹配!");
+                $("#Password1").focus();
+                return;
+            }
+            if ($.trim($("#Password2").val()).length < 6) {
+                $("#EditMes").html("新密码不匹配!最少6位,不能有空格");
+                $("#Password2").focus();
+                return;
+            }
+            if ($.trim($("#Password2").val()) != $.trim($("#Password3").val())) {
+                $("#EditMes").html("两次密码不一致");
+                $("#Password3").focus();
+                return;
+            }
+            $.post("/Home/EditPwd", { oldPwd: $("#Password1").val(), newPwd: $("#Password2").val() }, function (data) {
+                if (data.type == 1) {
+                    $.messageBox5s('提示',data.message);
+                    $("#modalwindow").window('close');
+                }
+                else {
+                     $.messageBox5s('提示', data.message + '！');
+                }
+            },"json");
+        });
+    });
+</script>
+<div id="modalwindow" class="easyui-window" data-options="closed:true,modal:true">
+<div class="mvctool bgb">
+    @Html.ToolButton("btnSave", "icon-save", "保存",true)
+</div>
+    <table class="fromEditTable setTextWidth100">
+        <tbody>
+            <tr>
+                <td>旧密码：</td><td><input id="Password1" type="password" /></td>
+                </tr>
+                <tr>
+                <td>新密码：</td><td><input id="Password2" type="password" /></td>
+                </tr>
+                <tr>
+                <td>确认密码：</td><td><input id="Password3" type="password" /></td>
+                </tr>
+                 <tr>
+                <td></td><td colspan="3" id="EditMes" style="color:red"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div style="width:620px;border-right:dashed 1px #ccc;">
+
+  <div id="ErrMesList" >
+        <div id="ErrMesListContent">
+            @Html.ValidationSummary(false)
+        </div>
+    </div>
+    
+  <table class="fromEditTable setTextWidth100">
+        <tbody>
+            <tr>
+                <td colspan="6">
+                    账户信息
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.UserName)：
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.UserName)
+                </td>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.Password)：
+                </td>
+                <td>
+                    ******** <a id="Edit" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-key'">修改密码</a>
+                </td>
+                <td>
+                   &nbsp;
+                </td>
+                <td>
+                   &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.OrgId)：
+                </td>
+                <td>
+                     @Html.DisplayFor(model => model.Org_Name_G)
+                </td>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.TrueName)： 
+                  
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.TrueName) 
+                </td>
+                <td style="width: 100px; text-align: right;">
+                    
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+             
+        </tbody>
+    </table>
+       
+ 
+    <table class="fromEditTable setTextWidth100">
+        <tbody>
+            <tr>
+                <td colspan="6">
+                    联系方式
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.MobileNumber)：
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.MobileNumber)
+                </td>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.PhoneNumber)：
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.PhoneNumber)
+                </td>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.QQ)：
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.QQ)
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.EmailAddress)：
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.EmailAddress)
+                </td>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.OtherContact)：
+                </td>
+                <td colspan="3">
+                    @Html.DisplayFor(model => model.OtherContact, new { style = "width:250px;" })
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.Address)：
+                </td>
+                <td colspan="5">
+                    @Html.DisplayFor(model => model.Address, new { style = "width:250px;" })
+                </td>
+
+            </tr>
+            @*<tr>
+                    <td style="width: 100px; text-align: right;">
+                        @Html.LabelFor(model => model.Expertise)：
+                    </td>
+                    <td colspan="5">
+                        @Html.TextAreaFor(model => model.Expertise, new { style = "width:350px;height:50px;" })
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 100px; text-align: right;">
+                        @Html.LabelFor(model => model.Attach)：
+                    </td>
+                    <td colspan="5">
+                        @Html.TextBoxFor(model => model.Attach, new { style = "width:250px;" })
+                    </td>
+                </tr>*@
+        </tbody>
+    </table>
+</div>
+

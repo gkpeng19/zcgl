@@ -1,0 +1,35 @@
+﻿<table>
+    <tbody>
+        <tr>
+            <td>
+                <span>当前图层：</span>
+            </td>
+            <td>
+                <input data-dojo-attach-point="jzHistoryLayerName" disabled="disabled" type="text" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>展示方式：</span>
+            </td>
+            <td>
+                <select data-dojo-attach-point='jzHistoryViewMethod' class='form-control'>
+                    <option selected='selected'>动态图</option>
+                    <option>静态图</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan='2'>
+                <table style='margin-top:0;display:none;' data-dojo-attach-point='jzHistoryViewTable' class="table table-bordered table-hover jzHistoryTable">
+                    
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan='2'>
+                <button data-dojo-attach-point="jzHistoryBtnOK" data-dojo-attach-event='ondijitclick:onStart' class='btn btn-primary'>开始查看</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

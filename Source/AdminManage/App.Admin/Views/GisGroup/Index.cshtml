@@ -1,0 +1,212 @@
+﻿@using App.Admin;
+@using App.Common;
+@using App.Models.Sys;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Index_Layout.cshtml";
+
+    List<permModel> perm = (List<permModel>)ViewBag.Perm;
+    if (perm == null)
+    {
+        perm = new List<permModel>();
+    }
+}
+
+
+<table style="width: 100%">
+    <tr>
+        <td style="vertical-align: top">
+            <div class="mvctool" style="width:500px;">
+                @Html.ToolButton("btnCreate", "icon-add", "新增", perm, "Create", true)
+                @Html.ToolButton("btnEdit", "icon-edit", "编辑", perm, "Edit", true)
+                @Html.ToolButton("btnDelete", "icon-remove", "删除", perm, "Delete", true)
+            </div>
+            <table id="List"></table>
+        </td>
+        <td style="width: 450px; padding-left: 5px; vertical-align: top">
+            <div class="mvctool" style="width:400px;">
+                @Html.ToolButton("btnAddLayer", "icon-add", "新增图层", perm, "Create", true)
+                @Html.ToolButton("btnRemoveLayer", "icon-remove", "删除图层", perm, "Delete", true)
+                @Html.ToolButton("btnEditLayer", "icon-edit", "设置序号", perm, "Create", true)
+            </div>
+            <table id="LayerList"></table>
+        </td>
+    </tr>
+</table>
+
+<div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
+<script type="text/javascript">
+    $(function () {
+        $('#List').datagrid({
+            url: '/GisGroup/GetList',
+            width: SetGridWidthSub(470),
+            methord: 'post',
+            height: SetGridHeightSub(39),
+            fitColumns: true,
+            sortName: 'ODERNUM',
+            sortOrder: 'desc',
+            idField: 'ID',
+            pageSize: 10,
+            pageList: [10, 20, 30, 40, 50],
+            pagination: true,
+            striped: true, //奇偶行是否区分
+            singleSelect: true,//单选模式
+            columns: [[
+                { field: 'ID', title: 'ID', width: 40, hidden: true },
+                { field: 'CLASSCODE', title: '分类编码', width: 60 },
+                { field: 'CLASSNAME', title: '分类名称', width: 80 },
+                { field: 'CLASSIMG', title: '显示图片', width: 60 },
+                { field: 'ODERNUM', title: '排序号', width: 40, align: 'center' },
+                 {
+                     field: 'FLAGDELETE', title: '是否有效', width: 60, align: 'center', formatter: function (value) {
+                         if (value) {
+                             return "<img src='/Content/Images/icon/close.png'/>";
+                         } else {
+                             return "<img src='/Content/Images/icon/pass.png'/>"; 
+                         }
+                     }
+                 },
+               
+            ]],
+            onClickRow: function (index, data) {
+                var row = $('#List').datagrid('getSelected');
+                if (row != null) {
+                    $('#LayerList').datagrid({
+                        url: '@Url.Action("GetDetailList")?classID=' + row.ID
+                    });
+                }
+            }
+        });
+        $('#LayerList').datagrid({
+            url: '@Url.Action("GetDetailList")',
+            width: 450,
+            methord: 'post',
+            height: SetGridHeightSub(39),
+            fitColumns: true,
+            sortName: 'ODERNUM',
+            sortOrder: 'asc',
+            idField: 'ID',
+            pageSize: 1000,
+            pagination: true,
+            striped: true, //奇偶行是否区分
+            singleSelect: true,//单选模式
+            rownumbers: true,//行号
+            columns: [[
+                { field: 'ID', title: '', width: 80, hidden: true },
+                { field: 'LayerCode_G', title: '图层英文名称', width: 100, sortable: true },
+                { field: 'LayerName_G', title: '图层中文名称', width: 100, sortable: true },
+                { field: 'CLASSID', title: '所属分类', width: 80, sortable: true, hidden: true },
+                 {
+                     field: 'LayerFlagDelete_G', title: '是否有效', width: 60, align: 'center', formatter: function (value) {
+                         if (value) {
+                             return "<img src='/Content/Images/icon/close.png'/>";
+                         } else {
+                             return "<img src='/Content/Images/icon/pass.png'/>"; 
+                         }
+                     }
+                 },
+                { field: 'ODERNUM', title: '序号', width: 80, sortable: true }
+            ]]
+        });
+
+        //自动宽高
+        $(window).resize(function () {
+            $('#List').datagrid('resize', {
+                width: SetGridWidthSub(470),
+                height: SetGridHeightSub(39)
+            }).datagrid('resize', {
+                width: SetGridWidthSub(470),
+            });
+            $('#LayerList').datagrid('resize', {
+                width: 450,
+                height: SetGridHeightSub(39)
+            });
+        });
+    });
+
+
+
+//ifram 返回
+function frameReturnByClose() {
+    $("#modalwindow").window('close');
+}
+function frameReturnByReload(flag) {
+    if (flag)
+        $("#List").datagrid('reload');
+    else
+        $("#List").datagrid('load');
+}
+function frameReturnByReloadOpt(flag) {
+    //debugger;
+    if (flag)
+        $("#LayerList").datagrid('reload');
+    else
+        $("#LayerList").datagrid('load');
+}
+function frameReturnByMes(mes) {
+    $.messageBox5s('提示', mes);
+}
+$(function () {
+    $("#btnCreate").click(function () {
+        var row = $('#List').datagrid('getSelected');
+        $("#modalwindow").html("<iframe width='100%' height='98%' scrolling='no' frameborder='0'' src='/GisGroup/Create?id=" + (row != null ? row.ID : "0") + "&Ieguid=" + GetGuid() + "'></iframe>");
+        $("#modalwindow").window({ title: '新增', width: 700, height: 400, iconCls: 'icon-add' }).window('open');
+    });
+    $("#btnEdit").click(function () {
+        var row = $('#List').datagrid('getSelected');
+        if (row != null) {
+            $("#modalwindow").html("<iframe width='100%' height='99%'  frameborder='0' src='/GisGroup/Edit?id=" + row.ID + "&Ieguid=" + GetGuid() + "'></iframe>");
+            $("#modalwindow").window({ title: '编辑', width: 700, height: 430, iconCls: 'icon-edit'}).window('open');
+        } else { $.messageBox5s('提示', '@Suggestion.PlaseChooseToOperatingRecords'); }
+    });
+    $("#btnDelete").click(function () {
+        var row = $('#List').datagrid('getSelected');
+        if (row != null) {
+            $.messager.confirm('提示', '@Suggestion.YouWantToDeleteTheSelectedRecords', function (r) {
+                if (r) {
+                    $.post("@Url.Action("Delete")?id=" + row.ID, function (data) {
+                        if (data.type == 1)
+                            $("#List").Datagrid('reload');
+                        $.messageBox5s('提示', data.message);
+                    }, "json");
+
+                }
+            });
+        } else { $.messageBox5s('提示', '@Suggestion.PlaseChooseToOperatingRecords'); }
+    });
+
+    $("#btnAddLayer").click(function () {
+        var row = $('#List').datagrid('getSelected');
+        if (row != null) {             
+                $("#modalwindow").html("<iframe width='100%' height='99%'  frameborder='0' src='/GisGroup/AddLayer?ClassId=" + row.ID + "&Ieguid=" + GetGuid() + "'></iframe>");
+                $("#modalwindow").window({ title: '新增图层', width: 750, height: 530, iconCls: 'icon-edit', onClose: function () { frameReturnByReloadOpt(true); } }).window('open');
+
+        } else { $.messageBox5s('提示', '请选择一个分类!'); }
+    });
+
+    $("#btnEditLayer").click(function () {
+        var row = $('#LayerList').datagrid('getSelected');
+        if (row != null) {
+            $("#modalwindow").html("<iframe width='100%' height='99%'  frameborder='0' src='/GisGroup/EditLayerOrder?id=" + row.ID + "&Ieguid=" + GetGuid() + "'></iframe>");
+            $("#modalwindow").window({ title: '编辑', width: 700, height: 430, iconCls: 'icon-edit' }).window('open');
+        } else { $.messageBox5s('提示', '@Suggestion.PlaseChooseToOperatingRecords'); }
+    });
+    $("#btnRemoveLayer").click(function () {
+        var row = $('#LayerList').datagrid('getSelected');
+        if (row != null) {
+            $.messager.confirm('提示', '您确定要从此分类中移除图层“' + row.LayerName_G + '”吗？', function (r) {
+                if (r) {
+                    $.post("@Url.Action("DeleteLayer")?id=" + row.ID, function (data) {
+                        if (data.type == 1) {
+                            $("#LayerList").datagrid('reload');
+                        }
+                    }, "json");
+
+                }
+            });
+        } else { $.messageBox5s('提示', '请选择一个图层!'); }
+    });
+});
+</script>
+

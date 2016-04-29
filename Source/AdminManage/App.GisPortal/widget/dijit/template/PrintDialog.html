@@ -1,0 +1,68 @@
+<div class='jz-print-dialog-pane'>
+    <div data-dojo-attach-point='titleBar' class='jz-titlebar'>
+        <span data-dojo-attach-point='titleNode' class='jz-print-dialog-title'></span>
+        <span data-dojo-attach-point='closeButtonNode' class='jz-close-button'
+              data-dojo-attach-event='ondijitclick: onCancel' title='关闭'>
+            <span data-dojo-attach-point='closeText' class='closeText' title='关闭'>X</span>
+        </span>
+    </div>
+    <div data-dojo-attach-point='containerNode' class='jz-print-dialog-content'>
+        <!--<div>
+            <label>输出宽度：</label>
+            <input class="form-control" disabled='disabled' data-dojo-attach-point="printMapWidth" type='text' />
+        </div>
+        <div>
+            <label>输出高度：</label>
+            <input class="form-control" disabled='disabled' data-dojo-attach-point="printMapHeight" type='text' />
+        </div>
+        <div>
+            <label>输出单位：</label>
+            <select class="form-control" data-dojo-attach-point="printMapUnits">
+                <option value="Meters" selected="selected">米</option>
+                <option value="Kilometers">千米</option>
+            </select>
+        </div>
+        <div>
+            <label>输出格式：</label>
+            <select class="form-control" data-dojo-attach-point="printMapFormat">
+                <option value="pdf" selected="selected">PDF</option>
+                <option value="png32">PNG32</option>
+                <option value="png8">PNG8</option>
+                <option value="jpg">JPG</option>
+                <option value="gif">GIF</option>
+                <option value="eps">EPS</option>
+                <option value="svg">SVG</option>
+            </select>
+        </div>
+        <div>
+            <label>输出模板：</label>
+            <select class="form-control" data-dojo-attach-point="printMapTemplate">
+                <option value="A4 Landscape" selected="selected">A4 Landscape</option>
+                <option value="A4 Portrait">A4 Portrait</option>
+                <option value="A3 Portrait">A3 Portrait</option>
+                <option value="A3 Landscape">A3 Landscape</option>
+                <option value="MAP_ONLY">MAP_ONLY</option>
+            </select>
+        </div>
+        <div data-dojo-attach-point="jzPrintMoreChoose">
+            <a data-dojo-attach-event="ondijitclick: onMore">更多选项</a>
+        </div>
+        <div data-dojo-attach-point="jzPrintMore" style="display:none;">
+            <div>
+                <label>地图标题：</label>
+                <input class="form-control" data-dojo-attach-point="printMapTitle" type='text' />
+            </div>
+            <div>
+                <label>作者名字：</label>
+                <input class="form-control" data-dojo-attach-point="printMapAuthor" type='text' />
+            </div>
+            <div>
+                <label>版权声明：</label>
+                <input class="form-control" data-dojo-attach-point="printMapCopyRight" type='text' />
+            </div>
+        </div>-->
+        <div>
+            <button data-dojo-attach-point="printStartBtn" data-dojo-attach-event="ondijitclick: onPrint" class='btn-primary btn'>开始输出</button>
+        </div>
+    </div>
+</div>

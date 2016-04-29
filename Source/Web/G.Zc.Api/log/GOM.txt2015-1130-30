@@ -1,0 +1,12 @@
+2015-11-30 11:00:12,179 [51](d:\Work\HLStudio\trunk\Sources\MyFramework\G.Simple.Api\Controllers\LoginInfoController.cs:18) INFO  G.Simple.Api.Controllers.LoginInfoController [(null)] - 获取当前用户。
+2015-11-30 11:23:50,821 [9](d:\Work\HLStudio\trunk\Sources\MyFramework\G.Simple.Api\Controllers\LoginInfoController.cs:18) INFO  G.Simple.Api.Controllers.LoginInfoController [(null)] - 获取当前用户。
+2015-11-30 18:33:05,119 [196](d:\Work\HLStudio\trunk\Sources\MyFramework\G.Simple.Api\App_Start\Startup.Auth.cs:89) FATAL G.Simple.Api.BaseOAuthorizationServerProvider [(null)] - 用户登录发生错误！
+Oracle.DataAccess.Client.OracleException ORA-12170: TNS: 连接超时    在 Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck)
+   在 Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, Object src)
+   在 Oracle.DataAccess.Client.OracleConnection.Open()
+   在 GOMFrameWork.DBContext.DBProvider.OpenConn() 位置 d:\Work\HLStudio\trunk\Sources\MyFramework\GOMFrameWork\DBContext\DBProvider.cs:行号 22
+   在 GOMFrameWork.DBContext.OracleProvider.ExcuteProc(String procName, DbParameter[] parameters) 位置 d:\Work\HLStudio\trunk\Sources\MyFramework\GOMFrameWork\DBContext\DBProvider.cs:行号 160
+   在 GOMFrameWork.DBContext.EntityProvider.ExcuteProcResult[T](ProcEntity entity) 位置 d:\Work\HLStudio\trunk\Sources\MyFramework\GOMFrameWork\DBContext\EntityProvider.cs:行号 156
+   在 GOMFrameWork.DataEntity.ProcEntity.Execute[T]() 位置 d:\Work\HLStudio\trunk\Sources\MyFramework\GOMFrameWork\DataEntity\SearchEntity.cs:行号 367
+   在 G.Simple.Api.Util.LoginIn.Login(String username, String password, String clientIp, String clientName, Int32 nametype, Int32 port) 位置 d:\Work\HLStudio\trunk\Sources\MyFramework\G.Simple.Api\Util\LoginIn.cs:行号 30
+   在 G.Simple.Api.BaseOAuthorizationServerProvider.GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context) 位置 d:\Work\HLStudio\trunk\Sources\MyFramework\G.Simple.Api\App_Start\Startup.Auth.cs:行号 84

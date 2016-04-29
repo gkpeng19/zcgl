@@ -1,0 +1,15 @@
+D:\Gkpeng\zcgl\Source\G.Simple.Entity\bin\Debug\G.Simple.Entity.dll
+D:\Gkpeng\zcgl\Source\G.Simple.Entity\bin\Debug\G.Simple.Entity.pdb
+D:\Gkpeng\zcgl\Source\G.Simple.Entity\bin\Debug\G.Util.dll
+D:\Gkpeng\zcgl\Source\G.Simple.Entity\bin\Debug\GOMFrameWork.dll
+D:\Gkpeng\zcgl\Source\G.Simple.Entity\bin\Debug\Newtonsoft.Json.dll
+D:\Gkpeng\zcgl\Source\G.Simple.Entity\bin\Debug\System.Web.Http.dll
+D:\Gkpeng\zcgl\Source\G.Simple.Entity\bin\Debug\log4net.dll
+D:\Gkpeng\zcgl\Source\G.Simple.Entity\bin\Debug\G.Util.pdb
+D:\Gkpeng\zcgl\Source\G.Simple.Entity\bin\Debug\GOMFrameWork.pdb
+D:\Gkpeng\zcgl\Source\G.Simple.Entity\bin\Debug\Newtonsoft.Json.xml
+D:\Gkpeng\zcgl\Source\G.Simple.Entity\bin\Debug\System.Web.Http.xml
+D:\Gkpeng\zcgl\Source\G.Simple.Entity\bin\Debug\log4net.xml
+D:\Gkpeng\zcgl\Source\G.Simple.Entity\bin\Debug\zh-Hans\System.Web.Http.resources.dll
+D:\Gkpeng\zcgl\Source\G.Simple.Entity\obj\Debug\G.Simple.Entity.dll
+D:\Gkpeng\zcgl\Source\G.Simple.Entity\obj\Debug\G.Simple.Entity.pdb

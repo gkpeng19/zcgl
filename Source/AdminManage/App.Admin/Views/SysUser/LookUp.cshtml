@@ -1,0 +1,93 @@
+﻿@using System.Globalization;
+
+@using App.Common;
+@using App.Admin;
+@{
+    ViewBag.Title = "选择用户";
+    Layout = "~/Views/Shared/_Index_LayoutEdit.cshtml";
+}
+
+<style type="text/css">
+    #userListPager #userListPager_right{ width:120px}
+</style>
+<div class="mvctool bgb">
+<input id="txtQuery" type="text" class="searchText"/>
+    @Html.ToolButton("btnSearch", "but-search", "查询",true)
+    @Html.ToolButton("btnSelect", "but-select", "选择",false)
+    
+</div>
+
+<table id="userList">
+</table>
+<div id="userListPager">
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        //查询
+        $("#btnSearch").click(function () {
+
+            var queryStr = $("#txtQuery").val();
+            //如果查询条件为空默认查询全部
+            if (queryStr == null) {
+                queryStr = "%";
+            }
+
+            //提交查询
+            queryStr = encodeURI(queryStr);
+            jQuery("#userList").jqGrid('setGridParam', { url: '/sysuser/GetList?querystr=' + queryStr, page: 1 }).trigger("reloadGrid");
+
+        });
+
+        //选择
+        $("#btnSelect").click(function () {
+            var id = jQuery("#userList").jqGrid('getGridParam', 'selrow');
+            if (id == null) {
+                window.parent.CallMessageBox("请选择记录");
+                return;
+            }
+            var rowData = jQuery("#userList").jqGrid('getRowData', id);
+            window.parent.ReturnSelectUser("@ViewBag.owner", id, rowData.name);
+            window.parent.ReturnCloseDialog();
+        });
+        //变量定义
+        var curRoleId, curRoleName;
+        //角色表格
+        jQuery("#userList").jqGrid({
+            url: '/Sysuser/GetList',
+            datatype: "json",
+            colNames: ['Id', "用户名"],
+            colModel: [
+   		{ name: 'id', index: 'id', width: 30, hidden: false, key: true },
+   		{ name: 'name', width: 200 },
+
+   	],
+
+            rowNum: 30,
+            //rowList: [10, 20, 30],
+            pager: '#userListPager',
+            pagerpos: 'left',
+            sortname: 'id',
+            viewrecords: true,
+            sortorder: "desc",
+            //multiselect: true,
+            mtype: 'POST',
+            height: 300,
+            width: 350,
+            scrollrows: true,
+            loadComplete: function () {
+
+                var ids = jQuery("#userList").jqGrid('getDataIDs');
+                for (var i = 0; i < ids.length; i++) {
+                    jQuery("#userList").jqGrid("editRow", ids[i], true);
+                }
+                if (ids.length > 0) {
+                    jQuery("#userList").jqGrid('setSelection', ids[0]);
+                }
+            }
+
+        });
+
+    });
+</script>

@@ -1,0 +1,232 @@
+﻿@model Gis.Models.gis_layerDefine
+@using App.Common;
+@using App.Models.Sys;
+@using App.Admin;
+@using System.Web.Mvc ;
+@{
+    ViewBag.Title = "创建";
+    Layout = "~/Views/Shared/_Index_LayoutEdit.cshtml";
+    List<permModel> perm = (List<permModel>)ViewBag.Perm;
+    if (perm == null)
+    {
+        perm = new List<permModel>();
+    }
+    List<SelectListItem> _shptypelist = (List<SelectListItem>)ViewBag.shptypelist;
+    List<SelectListItem> _datatypelist = (List<SelectListItem>)ViewBag.datatypelist;
+    List<SelectListItem> _layertypelist = (List<SelectListItem>)ViewBag.layertypelist;
+    List<SelectListItem> _specShowModelist = (List<SelectListItem>)ViewBag.specShowModelist;
+    List<SelectListItem> _specGroupFNlist = (List<SelectListItem>)ViewBag.specGroupFNlist;
+    List<SelectListItem> _specStatModeList = (List<SelectListItem>)ViewBag.specStatModeList;
+    List<SelectListItem> _SpecStatFNlist = (List<SelectListItem>)ViewBag.SpecStatFNlist;
+}
+<script type="text/javascript">
+    $(function () {
+        $("#btnSave").click(function () {
+            if ($("form").valid()) {
+                $.ajax({
+                    url: "@Url.Action("Edit")",
+                    type: "Post",
+                    data: $("form").serialize(),
+                    dataType: "json",
+                    success: function (data) {
+                        //debugger;
+                        if (data.type == 1) {
+                            window.parent.frameReturnByMes(data.message);
+                            window.parent.frameReturnByReload(true);
+                            window.parent.frameReturnByClose()
+                        }
+                        else {
+                            window.parent.frameReturnByMes(data.message);
+                        }
+                    }
+                });
+            }
+            return false;
+        });
+        $("#btnReturn").click(function () {
+            window.parent.frameReturnByClose();
+        });
+    });
+</script>
+<div class="mvctool bgb">
+    @Html.ToolButton("btnSave", "icon-save", "保存", perm, "Save", true)
+    @Html.ToolButton("btnReturn", "icon-return", "返回", false)
+</div>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.ID)
+
+    <table class="fromEditTable setTextWidth300">
+        <tbody>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.LAYERCODE)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.LAYERCODE)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.LAYERCODE)</td>
+            </tr>
+
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.LAYERNAME)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.LAYERNAME)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.LAYERNAME)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.DSOURCE)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.DSOURCE)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.DSOURCE)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.ISHISTORY)：
+                </td>
+                <td style="width:310px">
+                    @Html.CheckBoxFor(model => model.ISHISTORY)
+                </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.LAYERTYPE)：
+                </td>
+                <td style="width:310px">
+                    @Html.DropDownListFor(model => model.LAYERTYPE, _layertypelist);
+                </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.DATATYPE)：
+                </td>
+                <td style="width:310px">
+                    @Html.DropDownListFor(model => model.DATATYPE, _datatypelist);
+                </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.SHPTYPE)：
+                </td>
+                <td style="width:310px">
+                    @Html.DropDownListFor(model => model.SHPTYPE, _shptypelist);
+                </td>
+                <td> </td>
+            </tr>
+
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.SERVICEURL)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.SERVICEURL)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.SERVICEURL)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.SERVICEINDEX)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.SERVICEINDEX)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.SERVICEINDEX)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.VLEVEL)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.VLEVEL)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.VLEVEL)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.DataYears)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.DataYears)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.DataYears)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.GisDataFields)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.GisDataFields)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.GisDataFields)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.SpecDS)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.SpecDS)
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.SpecShowMode)：
+                </td>
+                <td style="width:310px">
+                    @Html.DropDownListFor(model => model.SpecShowMode, _specShowModelist)
+                </td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.SpecGroupFN)：
+                </td>
+                <td style="width:310px">
+                    @Html.DropDownListFor(model => model.SpecGroupFN, _specGroupFNlist)
+                </td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.SpecStatMode)：
+                </td>
+                <td style="width:310px">
+                    @Html.DropDownListFor(model => model.SpecStatMode, _specStatModeList)
+                </td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.SpecStatFN)：
+                </td>
+                <td style="width:310px">
+                    @Html.DropDownListFor(model => model.SpecStatFN, _SpecStatFNlist)
+                </td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.FEATURESERVICEURL)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.FEATURESERVICEURL)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.FEATURESERVICEURL)</td>
+            </tr>
+            <tr>
+                <td style="width:100px; text-align:right;">
+                    @Html.LabelFor(model => model.FEATURESERVICEINDEX)：
+                </td>
+                <td style="width:310px">
+                    @Html.EditorFor(model => model.FEATURESERVICEINDEX)
+                </td>
+                <td>@Html.ValidationMessageFor(model => model.FEATURESERVICEINDEX)</td>
+            </tr>
+        </tbody>
+    </table>
+}

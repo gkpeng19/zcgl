@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{27BFFE20-4789-42DC-821A-D11FEBBFD8E7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NM</RootNamespace>
+    <AssemblyName>NM.Server.Util</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>http://localhost/E9.Server.Util/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;E9SERVER</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\dll\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess, Version=4.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\app\gkpeng\product\11.2.0\client_1\ODP.NET\bin\2.x\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config\ServiceProvider.cs" />
+    <Compile Include="Config\ServiceProviderConfigSection.cs" />
+    <Compile Include="Config\DiagnosticProvider.cs" />
+    <Compile Include="Config\CacheProvider.cs" />
+    <Compile Include="Handler\DataChannel.svc.cs">
+      <DependentUpon>DataChannel.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\DownLoadFileHandler.cs" />
+    <Compile Include="Handler\FileOPHandler.cs" />
+    <Compile Include="Handler\IDataChannel.cs" />
+    <Compile Include="Handler\IService1.cs" />
+    <Compile Include="Handler\Service1.cs" />
+    <Compile Include="Lib\Lib_DateTime.cs" />
+    <Compile Include="Lib\Lib_DB.cs" />
+    <Compile Include="Lib\Lib_String.cs" />
+    <Compile Include="Lib\Lib_System.cs" />
+    <Compile Include="Lib\newTemp.cs" />
+    <Compile Include="Model\AppSetting.cs" />
+    <Compile Include="Handler\DataHandler.cs" />
+    <Compile Include="Handler\OPHandler.cs" />
+    <Compile Include="Login\E9BaseLoginPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Model\ClientContext.cs" />
+    <Compile Include="Model\Diagram\ElementMeta.cs" />
+    <Compile Include="Model\Diagram\EnumRender.cs" />
+    <Compile Include="Model\Diagram\GraphicLine.cs" />
+    <Compile Include="Model\Diagram\GraphicMeta.cs" />
+    <Compile Include="Model\Diagram\GraphicSetting.cs" />
+    <Compile Include="Model\Diagram\GraphicState.cs" />
+    <Compile Include="Model\Diagram\LineMeta.cs" />
+    <Compile Include="Model\Diagram\LinkData.cs" />
+    <Compile Include="Model\Diagram\NodeMeta.cs" />
+    <Compile Include="Model\Diagram\ObjectCaption.cs" />
+    <Compile Include="Model\Diagram\ObjectIcon.cs" />
+    <Compile Include="Model\Diagram\ObjectImage.cs" />
+    <Compile Include="Model\Diagram\SearchCriteria.cs" />
+    <Compile Include="Model\Diagram\SettingBase.cs" />
+    <Compile Include="Model\Diagram\UserSetting.cs" />
+    <Compile Include="Model\Division.cs" />
+    <Compile Include="Model\IgnoreDataMember.cs" />
+    <Compile Include="Model\MetaBase.cs" />
+    <Compile Include="Model\SearchMeta.cs" />
+    <Compile Include="Model\SearchResult.cs" />
+    <Compile Include="Model\SearchCriteria.cs" />
+    <Compile Include="Model\CommandResult.cs" />
+    <Compile Include="Model\CacheMeta.cs" />
+    <Compile Include="Model\EntityMeta.cs" />
+    <Compile Include="Model\UploadFile\FileChunk.cs" />
+    <Compile Include="OP\AccountOP.cs" />
+    <Compile Include="OP\ApplicationOP.cs" />
+    <Compile Include="OP\ConfigsOP.cs" />
+    <Compile Include="OP\FileZillaOP.cs" />
+    <Compile Include="OP\IEntityProviderOP.cs" />
+    <Compile Include="OP\SearchMetaOP.cs" />
+    <Compile Include="OP\SourceOP.cs" />
+    <Compile Include="OP\CertifiedProviderOP.cs" />
+    <Compile Include="OP\LookupOP.cs" />
+    <Compile Include="OP\AppSettingOP.cs" />
+    <Compile Include="OP\UtilOP.cs" />
+    <Compile Include="OP\CustomEntityOPAttribute.cs" />
+    <Compile Include="OP\YzmOP.cs" />
+    <Compile Include="Service\ServerFacade_Yzm.cs" />
+    <Compile Include="Service\ServiceFacade_Menu.cs" />
+    <Compile Include="Handler\UploadPictureHandler.cs" />
+    <Compile Include="Service\ServiceContext.cs" />
+    <Compile Include="Service\ServiceFacade_Search.cs" />
+    <Compile Include="Service\ServiceFacade_Upload.cs" />
+    <Compile Include="Service\ServiceFacade_Application.cs" />
+    <Compile Include="Service\ServiceFacade_Account.cs" />
+    <Compile Include="Util\AppCache.cs" />
+    <Compile Include="Util\DataRequest.cs" />
+    <Compile Include="Util\DataSourceConnection.cs" />
+    <Compile Include="Model\EntityBase.cs" />
+    <Compile Include="Util\DateTimeUtil.cs" />
+    <Compile Include="Util\DLD.cs" />
+    <Compile Include="Util\EventWrap.cs" />
+    <Compile Include="Util\FileCompress.cs" />
+    <Compile Include="Util\IJson.cs" />
+    <Compile Include="Model\LoginInfo.cs" />
+    <Compile Include="Log\ILogManager.cs" />
+    <Compile Include="Log\ILogReader.cs" />
+    <Compile Include="Log\ILogWriter.cs" />
+    <Compile Include="Log\LogEvent.cs" />
+    <Compile Include="Log\LogItem.cs" />
+    <Compile Include="Log\LogLevel.cs" />
+    <Compile Include="Log\LogManager.cs" />
+    <Compile Include="Log\LogProvider.cs" />
+    <Compile Include="Model\LookupData.cs" />
+    <Compile Include="Mail\MailAdapter.cs" />
+    <Compile Include="Mail\MailInfo.cs" />
+    <Compile Include="Mail\MailServerInfo.cs" />
+    <Compile Include="Mail\MailSetting.cs" />
+    <Compile Include="Mail\MailStatus.cs" />
+    <Compile Include="Model\MessageInfo.cs" />
+    <Compile Include="OP\DataAccess.cs" />
+    <Compile Include="OP\DataProvider.cs" />
+    <Compile Include="OP\EntityProviderOP.cs" />
+    <Compile Include="OP\NamedProviderOP.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\AccountUtil.cs" />
+    <Compile Include="Util\DESEncrypt.cs" />
+    <Compile Include="Util\INamedItem.cs" />
+    <Compile Include="Util\JsonHelper.cs" />
+    <Compile Include="Util\MassageSend.cs" />
+    <Compile Include="Util\SerializableData.cs" />
+    <Compile Include="Service\ServiceAttribute.cs" />
+    <Compile Include="Service\ServiceFacadeAttribute.cs" />
+    <Compile Include="Service\ServiceFacadeBase.cs" />
+    <Compile Include="Service\ServiceManager.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\UploadMeta.cs" />
+    <Compile Include="Util\ValidateAttribute.cs" />
+    <Compile Include="Util\WebUtil.cs" />
+    <Compile Include="Util\XElementHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Entity.cd" />
+    <None Include="Model\ClassDiagram1.cd" />
+    <None Include="OP\ClassDiagram1.cd" />
+    <None Include="Tool\DESEncrypt\config.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Handler\DataChannel.svc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

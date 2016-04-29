@@ -1,0 +1,430 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #DDD;
+    font: normal normal normal 12px '宋体' Arial sans-serif;
+}
+#main-page {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.hidden {
+    visibility: hidden;
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    z-index: 10;
+}
+.in {
+    visibility: visible;
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    z-index: 10;
+}
+#main-page .header {
+    position:absolute;
+    height:70px;
+    width:100%;
+    background: url(../images/bg.png) repeat-x;
+    z-index:99;
+}
+#main-page .header .sys-info {
+    position:absolute;
+    left:0;
+    width: 370px;
+}
+#main-page .header .logo {
+    height: 70px;
+    width: 70px;
+    background: url(../images/logo.png) no-repeat;
+    float: left;
+}
+#main-page .header .menu {
+    position: absolute;
+    right:0px;
+    height:30px;
+    width:360px;
+}
+#main-page .header .menu1 {
+    position: absolute;
+    top:30px;
+    right:0;
+    height:40px;
+    line-height:40px;
+    width:360px;
+}
+@media screen and (max-width: 680px) {
+    #main-page .header .menu {
+        left:635px;
+    }
+}
+
+#main-page .header .menu .menu-list {
+    line-height: 30px;
+    margin:0;
+    position:absolute;
+    white-space:nowrap;
+}
+#main-page .header .menu .menu-list li {
+    display:inline-block;
+}
+#main-page .header .menu .menu-list li a {
+    color: #FFF;
+    padding: 7px;
+    border-radius: 5px;
+}
+#main-page .header .menu .menu-list li a:hover {
+    background-color: #31659b;
+}
+#main-page .leftNav {
+    position: absolute;
+    top: 70px;
+    bottom: 0;
+    left: 0;
+    width: 70px;
+    background: url(../images/left.png) repeat-y;
+}
+ul, ul li {
+    list-style: none;
+}
+#main-page .middleNav {
+    position: absolute;
+    top: 70px;
+    bottom: 0;
+    left: 0px;
+    width: 315px;
+    background: #EBEDEF;
+    z-index: 9;
+    border-right: 1px solid #A19F9C;
+}
+#main-page .middleNav .middle-header {
+    height: 30px;
+    width: 100%;
+    background: url(../images/nav.png) repeat-x;
+    -moz-box-shadow: 0 1px 10px #7B7F84;
+    -webkit-box-shadow: 0 1px 10px #7B7F84;
+    box-shadow: 0 1px 10px #7B7F84;
+    z-index: 9;
+}
+#main-page .middleNav .collpse {
+    height: 58px;
+    width: 14px;
+    right: -15px;
+    background: url(../images/col-left.png) no-repeat;
+    position: absolute;
+    margin-top: -29px;
+    top: 50%;
+    cursor: pointer;
+}
+#main-page .leftNav img {
+    cursor: pointer;
+}
+#main-page .rightNav {
+    position: absolute;
+    top: 70px;
+    bottom: 0;
+    left: 315px;
+    right: 0px;
+}
+#main-page .rightNav .navContent {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #DDD;
+}
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    content: " ";
+}
+.clearfix:after {
+    clear: both;
+}
+img {
+    border: 0;
+}
+.leftContent {
+    position:absolute;
+    top:30px;
+    left:0;
+    right:0;
+    bottom:0;
+}
+.leftContent .tree {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:15px 10px;
+    overflow-y:auto;
+}
+.root-cls{
+	width: 13px;
+	height: 10px;
+	background-image:url("../images/thematic/folder_open.png");
+}
+.point-cls{
+	width: 14px;
+	height: 12px;
+	background-image:url("../images/thematic/point_layer1.png");
+}
+.line-cls{
+	width: 14px;
+	height: 12px;
+	background-image:url("../images/thematic/line_layer1.png");
+}
+.polygon-cls{
+	width: 14px;
+	height: 12px;
+	background-image:url("../images/thematic/polygon_layer1.png");
+}
+.coll-cls{
+	width: 14px;
+	height: 12px;
+	background-image:url("../images/thematic/group_layer1.png");
+}
+		
+.root-clsed{
+	width: 13px;
+	height: 10px;
+	background-image:url("../images/thematic/folder_close.png");
+}
+.point-clsed{
+	width: 14px;
+	height: 12px;
+	background-image:url("../images/thematic/point_layer2.png");
+}
+.line-clsed{
+	width: 14px;
+	height: 12px;
+	background-image:url("../images/thematic/line_layer2.png");
+}
+.polygon-clsed{
+	width: 14px;
+	height: 12px;
+	background-image:url("../images/thematic/polygon_layer2.png");
+}
+.coll-clsed{
+	width: 14px;
+	height: 12px;
+	background-image:url("../images/thematic/group_layer2.png");
+}	
+.layer-label{
+	font-size:12px;
+}	
+.layer-label:hover,
+.coll-label:hover,
+.root-label:hover{
+	color:#FF0000;
+}
+.layer-row-cls{
+	background-color:#484848;
+}
+.esriLargeSliderVertical {
+    top:100px !important;
+    left:44px !important;
+    height:150px \0 !important;
+    height:150px \9 !important;
+}
+#cNavigation {
+    position:absolute;
+    top:0px;
+    left:14px;
+    width:80px;
+    z-index:9;
+    opacity:0.9
+}
+
+
+
+.jz-legend-dialog {
+    position:fixed;
+    top:80px;
+    right:10px;
+    width:300px;
+    bottom:30px;
+    z-index:99;
+}
+.jz-legend-dialog-pane {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    bottom:0;
+    right:0;
+    background: #FFF;
+    border-radius:10px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    -ms-border-radius:10px;
+    -o-border-radius:10px;
+}
+.jz-legend-dialog-pane .jz-legend-dialog-content{
+    position:absolute;
+    top:30px;
+    left:0;
+    bottom:0;
+    right:0;
+    padding:10px;
+    overflow-y:auto;
+}
+.jz-legend-dialog-pane .jz-titlebar {
+    height:30px;
+    background:#0099CC;
+    border-top-right-radius:10px;
+    border-top-left-radius:10px;
+    -webkit-border-top-right-radius:10px;
+    -webkit-border-top-left-radius:10px;
+    -moz-border-top-right-radius:10px;
+    -moz-border-top-left-radius:10px;
+    -ms-border-top-right-radius:10px;
+    -ms-border-top-left-radius:10px;
+}
+.jz-legend-dialog-pane .jz-titlebar .jz-legend-dialog-title {
+    line-height:30px;
+    vertical-align:middle;
+    color:#FFF;
+    padding-left:10px;
+    font-weight:bold;
+}
+.jz-legend-dialog-pane .jz-titlebar .jz-close-button{
+    position:absolute;
+    right:5px;
+    line-height:30px;
+    vertical-align:middle;
+    color:#FFF;
+    cursor:pointer;
+    padding:0 10px;
+}
+.jz-legend-dialog-pane .jz-titlebar .jz-close-button:hover{
+    color:#F00;
+}
+
+.jz-userinfo {
+    position:absolute;
+    left:290px;
+    top:42px;
+    z-index:99;
+    width:90px;
+    padding-top: 13px;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+.jz-userinfo .jz-userinfo-content {
+    background:#FFF;
+    padding:10px;
+    border:1px solid #759DC0;
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    border-radius:5px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+}
+.jz-userinfo .jz-userinfo-content div {
+    text-align:center;
+    line-height:25px;
+}
+.jz-userinfo a {
+    cursor:pointer;
+    color:#484848;
+}
+.jz-userinfo a:hover {
+    text-decoration:underline;
+}
+.jz-userinfo .jz-userinfo-arrow {
+    top: 0;
+    right: 35px;
+    background-position: -31px 0;
+    width: 16px;
+    height: 14px;
+    border: 0;
+    z-index: 2;
+    background-image: url("../esri/dijit/themes/claro/images/tooltip.png");
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 14px;
+    position: absolute;
+}
+.jz-pwd-dialog {
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index:99999;
+    background:rgba(0, 0, 0, 0.3);
+}
+.jz-pwd-dialog-pane {
+    position: absolute; 
+    top: 20%;
+    left: 50%;
+    margin-left:-160px;
+    width: 320px; 
+    z-index: 9; 
+    background: #FFF;
+    border:1px solid #484848;
+    border-radius:10px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    -ms-border-radius:10px;
+    -o-border-radius:10px;
+    opacity:0;
+}
+.jz-pwd-dialog-pane .jz-pwd-dialog-content {
+    padding:20px 10px;
+}
+.jz-pwd-dialog-pane .jz-pwd-dialog-content table{
+    margin:0 auto;
+}
+.jz-pwd-dialog-pane .jz-pwd-dialog-content table td{
+    padding:5px 0;
+}
+.jz-pwd-dialog-pane .jz-titlebar {
+    height:30px;
+    background:#0099CC;
+    border-top-right-radius:10px;
+    border-top-left-radius:10px;
+    -webkit-border-top-right-radius:10px;
+    -webkit-border-top-left-radius:10px;
+    -moz-border-top-right-radius:10px;
+    -moz-border-top-left-radius:10px;
+    -ms-border-top-right-radius:10px;
+    -ms-border-top-left-radius:10px;
+}
+.jz-pwd-dialog-pane .jz-titlebar .jz-pwd-dialog-title {
+    line-height:30px;
+    vertical-align:middle;
+    color:#FFF;
+    padding-left:10px;
+    font-weight:bold;
+}
+.jz-pwd-dialog-pane .jz-titlebar .jz-close-button{
+    position:absolute;
+    right:5px;
+    line-height:30px;
+    vertical-align:middle;
+    color:#FFF;
+    cursor:pointer;
+    padding:0 10px;
+}
+.jz-pwd-dialog-pane .jz-titlebar .jz-close-button:hover{
+    color:#F00;
+}
+

@@ -1,0 +1,65 @@
+﻿{
+	"ApiBaseUrl":[
+		{
+			"url":"http://localhost"
+		}
+	],
+	"PPVisionServer":[
+		{
+			"url":"http://10.246.0.81:8088/PPVisionServer.asmx"
+		}
+	],
+	"PPStreetLayer":[
+		{
+			"url":"http://10.246.0.83:6080/arcgis/rest/services/PPV/Line/FeatureServer/0"
+		}
+	],
+    "DistrictSOE": [
+        {
+            "url": "http://10.246.0.83:6080/arcgis/rest/services/feature/beijing/MapServer/exts/BisSOEUtility/BisGetDistrict",
+            "searchfield": "CODE",
+            "namefield": "NAME",
+			"layerindex":121
+        }
+    ],
+	"SearchGeometry":[
+		{
+			"url":"http://10.246.0.83:6080/arcgis/rest/services/feature/beijing/MapServer/exts/BisSOEUtility/BisGetGeometries"
+		}
+	],
+	"SearchingUrl": [
+        {
+            "url": "http://10.246.0.83:6080/arcgis/rest/services/feature/beijing/MapServer"
+        }
+    ],
+	"StatAnalystSOE": [
+        {
+            "url": "http://10.246.0.83:6080/arcgis/rest/services/feature/beijing/MapServer/exts/BisSOEUtility/BisStatAnalyst",
+			"name":"StatAnalystSOE"
+        }
+    ],
+    "GeometryService": [
+        {
+            "url": "http://10.246.0.83:6080/arcgis/rest/services/Utilities/Geometry/GeometryServer",
+            "name": "GeometryService"
+        }
+    ],
+	"ClusterPointSOE": [
+        {
+            "url": "http://10.246.0.83:6080/arcgis/rest/services/feature/beijing/MapServer/exts/BisSOEUtility/BisClusterPoints",
+			"name":"ClusterPointSOE"
+        }
+    ],
+	"GeocoderServer": [
+        {
+            "url": "http://10.246.0.83:6080/arcgis/rest/services/code/geocode/GeocodeServer/findAddressCandidates",
+            "name": "GeocoderServer"
+        }
+    ],
+	"PrintUrl":[
+		{
+			"url": "http://10.246.0.83:6080/arcgis/rest/services/Utilities/PrintingTools/GPServer/Export%20Web%20Map%20Task",
+			"name": "PrintServer"
+		}
+	]
+}

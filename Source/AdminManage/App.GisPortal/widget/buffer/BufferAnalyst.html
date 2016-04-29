@@ -1,0 +1,42 @@
+﻿<table>
+    <tbody>
+        <tr>
+            <td>
+                <span>当前图层：</span>
+            </td>
+            <td>
+                <input data-dojo-attach-point="jzBufferLayerName" disabled="disabled" type="text" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>当前年份：</span>
+            </td>
+            <td>
+                <input data-dojo-attach-point="jzBufferYear" disabled="disabled" type="text" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>缓冲半径：</span>
+            </td>
+            <td>
+                <input data-dojo-attach-point="jzBufferRadius" type="text" class="form-control" value="30" />
+            </td>
+        </tr>
+        <tr>
+            <td><span>半径单位：</span></td>
+            <td>
+                <select data-dojo-attach-point="jzBufferUnit" class="form-control">
+                    <option selected="selected">米</option>
+                    <option>千米</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button data-dojo-attach-event="ondijitclick:onStart" class="btn btn-primary">开始分析</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

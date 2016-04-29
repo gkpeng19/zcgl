@@ -1,0 +1,68 @@
+﻿<div class='jz-editmap-dialog-pane'>
+    <div data-dojo-attach-point='titleBar' class='jz-titlebar'>
+        <span data-dojo-attach-point='titleNode' class='jz-editmap-dialog-title'></span>
+        <span data-dojo-attach-point='closeButtonNode' class='jz-close-button'
+              data-dojo-attach-event='ondijitclick: onCancel' title='关闭'>
+            <span data-dojo-attach-point='closeText' class='closeText' title='关闭'>X</span>
+        </span>
+    </div>
+    <div data-dojo-attach-point='containerNode' class='jz-editmap-dialog-content'>
+        <table style="margin:10px auto;">
+            <tbody>
+                <tr>
+                    <td>
+                        <span>当前图层：</span>
+                    </td>
+                    <td>
+                        <input data-dojo-attach-point="jzEditLayerName" disabled="disabled" type="text" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>绘制方式：</span>
+                    </td>
+                    <td>
+                        <div data-dojo-attach-point="jzEditPolygonMethod" style="display:none;">
+                            <label class="radio-inline">
+                                <input type="radio" name="drawRectMethod" value="RECTANGLE" checked> 矩形
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="drawRectMethod" value="CIRCLE"> 圆形
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="drawRectMethod" value="FREEHAND_POLYGON"> 自由绘制
+                            </label>
+                        </div>
+                        <div data-dojo-attach-point="jzEditLineMethod" style="display:none;">
+                            <label class="radio-inline">
+                                <input type="radio" name="drawLineMethod" value="LINE" checked> 折线
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="drawLineMethod" value="FREEHAND_POLYLINE"> 自由绘制
+                            </label>
+                        </div>
+                        <div data-dojo-attach-point="jzEditPointMethod" style="display:none;">
+                            <label class="radio-inline">
+                                <input type="radio" name="drawPointMethod" value="POINT" checked> 点
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div data-dojo-attach-point="jzEditFeatureAttrs" style="display:none;"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-dojo-attach-point="jzEditFStart" colspan='2' align="right">
+                        <button data-dojo-attach-event="ondijitclick: onStartDraw" class='btn btn-default' style="font-size:12px">开始绘制</button>
+                    </td>
+                    <td data-dojo-attach-point="jzEditFCancel" colspan='2' align="right" style="display:none;">
+                        <button data-dojo-attach-event="ondijitclick: onCancelDraw" class='btn btn-default' style="font-size:12px">取消绘制</button>
+                        <button data-dojo-attach-event="ondijitclick: onSaveDraw" class='btn btn-default' style="font-size:12px">保存结果</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

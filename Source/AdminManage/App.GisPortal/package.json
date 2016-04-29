@@ -1,0 +1,22 @@
+{
+  "name": "gisportal",
+  "version": "1.0.0",
+  "description": "北京市园林绿化动态监管系统",
+  "main": "GruntFile.js",
+  "dependencies": {
+    "grunt": "^0.4.5"
+  },
+  "devDependencies": {
+    "grunt-contrib-cssmin": "^0.13.0",
+    "grunt-contrib-htmlmin": "^0.4.0",
+    "grunt-contrib-uglify": "^0.9.1"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "北京市，GIS"
+  ],
+  "author": "wangyafei",
+  "license": "ISC"
+}

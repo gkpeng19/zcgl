@@ -1,0 +1,250 @@
+﻿@model App.Models.Sys.SysUserEditModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Index_Layout.cshtml";
+}
+
+
+
+    
+    <table class="fromEditTable setTextWidth100">
+        <tbody>
+            <tr>
+                <td colspan="6">
+                    账户信息
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.UserName)：
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.UserName)
+                </td>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.Password)：
+                </td>
+                <td>
+                    ********
+                </td>
+                <td>
+                   &nbsp;
+                </td>
+                <td>
+                   &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.DepId)：
+                </td>
+                <td>
+                     @Html.DisplayFor(model => model.DepName)
+                </td>
+                <td style="width: 100px; text-align: right;">
+
+                    @Html.LabelFor(model => model.PosId)：
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.PosName)
+                </td>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.JobState)：
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.JobState)
+                </td>
+            </tr>
+             <tr>
+                <td style="width: 100px; text-align: right;">拥有角色：</td>
+                <td colspan="5">
+                    @Html.DisplayFor(model => model.RoleName)
+                </td>
+            </tr>
+        </tbody>
+    </table>
+       
+    <table class="fromEditTable setTextWidth100">
+        <tr>
+            <td colspan="5">
+                基本资料
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 100px; text-align: right;">
+                @Html.LabelFor(model => model.TrueName)：
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.TrueName)
+            </td>
+            <td style="width: 100px; text-align: right;">
+                @Html.LabelFor(model => model.Sex)：
+            </td>
+            <td>
+               @Html.DisplayFor(model => model.Sex)
+            </td>
+            <td rowspan="5" style=" border-left:dashed 1px #ccc; text-align:center">
+                <img id="PhotoFB" style="cursor:pointer; width:140px; height:140px; border:1px #ccc solid;" src="@(Model.Photo == "" ? "/Content/Images/NotPic.jpg" : Model.Photo)" />
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 100px; text-align: right;">
+                @Html.LabelFor(model => model.Birthday)：
+            </td>
+            <td>
+                 @Html.DisplayFor(model => model.Birthday)
+            </td>
+            <td style="width: 100px; text-align: right;">
+                @Html.LabelFor(model => model.JoinDate)：
+            </td>
+            <td>
+             @Html.DisplayFor(model => model.JoinDate)
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 100px; text-align: right;">
+                @Html.LabelFor(model => model.Nationality)：
+            </td>
+            <td style="width: 100px; text-align: right;">
+                @Html.DisplayFor(model => model.Nationality)
+            </td>
+            <td style="width: 100px; text-align: right;">
+                @Html.LabelFor(model => model.Native)：
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Native)
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 100px; text-align: right;">
+                @Html.LabelFor(model => model.Marital)：
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Marital)
+            </td>
+            <td style="width: 100px; text-align: right;">
+                @Html.LabelFor(model => model.Political)：
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Political)
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 100px; text-align: right;">
+                @Html.LabelFor(model => model.Degree)：
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Degree)
+            </td>
+            <td style="width: 100px; text-align: right;">
+                @Html.LabelFor(model => model.Professional)：
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Professional)
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 100px; text-align: right;">
+                @Html.LabelFor(model => model.School)：
+            </td>
+            <td colspan="1">@Html.DisplayFor(model => model.School)
+            </td>
+            <td style="width: 100px; text-align: right;">
+                @Html.LabelFor(model => model.Card)：
+            </td>
+            <td colspan="2">
+                @Html.DisplayFor(model => model.Card)
+            </td>
+        </tr>
+    </table>
+    
+    <table class="fromEditTable setTextWidth100">
+        <tbody>
+            <tr>
+                <td colspan="6">
+                    联系方式
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.MobileNumber)：
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.MobileNumber)
+                </td>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.PhoneNumber)：
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.PhoneNumber)
+                </td>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.QQ)：
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.QQ)
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.EmailAddress)：
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.EmailAddress)
+                </td>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.OtherContact)：
+                </td>
+                <td colspan="3">
+                     @Html.DisplayFor(model => model.OtherContact)
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.Province)：
+                </td>
+                <td>
+                     @Html.DisplayFor(model => model.ProvinceName)
+                </td>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.City)：
+                </td>
+                <td>
+                   @Html.DisplayFor(model => model.CityName)
+                </td>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.Village)：
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.VillageName)
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.Address)：
+                </td>
+                <td colspan="5">
+                     @Html.DisplayFor(model => model.Address)
+                </td>
+        
+            </tr>
+            <tr>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.Expertise)：
+                </td>
+                <td colspan="5">
+                    @Html.DisplayFor(model => model.Expertise)
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px; text-align: right;">
+                    @Html.LabelFor(model => model.Attach)：
+                </td>
+                <td colspan="5">
+                    @Html.DisplayFor(model => model.Attach)
+                </td>
+            </tr>
+        </tbody>
+    </table>
+

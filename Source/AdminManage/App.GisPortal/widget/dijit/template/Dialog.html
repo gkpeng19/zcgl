@@ -1,0 +1,28 @@
+﻿<div>
+    <div data-dojo-attach-point="jzNotifyDialogPane" class='jz-notify-dialog-pane'>
+        <div data-dojo-attach-point='titleBar' class='jz-titlebar'>
+            <span data-dojo-attach-point='titleNode' class='jz-notify-dialog-title'></span>
+            <span data-dojo-attach-point='closeButtonNode' class='jz-close-button'
+                  data-dojo-attach-event='ondijitclick: onCancel' title='关闭'>
+                <span data-dojo-attach-point='closeText' class='closeText' title='关闭'>X</span>
+            </span>
+        </div>
+        <div data-dojo-attach-point='containerNode' class='jz-notify-dialog-content'>
+            <div class="clearfix">
+                <span data-dojo-attach-point="jzNotifyIcon" class="jz-notify-info"></span>
+            </div>
+            <div class="clearfix" style="margin:20px 0;">
+                <span data-dojo-attach-point="jzNotifyNote">确定要取消标注吗？</span>
+            </div>
+            <div class="clearfix" data-dojo-attach-point="jzNotifyConfirm">
+                <button style="width:100px;margin-right:20px;" class="btn btn-primary" data-dojo-attach-event='ondijitclick: onBtnOK'>确定</button>
+                <button style="width:100px;" class="btn btn-primary" data-dojo-attach-event='ondijitclick: onBtnCancel'>取消</button>
+            </div>
+            <div class="clearfix" data-dojo-attach-point="jzNotifyOther" style="display:none;">
+                <button style="width:150px;" class="btn btn-primary" data-dojo-attach-event='ondijitclick: onBtnCancelNow'>确定</button>
+            </div>
+        </div>
+    </div>
+    <div class="jz-notify-underlay"></div>
+</div>
+

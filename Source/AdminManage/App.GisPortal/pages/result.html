@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myapp">
+<head>
+    <title>对比分析输出结果</title>
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+    
+</head>
+<body ng-controller="MainCtrl">
+    <div id="resultContainer" class="container" style="margin-top:20px;">
+        <div class="row" style="text-align:center;">
+            <h2>本次对比共对比出{{imgCount}}处不同，结果如下所示：</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12" ng-repeat="img in imgs">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div ng-bind="img.des"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-md-6" style="text-align:center;">
+                                <img ng-src="{{img.NewUrl}}" />
+                            </div>
+                            <div class="col-md-6" style="text-align:center;">
+                                <img ng-src="{{img.OldUrl}}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/angular.min.js"></script>
+    <script>
+        var app = angular.module('myapp', []);
+        app.controller('MainCtrl', function ($scope, $http, $window) {
+            var query = $window.location.search;
+            if (query.indexOf("?") !== -1) {
+                query = query.substr(1);
+            }
+            var pairs = query.split("&");
+            var queryObject = {};
+            for (var i = 0, j = pairs.length; i < j; i++) {
+                var splits = decodeURIComponent(pairs[i]).split("=");
+                queryObject[splits[0]] = splits[1];
+            }
+
+            $http({
+                url: "../logs/" + queryObject['id'] + ".json",
+                method: 'GET'
+            }).success(function (response) {
+                $scope.imgs = response;
+                $scope.imgCount = response.length;
+                angular.forEach($scope.imgs, function (img, index) {
+                    img.des = "对比结果：" + (index + 1);
+                })
+            }).error(function (err) {
+                alert("获取对比结果失败，请确认网络连接正常！");
+            });
+        });
+    </script>
+</body>
+</html>

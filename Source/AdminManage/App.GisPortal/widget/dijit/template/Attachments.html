@@ -1,0 +1,45 @@
+﻿<div class='jz-attach-dialog-pane'>
+    <div data-dojo-attach-point='titleBar' class='jz-titlebar'>
+        <span data-dojo-attach-point='titleNode' class='jz-attach-dialog-title'></span>
+        <span data-dojo-attach-point='closeButtonNode' class='jz-close-button'
+              data-dojo-attach-event='ondijitclick: onCancel' title='关闭'>
+            <span data-dojo-attach-point='closeText' class='closeText' title='关闭'>X</span>
+        </span>
+    </div>
+    <div data-dojo-attach-point='containerNode' class='jz-attach-dialog-content' style="min-height:200px">
+        <p style="color:#F00">注意:只能上传.mp4格式的视频</p>
+        <div class="jz-list-view">
+            <div class="title">
+                <div class="item clearfix">
+                    <!-- 第一列 -->
+                    <div class="col c1" style="width: 38%">
+                        <!--<span class="chk">
+                            <span class="chk-ico"></span>
+                        </span>-->
+                        <div class="name">
+                            <span>文件名</span>
+                        </div>
+                    </div>
+                    <!-- 其他列 -->
+                    <div class="col" style="width: 35%;">
+                        修改日期
+                    </div>
+                    <div class="col" style="width: 15%;">
+                        类型
+                    </div>
+                    <div class="col" style="width: 10%;border-right:none;">
+                        操作
+                    </div>
+                </div>
+            </div>
+            <div class="list" data-dojo-attach-point='jzAttachList'>
+            </div>
+        </div>
+    </div>
+    <div data-dojo-attach-point='jzBottomTools' class='jz-attach-dialog-tools'>
+        
+        <!--<input type="file" style="width:100%;height:100%;position:relative;visibility:hidden" />-->
+        <i id='jzUploadFiles'></i>
+        <!--<button class="btn btn-default" style="font-size: 13px">开始上传</button>-->
+    </div>
+</div>

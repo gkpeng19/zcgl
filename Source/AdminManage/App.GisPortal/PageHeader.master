@@ -1,0 +1,50 @@
+﻿<%@ master language="C#" autoeventwireup="true" codebehind="PageHeader.master.cs" inherits="GIS.Portal.PageHeader" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="images/favicon.png" type="image/x-icon" rel="Shortcut Icon" />
+    <link rel="stylesheet" href="esri/dijit/themes/claro/claro.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/parent.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="claro">
+    <div class="header">
+        <div class="h-row clearfix">
+            <div class="h-left">
+                <div class="h-top">
+                    <ul class="clearfix">
+                        <li><a href="../Default.aspx" rel="tooltip" title="主页" data-toggle="tooltip">主页</a></li>
+                        <li><span>|</span></li>
+                        <li><a href="../pages/MetaData.aspx" rel="tooltip" title="元数据管理" data-toggle="tooltip">元数据管理</a></li>
+                        <li><span>|</span></li>
+                        <li><a href="../pages/API.aspx" rel="tooltip" title="地图调用接口" data-toggle="tooltip">地图API</a></li>
+                        <li><span>|</span></li>
+                        <li><a class="h-a-clear" href="../pages/ResourceService.aspx" rel="tooltip" title="服务资源" data-toggle="tooltip">服务资源</a></li>
+                    </ul>
+                </div>
+                <div class="logo"></div>
+            </div>
+            <%--<div class="h-right">
+                <div class="h-top">
+                    <ul class="clearfix">
+                        <li><a href="../Login.aspx" rel="tooltip" title="登陆" data-toggle="tooltip">登陆</a></li>
+                        <li><span>|</span></li>
+                        <li><a class="h-a-clear" data-toggle="modal" data-target="#aboutWindow"
+                            href="#aboutWindow" rel="tooltip" title="关于" data-toggle="tooltip">关于</a></li>
+                    </ul>
+                </div>
+            </div>--%>
+        </div>
+    </div>
+    <div class="banner">
+    </div>
+    <asp:ContentPlaceHolder ID="content" runat="server">
+    </asp:ContentPlaceHolder>
+    <div class="footer">
+        <p>&copy;2014&nbsp;版权所有&nbsp;<a href="#" style="color:#F00;">北京市园林绿化局</a></p>
+    </div>
+</body>
+</html>

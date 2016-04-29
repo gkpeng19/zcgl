@@ -1,0 +1,13 @@
+2016-01-05 14:35:38,801 [1](d:\Work\HLStudio\trunk\Sources\MyFramework\G.Simple.Api\App_Start\Startup.Auth.cs:98) FATAL G.Simple.Api.BaseOAuthorizationServerProvider [(null)] - 用户登录发生错误！
+Oracle.DataAccess.Client.OracleException ORA-03135: 连接失去联系
+进程 ID: 10460
+会话 ID: 150 序列号: 16354    在 Oracle.DataAccess.Client.OracleException.HandleErrorHelper(Int32 errCode, OracleConnection conn, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, String procedure, Boolean bCheck)
+   在 Oracle.DataAccess.Client.OracleException.HandleError(Int32 errCode, OracleConnection conn, String procedure, IntPtr opsErrCtx, OpoSqlValCtx* pOpoSqlValCtx, Object src, Boolean bCheck)
+   在 Oracle.DataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
+   在 Oracle.DataAccess.Client.OracleDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 GOMFrameWork.DBContext.OracleProvider.ExcuteProc(String procName, DbParameter[] parameters) 位置 d:\Work\HLStudio\trunk\Sources\MyFramework\GOMFrameWork\DBContext\DBProvider.cs:行号 174
+   在 GOMFrameWork.DBContext.EntityProvider.ExcuteProcResult[T](ProcEntity entity) 位置 d:\Work\HLStudio\trunk\Sources\MyFramework\GOMFrameWork\DBContext\EntityProvider.cs:行号 156
+   在 GOMFrameWork.DataEntity.ProcEntity.Execute[T]() 位置 d:\Work\HLStudio\trunk\Sources\MyFramework\GOMFrameWork\DataEntity\SearchEntity.cs:行号 412
+   在 G.Simple.Api.Util.LoginIn.Login(String username, String password, String clientIp, String clientName, Int32 nametype, Int32 port) 位置 d:\Work\HLStudio\trunk\Sources\MyFramework\G.Simple.Api\Util\LoginIn.cs:行号 30
+   在 G.Simple.Api.BaseOAuthorizationServerProvider.GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context) 位置 d:\Work\HLStudio\trunk\Sources\MyFramework\G.Simple.Api\App_Start\Startup.Auth.cs:行号 93

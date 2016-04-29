@@ -1,0 +1,41 @@
+﻿<div class='jz-error-dialog-pane'>
+    <div data-dojo-attach-point='titleBar' class='jz-titlebar'>
+        <span data-dojo-attach-point='titleNode' class='jz-error-dialog-title'></span>
+        <span data-dojo-attach-point='closeButtonNode' class='jz-close-button'
+              data-dojo-attach-event='ondijitclick: onCancel' title='关闭'>
+            <span data-dojo-attach-point='closeText' class='closeText' title='关闭'>X</span>
+        </span>
+    </div>
+    <div data-dojo-attach-point='containerNode' class='jz-error-dialog-content'>
+        <table style="width:100%;margin-left:10px;">
+            <tr>
+                <td style="width:5em;">图层名称：</td>
+                <td>
+                    <input type="hidden" data-dojo-attach-point="layerId" />
+                    <input type="hidden" data-dojo-attach-point="layerCode" />
+                    <input type="text" readonly="readonly" data-dojo-attach-point="layerName" />
+                </td>
+            </tr>
+            <tr>
+                <td>元素名称：</td>
+                <td>
+                    <input type="hidden" data-dojo-attach-point="eleId" />
+                    <input type="text" readonly="readonly" data-dojo-attach-point="eleName" />
+                </td>
+            </tr>
+            <tr>
+                <td>错误描述：</td>
+                <td>
+                    <textarea data-dojo-attach-point="errorDesc" rows="3" style="width:230px;"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="button" class="btn btn-primary" value="确 定" data-dojo-attach-event="ondijitclick: onSubmit" />
+                    <input type="button" class="btn  btn-default" value="取 消" data-dojo-attach-point="btn_Cancel" data-dojo-attach-event="ondijitclick: onCancel" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

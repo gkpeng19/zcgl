@@ -1,0 +1,179 @@
+﻿@using App.Common;
+@using App.Admin;
+
+@{
+    ViewBag.Title = "模块权限查询";
+    Layout = "~/Views/Shared/_Index_Layout.cshtml";
+    List<App.Models.Sys.permModel> perm = (List<App.Models.Sys.permModel>)ViewBag.Perm;
+
+    if (perm == null)
+    {
+        perm = new List<App.Models.Sys.permModel>();
+    }
+}
+<div class="mvctool">
+    @Html.ToolButton("btnReload", "icon-reload", "刷新", true)
+</div>
+<table style="width: 100%">
+    <tr>
+        <td style="width: 200px; padding-right: 3px; vertical-align: top">
+            <table id="moduleList"></table>
+        </td>
+        <td style="width: 130px; padding-right: 3px; vertical-align: top">
+            <table id="operateList"></table>
+        </td>
+        <td style="padding-right: 3px; vertical-align: top">
+            <table id="userRightList">
+            </table>
+        </td>
+        <td style="vertical-align: top">
+            <table id="roleRightList">
+            </table>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+    $(function () {
+        //刷新
+        $("#btnReload").click(function () {
+            window.location = window.location;
+        });
+        //变量定义
+        var curModuleId, curRoleId, curModuleName, curRoleName, curSystemId, curSystemName;
+        $('#moduleList').treegrid({
+            url: '@Url.Action("GetModelList")',
+            width: 200,
+            methord: 'post',
+            height: SetGridHeightSub(39),
+            fitColumns: true,
+            treeField: 'Name',
+            idField: 'Id',
+            pagination: false,
+            striped: true, //奇偶行是否区分
+            singleSelect: true,//单选模式
+            title: '模块列表',
+            columns: [[
+                { field: 'Id', title: '唯一标识', width: 120, hidden: true },
+                { field: 'Name', title: '名称', width: 220, sortable: true },
+                { field: 'EnglishName', title: '英文名称', width: 80, sortable: true, hidden: true },
+                { field: 'ParentId', title: '上级Id', width: 80, sortable: true, hidden: true },
+                { field: 'Url', title: '链接地址', width: 80, sortable: true, hidden: true },
+                { field: 'Iconic', title: '图标', width: 80, sortable: true, hidden: true },
+                { field: 'Sort', title: '排序号', width: 80, sortable: true, hidden: true },
+                { field: 'Remark', title: '说明', width: 80, sortable: true, hidden: true },
+                {
+                    field: 'Enable', title: '是否启用', width: 60, align: 'center', formatter: function (value) {
+                        if (value) {
+                            return "<img src='/Content/Images/icon/pass.png'/>";
+                        } else {
+                            return "<img src='/Content/Images/icon/close.png'/>";
+                        }
+                    }, hidden: true
+                },
+                { field: 'CreatePerson', title: '创建人', width: 80, sortable: true, hidden: true },
+                { field: 'CreateTime', title: '创建时间', width: 120, sortable: true, hidden: true },
+                {
+                    field: 'IsLast', title: '是否最后一项', align: 'center', width: 100, formatter: function (value) {
+                        if (value) {
+                            return "是";
+                        } else {
+                            return "否";
+                        }
+                    }, hidden: true
+                },
+            ]],
+            onClickRow: function (index, data) {
+                var row = $('#moduleList').treegrid('getSelected');
+                if (row != null) {
+                    curModuleName = row.Name;
+                    curModuleId = row.Id;
+                    $('#operateList').datagrid({ url: "/SysRightGetModuleRight/GetModuleOperate?moduleId=" + curModuleId + "" });
+                    $('#userRightList').datagrid({ url: "/SysRightGetModuleRight/GetModuleUserRight?moduleId=" + curModuleId + "" }).datagrid('getPager').pagination({ showPageList: true, showRefresh: false, displayMsg: '' });
+                    $('#roleRightList').datagrid({ url: "/SysRightGetModuleRight/GetModuleRoleRight?moduleId=" + curModuleId + "" }).datagrid('getPager').pagination({ showPageList: true, showRefresh: false, displayMsg: '' });
+                }
+
+            }
+        });
+        $('#operateList').datagrid({
+            url: '@Url.Action("GetModuleOperate")',
+            width: 130,
+            methord: 'post',
+            height: SetGridHeightSub(39),
+            fitColumns: true,
+            sortName: 'CreateTime',
+            sortOrder: 'desc',
+            idField: 'Id',
+            striped: true, //奇偶行是否区分
+            singleSelect: true,//单选模式
+            title: '授权操作',
+            //rownumbers: true,//行号
+            columns: [[
+                { field: 'Ids', title: 'Ids', width: 80, hidden: true },
+                { field: 'Name', title: '名称', width: 80, sortable: true },
+                { field: 'KeyCode', title: '操作码', width: 80, sortable: true, hidden: true }
+            ]]
+        });
+
+        //已分配用户表格
+        jQuery("#userRightList").datagrid({
+            url: '/SysRightGetModuleRight/GetModuleUserRight',
+            width: SetGridWidthSub(349) / 2,
+            methord: 'post',
+            height: SetGridHeightSub(39),
+            fitColumns: true,
+            sortName: 'Id',
+            sortOrder: 'desc',
+            idField: 'Id',
+            pageSize: 15,
+            pageList: [15, 20, 30, 40, 50],
+            pagination: true,
+            striped: true, //奇偶行是否区分
+            singleSelect: true,//单选模式
+            title: '用户权限列表',
+            columns: [[
+                { field: 'Ids', title: 'Ids', width: 80, hidden: true },
+                { field: 'UserName', title: '用户', width: 20 },
+                { field: 'RightList', title: '权限列表', width: 80, align: 'right' },
+            ]]
+        }).datagrid('getPager').pagination({ showPageList: true, showRefresh: false, displayMsg: '' });
+        //已分配角色表格
+        jQuery("#roleRightList").datagrid({
+            url: '/SysRightGetModuleRight/GetModuleRoleRight',
+            width: SetGridWidthSub(349) / 2,
+            methord: 'post',
+            height: SetGridHeightSub(39),
+            fitColumns: true,
+            sortName: 'Id',
+            sortOrder: 'desc',
+            idField: 'Id',
+            pageSize: 15,
+            pageList: [15, 20, 30, 40, 50],
+            pagination: true,
+            striped: true, //奇偶行是否区分
+            singleSelect: true,//单选模式
+            title: '角色权限列表',
+            columns: [[
+                { field: 'Ids', title: 'Ids', width: 80, hidden: true },
+                { field: 'RoleName', title: '用户', width: 20 },
+                { field: 'RightList', title: '权限列表', width: 80, align: 'right' },
+            ]]
+        }).datagrid('getPager').pagination({ showPageList: true, showRefresh: false, displayMsg: '' });
+        $(window).resize(function () {
+            
+            $('#roleRightList,#userRightList').datagrid('resize', {
+                width: SetGridWidthSub(349) / 2,
+                height: SetGridHeightSub(39),
+            }).datagrid('resize', {
+                height: SetGridHeightSub(39),
+                width: SetGridWidthSub(349) / 2,
+            });
+            $('#moduleList,#operateList').datagrid('resize', {
+                height: SetGridHeightSub(39)
+
+            });
+        });
+
+    });
+
+
+</script>
